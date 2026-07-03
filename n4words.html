@@ -1,67 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>N4 語彙 — JLPT N4 Vocabulary</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+Sinhala:wght@400;500;600;700&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>N4 語彙 — JLPT N4 Vocabulary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+Sinhala:wght@400;500;600;700&family=Cormorant+Garamond:ital@1&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header>
-  <div class="header-inner">
-    <div class="brand">
-      <div class="hanko" id="logoHome" title="Back to overview">四</div>
-      <div class="brand-text">
-        <h1>N4 語彙帳</h1>
-        <p>JLPT N4 Vocabulary Notebook</p>
+  <div id="landingSelector" class="landing-selector">
+    <div class="landing-panel vocab-panel" id="selectVocab">
+      <div class="panel-content">
+        <div class="panel-jp">語彙</div>
+        <div class="panel-en">VOCABULARY</div>
+        <div class="panel-desc">Explore JLPT N4 Words</div>
       </div>
     </div>
-    <div class="header-controls">
-      <button class="icon-btn" id="printAllBtn" title="Print / PDF all words" aria-label="Print all words">🖨</button>
-      <button class="icon-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+    <div class="landing-panel verbs-panel" id="selectVerbs">
+      <div class="panel-content">
+        <div class="panel-jp">動詞</div>
+        <div class="panel-en">VERBS</div>
+        <div class="panel-desc">Master JLPT N4 Verbs</div>
+      </div>
     </div>
   </div>
-</header>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="hanko" id="logoHome" title="Back to overview">四</div>
+        <div class="brand-text">
+          <h1>N4 語彙帳</h1>
+          <p>JLPT N4 Vocabulary Notebook</p>
+        </div>
+      </div>
 
-<div class="wrap">
+      <div class="mode-selector">
+        <button class="mode-btn" id="modeVocabBtn" title="Study Vocabulary">語彙 Vocab</button>
+        <button class="mode-btn" id="modeVerbsBtn" title="Study Verbs">動詞 Verbs</button>
+      </div>
 
-  <section class="hero">
-    <h2 class="jp-title">日本語<span>・</span>N4</h2>
-    <p class="sub">語彙は言葉の種 — Words are the seeds of language</p>
-    <div class="meta-row">
-      <span class="pill"><b id="totalCount">0</b> words</span>
-      <span class="pill"><b id="catCount">0</b> categories</span>
-      <span class="pill">Kanji · Kana · Romaji · English · <span lang="si">සිංහල</span></span>
+      <div class="header-controls">
+        <button class="icon-btn" id="printAllBtn" title="Print / PDF all words" aria-label="Print all words">🖨</button>
+        <button class="icon-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+      </div>
     </div>
-  </section>
+  </header>
 
-  <div class="controls">
-    <div class="search-wrap">
-      <input type="text" id="searchInput" placeholder="Search kanji, kana, romaji, English or Sinhala...">
+  <div class="wrap">
+
+    <section class="hero">
+      <h2 class="jp-title">日本語<span>・</span>N4</h2>
+      <p class="sub">語彙は言葉の種 — Words are the seeds of language</p>
+      <div class="meta-row">
+        <span class="pill"><b id="totalCount">0</b> words</span>
+        <!--<span class="pill"><b id="catCount">0</b> categories</span>-->
+        <span class="pill">Kanji · Kana · Romaji · English · <span lang="si">සිංහල</span></span>
+      </div>
+    </section>
+
+    <div class="controls">
+      <div class="search-wrap">
+        <input type="text" id="searchInput" placeholder="Search kanji, kana, romaji, English or Sinhala...">
+      </div>
+      <div class="practice-toggle" id="practiceToggle">
+        <span class="switch"></span>
+        <span>Practice mode (tap to reveal)</span>
+      </div>
     </div>
-    <div class="practice-toggle" id="practiceToggle">
-      <span class="switch"></span>
-      <span>Practice mode (tap to reveal)</span>
+
+    <div class="quicknav-wrap">
+      <nav class="quicknav" id="quickNav"></nav>
     </div>
+
+    <div id="contentArea"></div>
+
+    <footer>
+      <div class="seal">終</div>
+      <p>Crafted for JLPT N4 learners · Data source: tanos.co.uk/jlpt · 頑張って！(Good luck!)</p>
+    </footer>
   </div>
 
-  <div class="quicknav-wrap">
-    <nav class="quicknav" id="quickNav"></nav>
-  </div>
+  <button class="top-btn" id="topBtn" aria-label="Back to top">↑</button>
 
-  <div id="contentArea"></div>
-
-  <footer>
-    <div class="seal">終</div>
-    <p>Crafted for JLPT N4 learners · Data source: tanos.co.uk/jlpt · 頑張って！(Good luck!)</p>
-  </footer>
-</div>
-
-<button class="top-btn" id="topBtn" aria-label="Back to top">↑</button>
-
-<script src="script.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
+
 </html>

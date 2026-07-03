@@ -283,3 +283,216 @@ footer .seal{display:inline-block; margin-bottom:10px; font-family:'Shippori Min
   .vocab-table thead th:nth-child(4), .vocab-table thead th:nth-child(5){display:none;}
   .quicknav-wrap{top:70px;}
 }
+
+/* ---------- LANDING SELECTOR (SPLIT SCREEN) ---------- */
+.landing-selector {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: var(--paper);
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.landing-selector.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.landing-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+.vocab-panel {
+  background: radial-gradient(circle at 30% 50%, var(--accent-glow), transparent 70%), var(--card);
+  border-right: 1px solid var(--line);
+}
+.verbs-panel {
+  background: radial-gradient(circle at 70% 50%, rgba(169,130,47,0.1), transparent 70%), var(--card);
+}
+.landing-panel:hover {
+  flex: 1.25;
+  background: var(--paper-2);
+}
+/* Hover Glow Effects */
+.vocab-panel:hover {
+  box-shadow: inset -10px 0 35px var(--accent-glow), 0 0 50px var(--accent-glow);
+  z-index: 2;
+}
+.verbs-panel:hover {
+  box-shadow: inset 10px 0 35px rgba(169,130,47,0.15), 0 0 50px rgba(169,130,47,0.15);
+  z-index: 2;
+}
+/* Text layout inside panel */
+.panel-content {
+  text-align: center;
+  transform: scale(1);
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 5;
+}
+.landing-panel:hover .panel-content {
+  transform: scale(1.08);
+}
+.panel-jp {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(54px, 8vw, 92px);
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--ink);
+  transition: color 0.4s ease, text-shadow 0.4s ease;
+  line-height: 1;
+}
+.vocab-panel:hover .panel-jp {
+  color: var(--shu);
+  text-shadow: 0 0 20px rgba(193,57,31,0.5);
+}
+.verbs-panel:hover .panel-jp {
+  color: var(--gold);
+  text-shadow: 0 0 20px rgba(169,130,47,0.5);
+}
+.panel-en {
+  font-size: clamp(16px, 3vw, 22px);
+  letter-spacing: 5px;
+  color: var(--ink-soft);
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: color 0.4s ease;
+}
+.vocab-panel:hover .panel-en {
+  color: var(--ink);
+}
+.verbs-panel:hover .panel-en {
+  color: var(--ink);
+}
+.panel-desc {
+  margin-top: 18px;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  letter-spacing: 1px;
+  opacity: 0.7;
+  transition: opacity 0.4s ease;
+}
+.landing-panel:hover .panel-desc {
+  opacity: 1;
+}
+
+/* Background Calligraphy Flourishes on Landing panels */
+.landing-panel::before {
+  content: "";
+  position: absolute;
+  font-size: 25rem;
+  font-family: 'Shippori Mincho', serif;
+  opacity: 0.03;
+  color: var(--ink);
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 1;
+}
+.vocab-panel::before {
+  content: "彙";
+  left: -5%;
+  bottom: -15%;
+  transform: rotate(-10deg);
+}
+.verbs-panel::before {
+  content: "詞";
+  right: -5%;
+  top: -15%;
+  transform: rotate(15deg);
+}
+.vocab-panel:hover::before {
+  opacity: 0.07;
+  transform: scale(1.05) rotate(-5deg);
+  color: var(--shu);
+}
+.verbs-panel:hover::before {
+  opacity: 0.07;
+  transform: scale(1.05) rotate(10deg);
+  color: var(--gold);
+}
+
+/* ---------- GENERAL VIEWS VISIBILITY ---------- */
+body:not(.mode-active) {
+  overflow: hidden;
+}
+body:not(.mode-active) header {
+  display: none;
+}
+body:not(.mode-active) .wrap {
+  opacity: 0;
+  pointer-events: none;
+  height: 100vh;
+  overflow: hidden;
+}
+body.mode-active .wrap {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.5s ease;
+}
+
+/* Custom visual distinctions for Verbs mode vs Vocab mode */
+body.mode-verbs {
+  --shu: var(--gold);
+  --shu-dark: #8e6822;
+  --accent-glow: rgba(169,130,47,0.15);
+}
+
+/* ---------- HEADER MODE TABS ---------- */
+.mode-selector {
+  display: flex;
+  background: var(--paper-2);
+  padding: 4px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  gap: 2px;
+}
+.mode-btn {
+  border: none;
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.mode-btn:hover {
+  color: var(--ink);
+}
+body.mode-vocab #modeVocabBtn {
+  background: var(--shu);
+  color: #fff8ec;
+  box-shadow: 0 2px 8px rgba(193,57,31,0.25);
+}
+body.mode-verbs #modeVerbsBtn {
+  background: var(--shu);
+  color: #171410;
+  box-shadow: 0 2px 8px rgba(169,130,47,0.25);
+}
+[data-theme="dark"] body.mode-verbs #modeVerbsBtn {
+  color: #171410;
+}
+@media (max-width: 640px) {
+  .mode-selector {
+    order: 3;
+    width: 100%;
+    margin-top: 10px;
+    justify-content: center;
+  }
+  .header-inner {
+    flex-wrap: wrap;
+  }
+}
