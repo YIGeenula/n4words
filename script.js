@@ -515,10 +515,42 @@ let activeMode = null; // 'vocab', 'verbs', or null
 let CURRENT_DATA = [];
 const byCat = {};
 const quickNav = document.getElementById("quickNav");
+const quickNavWrap = document.getElementById("quickNavWrap");
+const quickNavToggleBtn = document.getElementById("quickNavToggleBtn");
+const activeLetterBadge = document.getElementById("activeLetterBadge");
+
+let isGridCollapsed = false;
+
+function setGridCollapsed(collapsed) {
+  isGridCollapsed = collapsed;
+  if (collapsed) {
+    quickNavWrap.classList.add("collapsed");
+    quickNavToggleBtn.innerHTML = 'Show Grid ▼';
+    quickNavToggleBtn.setAttribute("aria-expanded", "false");
+  } else {
+    quickNavWrap.classList.remove("collapsed");
+    quickNavToggleBtn.innerHTML = 'Hide Grid ▲';
+    quickNavToggleBtn.setAttribute("aria-expanded", "true");
+  }
+}
+
+// Click to toggle the grid
+quickNavToggleBtn.addEventListener("click", () => {
+  setGridCollapsed(!isGridCollapsed);
+});
+
+// Click the active letter badge to expand grid
+activeLetterBadge.addEventListener("click", () => {
+  setGridCollapsed(false);
+});
 
 function initMode(mode) {
   activeMode = mode;
   document.body.classList.remove("mode-vocab", "mode-verbs");
+  
+  setGridCollapsed(false);
+  activeLetterBadge.classList.add("hidden");
+  activeLetterBadge.innerHTML = "";
   
   if (mode === "vocab") {
     CURRENT_DATA = VOCAB;
@@ -616,6 +648,9 @@ let currentCat = null;
 function renderWelcome(){
   currentCat = null;
   setActiveNavButton(null);
+  activeLetterBadge.classList.add("hidden");
+  activeLetterBadge.innerHTML = "";
+  setGridCollapsed(false);
   const term = activeMode === "verbs" ? "verbs" : "words";
   contentArea.innerHTML = `
     <div class="welcome-card">
@@ -634,6 +669,11 @@ function goToCategory(row){
   const idx = ROW_ORDER.indexOf(row);
   const prevRow = ROW_ORDER[(idx - 1 + ROW_ORDER.length) % ROW_ORDER.length];
   const nextRow = ROW_ORDER[(idx + 1) % ROW_ORDER.length];
+
+  // Update active letter badge and collapse grid
+  activeLetterBadge.innerHTML = `<span class="badge-kana">${row}</span><span class="badge-count">${items.length}</span>`;
+  activeLetterBadge.classList.remove("hidden");
+  setGridCollapsed(true);
 
   const term = activeMode === "verbs" ? "verbs" : "words";
   const titleTerm = activeMode === "verbs" ? "Verbs" : "Vocabulary";
@@ -748,6 +788,8 @@ searchInput.addEventListener("input", ()=>{
     if(q === ""){
       currentCat ? goToCategory(currentCat) : renderWelcome();
     } else {
+      activeLetterBadge.classList.add("hidden");
+      setGridCollapsed(true);
       renderSearchResults(q);
     }
   }, 150);
