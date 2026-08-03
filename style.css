@@ -307,6 +307,10 @@ footer .seal{display:inline-block; margin-bottom:10px; font-family:'Shippori Min
 .top-btn.show{opacity:1; pointer-events:auto;}
 .top-btn:hover{transform:translateY(-3px);}
 
+.print-cover-page {
+  display: none;
+}
+
 /* ---------- PRINT ---------- */
 @media print{
   @page{ size:A4; margin:14mm; }
@@ -322,8 +326,144 @@ footer .seal{display:inline-block; margin-bottom:10px; font-family:'Shippori Min
   .col-romaji{color:#8a3a1e !important;}
   body.practice-mode .col-en, body.practice-mode .col-si{filter:none !important;}
   .print-title{display:block !important; margin-bottom:6px; font-family:'Shippori Mincho',serif; font-size:13px; color:#777;}
+
+  /* Print Cover Page Layout */
+  .print-cover-page {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: 260mm; /* A4 height with margins */
+    padding: 30mm 15mm;
+    margin: 0 auto;
+    border: 12px double var(--shu);
+    background: #fbf6e9 !important; /* Premium paper color */
+    color: var(--ink);
+    page-break-after: always;
+    break-after: page;
+    position: relative;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print-cover-page.hide-in-print {
+    display: none !important;
+  }
+
+  .cover-header-ornament {
+    width: 60%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--shu) 0%, var(--gold) 50%, var(--shu) 100%);
+    border-radius: 2px;
+    margin-bottom: 10mm;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .cover-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .cover-hanko {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    background: var(--shu);
+    color: #fbf6e9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 800;
+    font-size: 38px;
+    margin-bottom: 25px;
+    transform: rotate(-3deg);
+    border: 3px solid color-mix(in srgb, var(--shu) 60%, black);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .cover-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 42px;
+    font-weight: 800;
+    margin: 0 0 10px 0;
+    letter-spacing: 2px;
+    color: var(--ink);
+  }
+
+  .cover-subtitle {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 35px 0;
+    letter-spacing: 6px;
+    color: var(--shu);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .cover-illustration-wrap {
+    width: 100%;
+    max-width: 440px;
+    margin: 10px 0 25px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cover-illustration {
+    width: 100%;
+    height: auto;
+  }
+
+  .cover-meta-line {
+    font-size: 12.5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+  }
+
+  .cover-footer {
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+  }
+
+  .cover-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink-soft);
+    margin: 0 0 15px 0;
+    letter-spacing: 0.5px;
+  }
+
+  .cover-blessing {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--shu);
+    letter-spacing: 2px;
+    margin: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
 }
 .print-title{display:none;}
+
 
 @media (max-width:640px){
   .col-si, .col-romaji{display:none;}

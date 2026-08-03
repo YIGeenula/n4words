@@ -54,6 +54,96 @@
 
   <div class="wrap">
 
+    <!-- Print Cover Page (hidden on screen, visible on print) -->
+    <div id="printCoverPage" class="print-cover-page">
+      <div class="cover-header-ornament"></div>
+      <div class="cover-body">
+        <div class="cover-hanko">四</div>
+        <h1 class="cover-title" id="coverTitle">JLPT N4 Notebook</h1>
+        <p class="cover-subtitle" id="coverSubtitle">N4 語彙帳</p>
+
+        <div class="cover-illustration-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" width="100%" height="220"
+            class="cover-illustration">
+            <!-- Circular Frame -->
+            <circle cx="200" cy="110" r="95" fill="none" stroke="var(--line)" stroke-width="1.5"
+              stroke-dasharray="4 2" />
+
+            <!-- Big rising sun in the background -->
+            <circle cx="230" cy="95" r="50" fill="var(--shu)" opacity="0.15" />
+
+            <!-- Mount Fuji Outline & Details -->
+            <!-- Left slope -->
+            <path d="M 120,185 C 160,175 180,140 190,95 L 210,95 C 220,140 240,175 280,185" fill="none"
+              stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round" />
+            <!-- Snowcap bottom zigzag line -->
+            <path d="M 183,115 L 189,122 L 195,115 L 201,124 L 207,116 L 213,121" fill="none" stroke="var(--ink)"
+              stroke-width="1.5" stroke-linecap="round" />
+            <!-- Snowcap fill area (light fill) -->
+            <path
+              d="M 190,95 L 210,95 C 215,110 215,115 213,121 L 207,116 L 201,124 L 195,115 L 189,122 L 183,115 C 185,110 185,105 190,95 Z"
+              fill="var(--paper)" opacity="0.9" />
+
+            <!-- Stylized water/ground lines at the bottom of Fuji -->
+            <path d="M 150,195 L 250,195" fill="none" stroke="var(--line)" stroke-width="2" stroke-linecap="round" />
+            <path d="M 170,201 L 230,201" fill="none" stroke="var(--line)" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M 185,207 L 215,207" fill="none" stroke="var(--line)" stroke-width="1" stroke-linecap="round" />
+
+            <!-- Traditional Clouds -->
+            <path d="M 105,105 L 145,105 M 115,112 L 135,112" fill="none" stroke="var(--line)" stroke-width="1.5"
+              stroke-linecap="round" />
+            <path d="M 255,130 L 295,130 M 265,137 L 285,137" fill="none" stroke="var(--line)" stroke-width="1.5"
+              stroke-linecap="round" />
+
+            <!-- Cherry Blossom Branch (hanging from top-left) -->
+            <!-- Main stem -->
+            <path d="M 125,50 Q 155,50 170,75 Q 175,85 170,95" fill="none" stroke="var(--ink)" stroke-width="2"
+              stroke-linecap="round" />
+            <!-- Sub branch -->
+            <path d="M 145,50 Q 155,35 175,40" fill="none" stroke="var(--ink)" stroke-width="1.5"
+              stroke-linecap="round" />
+
+            <!-- Blossoms & Petals (in var(--shu)) -->
+            <!-- Flower 1 on main branch -->
+            <g transform="translate(170,75)">
+              <circle cx="0" cy="0" r="5" fill="var(--shu)" />
+              <!-- 5 petals -->
+              <path d="M 0,0 C -3,-6 3,-6 0,0 C 6,-3 6,3 0,0 C 3,6 -3,6 0,0 C -6,3 -6,-3 0,0" fill="var(--shu)" />
+            </g>
+            <!-- Flower 2 on sub branch -->
+            <g transform="translate(165,38)">
+              <circle cx="0" cy="0" r="4" fill="var(--shu)" />
+              <path d="M 0,0 C -2,-5 2,-5 0,0 C 5,-2 5,2 0,0 C 2,5 -2,5 0,0 C -5,2 -5,-2 0,0" fill="var(--shu)"
+                opacity="0.9" />
+            </g>
+            <!-- Flower 3 tip -->
+            <g transform="translate(170,95)">
+              <circle cx="0" cy="0" r="3" fill="var(--shu)" />
+              <circle cx="-2" cy="-4" r="2.5" fill="var(--shu)" />
+              <circle cx="3" cy="-3" r="2.5" fill="var(--shu)" />
+              <circle cx="0" cy="4" r="2.5" fill="var(--shu)" />
+            </g>
+
+            <!-- Drifting petals falling around -->
+            <!-- Petal 1 -->
+            <path d="M 130,140 Q 125,145 130,150 Q 135,145 130,140 Z" fill="var(--shu)" opacity="0.85"
+              transform="rotate(15, 130, 145)" />
+            <!-- Petal 2 -->
+            <path d="M 260,110 Q 255,115 260,120 Q 265,115 260,110 Z" fill="var(--shu)" opacity="0.85"
+              transform="rotate(-25, 260, 115)" />
+            <!-- Petal 3 -->
+            <path d="M 210,165 Q 205,170 210,175 Q 215,170 210,165 Z" fill="var(--shu)" opacity="0.8"
+              transform="rotate(40, 210, 170)" />
+          </svg>
+        </div>
+      </div>
+      <div class="cover-footer">
+        <div class="cover-meta-line" id="coverMetaLine">Vocabulary · All Words · 634 words</div>
+        <p class="cover-quote" id="coverQuote">語彙は言葉の種 — Words are the seeds of language</p>
+        <p class="cover-blessing">頑張って！ · Study Hard</p>
+      </div>
+    </div>
+
     <section class="hero">
       <h2 class="jp-title">日本語<span>・</span>N4</h2>
       <p class="sub">語彙は言葉の種 — Words are the seeds of language</p>

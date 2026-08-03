@@ -841,3 +841,62 @@ printAllBtn.addEventListener("click", () => {
     }
   }, 150);
 });
+
+/* =========================================================
+   PRINT COVER PAGE DYNAMIC POPULATION
+========================================================= */
+window.addEventListener("beforeprint", () => {
+  updatePrintCoverPage();
+});
+
+function updatePrintCoverPage() {
+  const isVerbs = activeMode === "verbs";
+  const titleTerm = isVerbs ? "Verbs" : "Vocabulary";
+  const subtitleTerm = isVerbs ? "動詞帳" : "語彙帳";
+  const itemTerm = isVerbs ? "verbs" : "words";
+  const quote = isVerbs 
+    ? "動詞は文のエンジン — Verbs are the engines of sentences"
+    : "語彙は言葉の種 — Words are the seeds of language";
+
+  // Update elements
+  document.getElementById("coverTitle").textContent = `JLPT N4 ${titleTerm}`;
+  document.getElementById("coverSubtitle").textContent = `N4 ${subtitleTerm}`;
+  document.getElementById("coverQuote").textContent = quote;
+  
+  // Determine scope & count
+  let scope = "All Words";
+  let countText = `${CURRENT_DATA.length} ${itemTerm}`;
+  
+  // Parse current visible content/state
+  const sectionHead = contentArea.querySelector(".section-head");
+  const bigKana = sectionHead ? sectionHead.querySelector(".big-kana") : null;
+  const bigKanaText = bigKana ? bigKana.textContent.trim() : "";
+  
+  const isPrintAll = (bigKanaText === "全");
+  const coverPage = document.getElementById("printCoverPage");
+  
+  if (isPrintAll) {
+    coverPage.classList.remove("hide-in-print");
+    scope = "Full Collection";
+    countText = `${CURRENT_DATA.length} ${itemTerm}`;
+  } else {
+    coverPage.classList.add("hide-in-print");
+    if (currentCat) {
+      scope = `Letter "${currentCat}"`;
+      const items = byCat[currentCat] || [];
+      countText = `${items.length} ${itemTerm}`;
+    } else if (searchInput.value.trim() !== "") {
+      scope = `Search: "${searchInput.value.trim()}"`;
+      const q = searchInput.value.toLowerCase();
+      const items = CURRENT_DATA.filter(v =>
+        (v.kanji + v.kana + v.romaji + v.en + v.si).toLowerCase().includes(q)
+      );
+      countText = `${items.length} ${itemTerm}`;
+    } else {
+      scope = "Overview Selection";
+      countText = `${CURRENT_DATA.length} ${itemTerm}`;
+    }
+  }
+  
+  document.getElementById("coverMetaLine").textContent = `${titleTerm} · ${scope} · ${countText}`;
+}
