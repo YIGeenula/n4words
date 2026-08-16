@@ -875,12 +875,21 @@ function updatePrintCoverPage() {
   const isPrintAll = (bigKanaText === "全");
   const coverPage = document.getElementById("printCoverPage");
   
+  let printStyle = document.getElementById('dynamicPrintStyle');
+  if (!printStyle) {
+    printStyle = document.createElement('style');
+    printStyle.id = 'dynamicPrintStyle';
+    document.head.appendChild(printStyle);
+  }
+  
   if (isPrintAll) {
     coverPage.classList.remove("hide-in-print");
+    printStyle.textContent = `@page :first { margin: 0; }`;
     scope = "Full Collection";
     countText = `${CURRENT_DATA.length} ${itemTerm}`;
   } else {
     coverPage.classList.add("hide-in-print");
+    printStyle.textContent = '';
     if (currentCat) {
       scope = `Letter "${currentCat}"`;
       const items = byCat[currentCat] || [];
