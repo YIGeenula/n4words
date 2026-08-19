@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>N4 語彙 — JLPT N4 Vocabulary</title>
+  <title>JLPT N4 Notebook — 語彙・動詞・漢字</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+Sinhala:wght@400;500;600;700&family=Cormorant+Garamond:ital@1&display=swap"
@@ -29,6 +29,13 @@
         <div class="panel-desc">Master JLPT N4 Verbs</div>
       </div>
     </div>
+    <div class="landing-panel kanji-panel" id="selectKanji">
+      <div class="panel-content">
+        <div class="panel-jp">漢字</div>
+        <div class="panel-en">KANJI</div>
+        <div class="panel-desc">Practice JLPT N4 Kanji & Strokes</div>
+      </div>
+    </div>
   </div>
   <header>
     <div class="header-inner">
@@ -43,6 +50,7 @@
       <div class="mode-selector">
         <button class="mode-btn" id="modeVocabBtn" title="Study Vocabulary">語彙 Vocab</button>
         <button class="mode-btn" id="modeVerbsBtn" title="Study Verbs">動詞 Verbs</button>
+        <button class="mode-btn" id="modeKanjiBtn" title="Study Kanji & Strokes">漢字 Kanji</button>
       </div>
 
       <div class="header-controls">
@@ -182,6 +190,43 @@
       <p>Crafted for JLPT N4 learners · Data source: tanos.co.uk/jlpt · 頑張って！(Good luck!)</p>
       <p>Developed by <a href="https://codexblaze.online" target="_blank">CodeXBlaze</a></p>
     </footer>
+  </div>
+
+  <!-- Stroke Practice Modal -->
+  <div id="strokeModal" class="stroke-modal hidden" aria-hidden="true">
+    <div class="stroke-modal-backdrop" id="strokeModalBackdrop"></div>
+    <div class="stroke-modal-dialog">
+      <div class="stroke-modal-header">
+        <div class="stroke-modal-title">
+          <span class="stroke-modal-kanji" id="modalKanjiChar">住</span>
+          <div class="stroke-modal-meta">
+            <h3 id="modalKanjiHeading">Kanji Stroke Practice</h3>
+            <p id="modalKanjiReadings">くん: す-む · おん: ジュウ · live</p>
+          </div>
+        </div>
+        <button class="stroke-modal-close" id="closeStrokeModalBtn" aria-label="Close modal">✕</button>
+      </div>
+      <div class="stroke-modal-body">
+        <div class="canvas-container">
+          <canvas id="strokeCanvas" width="340" height="340"></canvas>
+          <div id="strokeCanvasGuide" class="stroke-canvas-guide">住</div>
+          <div class="canvas-grid-overlay">
+            <div class="cross-h"></div>
+            <div class="cross-v"></div>
+            <div class="diag-1"></div>
+            <div class="diag-2"></div>
+          </div>
+        </div>
+        <div class="canvas-controls">
+          <div class="canvas-btn-group">
+            <button class="canvas-btn" id="toggleGuideBtn" title="Toggle guide outline">👁 Guide: ON</button>
+            <button class="canvas-btn" id="animateStrokeBtn" title="Play stroke animation">▶ Animate Stroke</button>
+            <button class="canvas-btn" id="clearCanvasBtn" title="Clear canvas">🔄 Clear</button>
+          </div>
+          <p class="canvas-tip">✏️ Draw with mouse or finger to practice stroke order & balance</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <button class="top-btn" id="topBtn" aria-label="Back to top">↑</button>

@@ -1,42 +1,40 @@
-# JLPT N4 Words Notebook
+# JLPT N4 Notebook — 語彙・動詞・漢字
 
-> **N4 語彙帳・動詞帳** – Complete JLPT N4 word lists with Kanji, Kana, Romaji, English and Sinhala explanations.
+> **N4 語彙帳・動詞帳・漢字帳** – Complete JLPT N4 study companion featuring Vocabulary, Verbs, and Kanji with interactive stroke writing, audio pronunciation, and Sinhala & English meanings.
 
 ## Features
 
-- **Dual Mode Interface** – Seamlessly switch between **Vocabulary (語彙)** and **Verbs (動詞)**.
-- **Split Screen Landing** – Visually distinct panels to select your learning path.
-- **Powerful Search** – Filter by Kanji, Kana, Romaji, English, or Sinhala meaning.
-- **Practice Mode** – Tap cards to flip and reveal answers, perfect for active recall.
-- **Dark & Light Themes** – Toggle between two beautiful color schemes.
-- **Print Support** – Generate printer-friendly PDFs for offline study.
-- **Quick Navigation** – Instant jump to any category letter.
-- **Responsive Design** – Beautiful on desktop, tablet, and mobile.
+- **3-in-1 Mode Interface** – Seamlessly switch between **Vocabulary (語彙)**, **Verbs (動詞)**, and **Kanji (漢字)**.
+- **Tri-Split Screen Landing** – Visually striking 3-panel landing screen with custom Japanese color aesthetics (Vermilion, Pine Green, and Indigo Aizome).
+- **Interactive Kanji Stroke Practice** – Click on any Kanji to open an interactive canvas drawing modal with stroke order guides, smooth brush drawing, clear, and animation.
+- **Authentic 16-Box Writing Grids** – Kanji cards feature traditional 2×8 practice boxes with dashed crosshair guidelines (reference box, tracing boxes, and freehand practice).
+- **Related Words & Audio Pronunciation** – Every Kanji card includes associated vocabulary tables and native Japanese voice pronunciation (Web Speech API).
+- **Powerful Search** – Instant multi-keyword search across Kanji, Kana, Romaji, English, or Sinhala meanings.
+- **Practice / Flashcard Mode** – Toggle practice mode to blur meanings and test active recall.
+- **Dark & Light Themes** – Elegant themes tailored for comfortable day and night study.
+- **A4 Worksheet Print Support** – Print customized A4 practice worksheets and full study booklets with auto-generated cover pages.
+- **Responsive Design** – Optimized for desktop, tablet, touch screens, and mobile.
 
 ## Getting Started
 
 ### Prerequisites
 
-- A modern web browser (Chrome, Firefox, Safari, Edge).
-- **No backend or database required!** All data is bundled in JSON files.
+- Any modern web browser (Chrome, Edge, Safari, Firefox).
+- **Zero setup / No backend needed!** Pure Vanilla HTML5, CSS3, and JavaScript.
 
 ### Usage
 
-1.  **Choose Your Mode** – Click **「語彙 Vocab」** or **「動詞 Verbs」** on the landing screen.
-2.  **Explore** – Browse the alphabetical list or use the search bar.
-3.  **Learn** – Click cards to flip them. Look for the Sinhala (`සිංහල`) column for deep understanding.
-4.  **Print** – Click the printer icon 🖨 to print/save as PDF.
-5.  **Switch** – Click the logo or the tabs in the header to change modes.
+1. **Choose Your Path** – Pick **「語彙 Vocab」**, **「動詞 Verbs」**, or **「漢字 Kanji」** from the landing screen.
+2. **Practice Strokes** – In the Kanji section, click **「✏️ Practice Strokes」** on any card to practice stroke order on the interactive drawing board.
+3. **Listen & Repeat** – Click the speaker 🔊 buttons to hear authentic Japanese pronunciation.
+4. **Print Worksheets** – Click the printer 🖨 button to print A4 writing practice sheets.
+5. **Switch Modes** – Click the Hanko seal stamp or the header tabs anytime.
 
-## Data Source
+## Data Source & Credits
 
-The vocabulary data is sourced from [tanos.co.uk/jlpt](https://tanos.co.uk/jlpt/).
-All Sinhala translations and explanations are original.
+- Vocabulary data sourced and verified for the JLPT N4 standard curriculum.
+- Original Sinhala (`සිංහල`) translations & explanations tailored for Sinhala-speaking Japanese learners.
 
 ## License
 
-Private project for educational purposes.
-
-## Contributing
-
-Contributions are welcome! If you find errors in the Sinhala translations or have suggestions, please open an issue or submit a pull request.
+Created for educational purposes. 頑張って！ (Good luck with your JLPT N4 study!)

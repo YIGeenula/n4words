@@ -343,20 +343,1760 @@ const VERBS_RAW = [
   ["利用をする", "りよう(を)する", "make use of , take advantage of", "භාවිතා කරනවා, ප්‍රයෝජන ගන්නවා"],
   ["料理をする", "りょうり(を)する", "cook", "කෑම පිසිනවා"],
   ["旅行をする", "りょこう(を)する", "take a trip", "චාරිකාවක් යනවා"],
-  ["練習をする", "れんしゅう(を)する", "practice", "පුහුණු වෙනවා"],
   ["連絡をする", "れんらく(を)する", "contact", "දැනුම් දෙනවා"],
   ["来る", "くる", "come", "එනවා"]
+];
+
+/* =========================================================
+   KANJI DATA
+========================================================= */
+const KANJI_RAW = [
+  {
+    num: "01",
+    kanji: "住",
+    strokes: 7,
+    kun: "すーむ",
+    on: "ジュウ",
+    si: "ජීවත් වෙනවා",
+    en: "live",
+    cat: "Lesson 1",
+    words: [
+      { kanji: "住む", kana: "すむ", romaji: "sumu", si: "ජීවත් වෙනවා(live)" }
+    ]
+  },
+  {
+    num: "02",
+    kanji: "所",
+    strokes: 8,
+    kun: "ところ、どころ",
+    on: "ショ、ジョ",
+    si: "ස්ථානය (place)",
+    en: "place",
+    cat: "Lesson 1",
+    words: [
+      { kanji: "所", kana: "ところ", romaji: "tokoro", si: "ස්ථානය (place)" },
+      { kanji: "住所", kana: "じゅうしょ", romaji: "juusho", si: "ලිපිනය (address)" },
+    ]
+  },
+  {
+    num: "03",
+    kanji: "京",
+    strokes: 8,
+    kun: "みやこ",
+    on: "キョウ、ケイ、キン",
+    si: "අගනුවර",
+    en: "capital",
+    cat: "Lesson 1",
+    words: [
+      { kanji: "東京", kana: "とうきょう", romaji: "toukyou", si: "තෝකියෝ (Tokyo)" },
+    ]
+  },
+  {
+    num: "04",
+    kanji: "都",
+    strokes: 11,
+    kun: "みやこ",
+    on: "ト、ツ",
+    si: "අගනගරය",
+    en: "metropolis",
+    cat: "Lesson 1",
+    words: [
+      { kanji: "東京都", kana: "とうきょうと", romaji: "toukyouto", si: "තෝකියෝ අගනගරය(Metropolis of Tokyo)" },
+      { kanji: "京都", kana: "きょうと", romaji: "kyouto", si: "කියෝතෝ (Kyoto)" }
+    ]
+  },
+  {
+    num: "05",
+    kanji: "府",
+    strokes: 8,
+    kun: "-",
+    on: "フ",
+    si: "පරිපාලන දිස්ත්‍රික්කය",
+    en: "Administrative prefecture",
+    cat: "Lesson 1",
+    words: [
+      { kanji: "京都府", kana: "きょうとふ", romaji: "kyoutofu", si: "කියෝතො පරිපාලන දිස්ත්‍රික්කය (Kyoto Prefecture)" },
+      { kanji: "大阪府", kana: "おおさかふ", romaji: "oosakafu", si: "ඔසකා පරිපාලන දිස්ත්‍රික්කය (Osaka Prefecture)" },
+    ]
+  },
+  {
+    num: "06",
+    kanji: "県",
+    strokes: 9,
+    kun: "かける",
+    on: "ケン",
+    si: "ප්‍රාන්තය",
+    en: "Prefecture",
+    cat: "Lesson 1",
+    words: [
+      { kanji: "山口県", kana: "やまぐちけん", romaji: "yamaguchiken", si: "යමගුචි ප්‍රාන්තය (Yamaguchi Prefecture)" }
+    ]
+  },
+  {
+    num: "07",
+    kanji: "市",
+    strokes: 5,
+    kun: "いち",
+    on: "シ",
+    si: "නගරය ,වෙළඳපොල",
+    en: "City, market",
+    cat: "Lesson 1",
+    words: [
+      { kanji: "京都市", kana: "きょうとし", romaji: "kyoutoshi", si: "කියෝතො නගරය (Kyoto city)" },
+      { kanji: "市長", kana: "しちょう", romaji: "shichou", si: "නගරාධිපති (Mayor)" }
+    ]
+  },
+  {
+    num: "08",
+    kanji: "区",
+    strokes: 4,
+    kun: "-",
+    on: "ク、オウ、コウ",
+    si: "කොට්ඨාශය",
+    en: "Ward",
+    cat: "Lesson 1",
+    words: [
+      { kanji: "北区", kana: "きたく", romaji: "kitaku", si: "උතුරු කොට්ඨාශය (Kita Ward)" },
+      { kanji: "区長", kana: "くちょう", romaji: "kuchou", si: "කොට්ඨාග ප්‍රධානියා (Ward mayor)" }
+    ]
+  },
+  {
+    num: "09",
+    kanji: "町",
+    strokes: 7,
+    kun: "まち",
+    on: "チョウ",
+    si: "ටවුම",
+    en: "town",
+    cat: "Lesson 1",
+    words: [
+      { kanji: "町", kana: "まち", romaji: "machi", si: "ටවුම(town)" },
+      { kanji: "町長", kana: "ちょうちょう", romaji: "chouchou", si: "නගරයේ නායකයා (town leader)" }
+    ]
+  },
+  {
+    num: "10",
+    kanji: "村",
+    strokes: 7,
+    kun: "むら",
+    on: "ソン",
+    si: "ගම",
+    en: "village",
+    cat: "Lesson 1",
+    words: [
+      { kanji: "村", kana: "むら", romaji: "mura", si: "ගම(village)" },
+      { kanji: "村人", kana: "むらびと", romaji: "murabito", si: "ගැමියා (villager)" },
+      { kanji: "村長", kana: "そんちょう", romaji: "sonchou", si: "ගමේ ප්‍රධානියා (Village leader)" }
+    ]
+  },
+
+  {
+    num: "11",
+    kanji: "明",
+    strokes: 8,
+    kun: "あかーるい",
+    on: "メイ",
+    si: "ආලෝකමත්, පැහැදිලි",
+    en: "Bright, clear",
+    cat: "Lesson 2",
+    words: [
+      { kanji: "明るい", kana: "あかるい", romaji: "akarui", si: "ආලෝකමත්, දීප්තිමත් (cheerful)" },
+      { kanji: "明日", kana: "あした、/あす", romaji: "ashita / asu", si: "හෙට (Tomorrow)" }
+    ]
+  },
+  {
+    num: "12",
+    kanji: "暗",
+    strokes: 13,
+    kun: "くらーい",
+    on: "アン",
+    si: "අඳුරුයි",
+    en: "dark",
+    cat: "Lesson 2",
+    words: [
+      { kanji: "暗い", kana: "くらい", romaji: "kurai", si: "අඳුරුයි (dark)" }
+    ]
+  },
+  {
+    num: "13",
+    kanji: "遠",
+    strokes: 13,
+    kun: "とおーい",
+    on: "エン",
+    si: "දූරයි",
+    en: "far",
+    cat: "Lesson 2",
+    words: [
+      { kanji: "遠い", kana: "とおい", romaji: "tooi", si: "දූරයි (far)" },
+      { kanji: "遠足", kana: "えんそく", romaji: "ensoku", si: "විනෝද චාරිකාව (excursion)" }
+    ]
+  },
+  {
+    num: "14",
+    kanji: "近",
+    strokes: 7,
+    kun: "ちかーい",
+    on: "キン",
+    si: "ළගයි",
+    en: "near",
+    cat: "Lesson 2",
+    words: [
+      { kanji: "近い", kana: "ちかい", romaji: "chikai", si: "ළගයි (near)" },
+      { kanji: "近所", kana: "きんじょ", romaji: "kinjo", si: "අසල්වාසීන් (neighborhood)" }
+    ]
+  },
+  {
+    num: "15",
+    kanji: "強",
+    strokes: 11,
+    kun: "つよーい",
+    on: "キョウ",
+    si: "ශක්තිමත්",
+    en: "strong",
+    cat: "Lesson 2",
+    words: [
+      { kanji: "強い", kana: "つよい", romaji: "tsuyoi", si: "ශක්තිමත් (strong)" }
+    ]
+  },
+  {
+    num: "16",
+    kanji: "弱",
+    strokes: 10,
+    kun: "よわーい",
+    on: "ジャク",
+    si: "දුර්වල",
+    en: "weak",
+    cat: "Lesson 2",
+    words: [
+      { kanji: "弱い", kana: "よわい", romaji: "yowai", si: "දුර්වල (weak)" },
+      { kanji: "強弱", kana: "きょうじゃく", romaji: "kyoujaku", si: "ශක්තිමත් සහ දුර්වල (strong and weak)" }
+    ]
+  },
+  {
+    num: "17",
+    kanji: "重",
+    strokes: 9,
+    kun: "おもい",
+    on: "ジュウ",
+    si: "බරයි, වැදගත්",
+    en: "Heavy, important",
+    cat: "Lesson 2",
+    words: [
+      { kanji: "重い", kana: "おもい", romaji: "omoi", si: "බරයි (heavy)" },
+      { kanji: "重大な", kana: "じゅうだいな", romaji: "juudaina", si: "වැදගත් (important)" },
+      { kanji: "体重", kana: "たいじゅう", romaji: "taijuu", si: "ශරීර බර (body weight)" }
+    ]
+  },
+  {
+    num: "18",
+    kanji: "軽",
+    strokes: 12,
+    kun: "かるーい",
+    on: "ケイ",
+    si: "සැහැල්ලුයි",
+    en: "light",
+    cat: "Lesson 2",
+    words: [
+      { kanji: "軽い", kana: "かるい", romaji: "karui", si: "සැහැල්ලුයි (light)" },
+      { kanji: "軽食", kana: "けいしょく", romaji: "keishoku", si: "කෙටි කෑම (snack)" }
+    ]
+  },
+  {
+    num: "19",
+    kanji: "太",
+    strokes: 4,
+    kun: "ふとーい",
+    on: "タイ",
+    si: "මහතයි",
+    en: "fat",
+    cat: "Lesson 2",
+    words: [
+      { kanji: "太い", kana: "ふとい", romaji: "futoi", si: "මහතයි (fat)" }
+    ]
+  },
+  {
+    num: "20",
+    kanji: "細",
+    strokes: 11,
+    kun: "ほそーい、こまーかい",
+    on: "サイ",
+    si: "සිහින්, ඉතා කුඩා",
+    en: "Slender, fine",
+    cat: "Lesson 2",
+    words: [
+      { kanji: "細い", kana: "ほそい", romaji: "hosoi", si: "සිහින් (slender)" },
+      { kanji: "細かい", kana: "こまかい", romaji: "komakai", si: "ඉතා කුඩා (fine)" }
+    ]
+  },
+
+  {
+    num: "21",
+    kanji: "特",
+    strokes: 10,
+    kun: "-",
+    on: "トク、トッ",
+    si: "විශේෂ",
+    en: "special",
+    cat: "Lesson 3",
+    words: [
+      { kanji: "特に", kana: "とくに", romaji: "tokuni", si: "විශේෂයෙන් (especially)" },
+      { kanji: "特別な", kana: "とくべつな", romaji: "tokubetsuna", si: "විශේෂ (special)" }
+    ]
+  },
+  {
+    num: "22",
+    kanji: "別",
+    strokes: 7,
+    kun: "わかーれる",
+    on: "ベツ",
+    si: "වෙන් වෙනවා",
+    en: "separate",
+    cat: "Lesson 3",
+    words: [
+      { kanji: "別れる", kana: "わかれる", romaji: "wakareru", si: "වෙන් වෙනවා (separate)" },
+      { kanji: "別々に", kana: "べつべつに", romaji: "betsubetsuni", si: "වෙන වෙනම (separately)" },
+      { kanji: "区別する", kana: "くべつする", romaji: "kubetsusuru", si: "වෙන්කර හඳුනා ගත්තවා (distinguish)" },
+      { kanji: "分別する", kana: "ぶんべつする", romaji: "bunbetsusuru", si: "වර්ගීකරණය කරනවා, වර්ග කරනවා (classify)" }
+    ]
+  },
+  {
+    num: "23",
+    kanji: "有",
+    strokes: 6,
+    kun: "あーる",
+    on: "ユウ",
+    si: "තියෙනවා",
+    en: "exist, have",
+    cat: "Lesson 3",
+    words: [
+      { kanji: "有る", kana: "ある", romaji: "aru", si: "තියෙනවා (to exist, to be)" },
+      { kanji: "有名な", kana: "ゆうめいな", romaji: "yuumeina", si: "ප්‍රසිද්ධ (famous)" }
+    ]
+  },
+  {
+    num: "24",
+    kanji: "便",
+    strokes: 9,
+    kun: "たよーり",
+    on: "ベン、ビン",
+    si: "පහසුව, තැපැල",
+    en: "Convenience, mail",
+    cat: "Lesson 3",
+    words: [
+      { kanji: "便り", kana: "たより", romaji: "tayori", si: "ලිපිය (letter)" }
+    ]
+  },
+  {
+    num: "25",
+    kanji: "利",
+    strokes: 7,
+    kun: "きーく",
+    on: "リ",
+    si: "ලාභය",
+    en: "profit",
+    cat: "Lesson 3",
+    words: [
+      { kanji: "便利な", kana: "べんりな", romaji: "benrina", si: "පහසු (convenient)" },
+      { kanji: "利子", kana: "りし", romaji: "rishi", si: "පොලිය (interest)" },
+      { kanji: "有利な", kana: "ゆうりな", romaji: "yuurina", si: "වාසි සහගත (advantageous)" }
+    ]
+  },
+  {
+    num: "26",
+    kanji: "不",
+    strokes: 4,
+    kun: "-",
+    on: "フ、ブ",
+    si: "නැති යන අර්ථය",
+    en: "not-",
+    cat: "Lesson 3",
+    words: [
+      { kanji: "不便な", kana: "ふべんな", romaji: "fubenna", si: "අපහසු (inconvenient)" },
+      { kanji: "不足する", kana: "ふそくする", romaji: "fusokusuru", si: "හිඟ වෙනවා (run short)" },
+      { kanji: "不安な", kana: "ふあんな", romaji: "fuanna", si: "කනස්සල්ලෙන් (anxious)" }
+    ]
+  },
+  {
+    num: "27",
+    kanji: "切",
+    strokes: 4,
+    kun: "きーる、きつ",
+    on: "セツ",
+    si: "කපනවා",
+    en: "cut",
+    cat: "Lesson 3",
+    words: [
+      { kanji: "切る", kana: "きる", romaji: "kiru", si: "කපනවා (cut)" },
+      { kanji: "切手", kana: "きって", romaji: "kitte", si: "මුද්දර (stamps)" },
+      { kanji: "大切な", kana: "たいせつな", romaji: "taisetsuna", si: "වැදගත් (important)" }
+    ]
+  },
+  {
+    num: "28",
+    kanji: "元",
+    strokes: 4,
+    kun: "もと",
+    on: "ゲン、ガン",
+    si: "මූලාරම්භය",
+    en: "origin",
+    cat: "Lesson 3",
+    words: [
+      { kanji: "元気な", kana: "げんきな", romaji: "genkina", si: "නිරෝගී (fine, active)" },
+      { kanji: "元日", kana: "がんじつ", romaji: "ganjitsu", si: "අලුත් අවුරුදු දිනය (New Year's Day)" }
+    ]
+  },
+  {
+    num: "29",
+    kanji: "好",
+    strokes: 6,
+    kun: "すーき",
+    on: "コウ",
+    si: "කැමති",
+    en: "like",
+    cat: "Lesson 3",
+    words: [
+      { kanji: "好きな", kana: "すきな", romaji: "sukina", si: "කැමති (favorite)" }
+    ]
+  },
+  {
+    num: "30",
+    kanji: "急",
+    strokes: 9,
+    kun: "いそーぐ",
+    on: "キュウ",
+    si: "ඉක්මන් කරනවා, හදිස්සියේම",
+    en: "hurry, suddenly",
+    cat: "Lesson 3",
+    words: [
+      { kanji: "急に", kana: "きゅうに", romaji: "kyuuni", si: "හදිස්සියේම (suddenly)" },
+      { kanji: "特急", kana: "とっきゅう", romaji: "tokkyuu", si: "ඉසිමෙහේ දුම්රිය (limited express)" },
+      { kanji: "急ぐ", kana: "いそぐ", romaji: "isogu", si: "ඉක්මන් කරනවා (hurry)" }
+    ]
+  },
+
+  {
+    num: "31",
+    kanji: "低",
+    strokes: 7,
+    kun: "ひくーい",
+    on: "テイ",
+    si: "මිටියි",
+    en: "low",
+    cat: "Lesson 4",
+    words: [
+      { kanji: "低い", kana: "ひくい", romaji: "hikui", si: "මිටියි (low)" },
+      { kanji: "低下する", kana: "ていかする", romaji: "teikasuru", si: "පහත වැටෙනවා (to fall)" },
+      { kanji: "低気圧", kana: "ていきあつ", romaji: "teikiatsu", si: "අඩු පීඩනය (low pressure)" }
+    ]
+  },
+  {
+    num: "32",
+    kanji: "広",
+    strokes: 5,
+    kun: "ひろーい",
+    on: "コウ",
+    si: "පුළුල්, පළල්",
+    en: "spacious",
+    cat: "Lesson 4",
+    words: [
+      { kanji: "広い", kana: "ひろい", romaji: "hiroi", si: "පුළුල්, පළල් (spacious)" },
+      { kanji: "広大な", kana: "こうだいな", romaji: "koudaina", si: "ඉතා විශාල (vast)" }
+    ]
+  },
+  {
+    num: "33",
+    kanji: "短",
+    strokes: 12,
+    kun: "みじかーい",
+    on: "タン",
+    si: "කොටයි",
+    en: "short",
+    cat: "Lesson 4",
+    words: [
+      { kanji: "短い", kana: "みじかい", romaji: "mijikai", si: "කොටයි (short)" },
+      { kanji: "短時間", kana: "たんじかん", romaji: "tanjikan", si: "කෙටි කාල පරිච්ඡේදයක් (short time)" }
+    ]
+  },
+  {
+    num: "34",
+    kanji: "良",
+    strokes: 7,
+    kun: "よーい",
+    on: "リョウ",
+    si: "හොඳයි",
+    en: "good",
+    cat: "Lesson 4",
+    words: [
+      { kanji: "良い", kana: "よい", romaji: "yoi", si: "හොඳයි (good)" }
+    ]
+  },
+  {
+    num: "35",
+    kanji: "悪",
+    strokes: 11,
+    kun: "わるーい",
+    on: "アク",
+    si: "නරකයි",
+    en: "bad",
+    cat: "Lesson 4",
+    words: [
+      { kanji: "悪い", kana: "わるい", romaji: "warui", si: "නරකයි (bad)" },
+      { kanji: "悪人", kana: "あくにん", romaji: "akunin", si: "නරක පුද්ගලයා (bad person)" }
+    ]
+  },
+  {
+    num: "36",
+    kanji: "正",
+    strokes: 5,
+    kun: "ただーしい",
+    on: "セイ、ショウ",
+    si: "නිවැරදි",
+    en: "correct",
+    cat: "Lesson 4",
+    words: [
+      { kanji: "正しい", kana: "ただしい", romaji: "tadashii", si: "නිවැරදි (correct)" },
+      { kanji: "正月", kana: "しょうがつ", romaji: "shougatsu", si: "අලුත් අවුරුද්ද (the New Year)" },
+      { kanji: "正門", kana: "せいもん", romaji: "seimon", si: "ප්‍රධාන ගේට්ටුව (main gate)" }
+    ]
+  },
+  {
+    num: "37",
+    kanji: "変",
+    strokes: 9,
+    kun: "かーわる、かーえる",
+    on: "ヘン",
+    si: "වෙනස, අමුතු",
+    en: "change, strange",
+    cat: "Lesson 4",
+    words: [
+      { kanji: "変わる", kana: "かわる", romaji: "kawaru", si: "වෙනස් වෙනවා (to change)" },
+      { kanji: "変える", kana: "かえる", romaji: "kaeru", si: "වෙනස් කරනවා (to change)" },
+      { kanji: "変な", kana: "へんな", romaji: "henna", si: "අමුතු (strange)" },
+      { kanji: "大変な", kana: "たいへんな", romaji: "taihenna", si: "දුෂ්කර, අමාරු (hard)" }
+    ]
+  },
+  {
+    num: "38",
+    kanji: "赤",
+    strokes: 7,
+    kun: "あかーい",
+    on: "セキ",
+    si: "රතු",
+    en: "red",
+    cat: "Lesson 4",
+    words: [
+      { kanji: "赤い", kana: "あかい", romaji: "akai", si: "රතු (red)" },
+      { kanji: "赤", kana: "あか", romaji: "aka", si: "රතු (red)" },
+      { kanji: "赤ちゃん", kana: "あかちゃん", romaji: "akachan", si: "ළදරුවා (baby)" },
+      { kanji: "赤道", kana: "せきどう", romaji: "sekidou", si: "සමකය (equator)" }
+    ]
+  },
+  {
+    num: "39",
+    kanji: "青",
+    strokes: 8,
+    kun: "あおーい",
+    on: "セイ",
+    si: "නිල්",
+    en: "Blue",
+    cat: "Lesson 4",
+    words: [
+      { kanji: "青い", kana: "あおい", romaji: "aoi", si: "නිල් (blue)" },
+      { kanji: "青", kana: "あお", romaji: "ao", si: "නිල් (blue)" },
+      { kanji: "青空", kana: "あおぞら", romaji: "aozora", si: "නිල් අහස (blue sky)" }
+    ]
+  },
+  {
+    num: "40",
+    kanji: "黒",
+    strokes: 11,
+    kun: "くろーい",
+    on: "コク",
+    si: "කළු",
+    en: "black",
+    cat: "Lesson 4",
+    words: [
+      { kanji: "黒い", kana: "くろい", romaji: "kuroi", si: "කළු (black)" },
+      { kanji: "黒", kana: "くろ", romaji: "kuro", si: "කළු (black)" }
+    ]
+  },
+
+  {
+    num: "41",
+    kanji: "映",
+    strokes: 9,
+    kun: "うつーす",
+    on: "エイ",
+    si: "පරාවර්තනය වෙනවා",
+    en: "reflect",
+    cat: "Lesson 5",
+    words: [
+      { kanji: "映す", kana: "うつす", romaji: "utsusu", si: "පරාවර්තනය වෙනවා (reflect)" }
+    ]
+  },
+  {
+    num: "42",
+    kanji: "画",
+    strokes: 8,
+    kun: "えがーく",
+    on: "ガ、カク",
+    si: "චිත්‍රය",
+    en: "picture",
+    cat: "Lesson 5",
+    words: [
+      { kanji: "計画", kana: "けいかく", romaji: "keikaku", si: "සැලසුම (plan)" },
+      { kanji: "日本画", kana: "にほんが", romaji: "nihonga", si: "ජපන් චිතු (Japanese painting)" }
+    ]
+  },
+  {
+    num: "43",
+    kanji: "音",
+    strokes: 9,
+    kun: "おと",
+    on: "オン",
+    si: "ශබ්දය",
+    en: "sound",
+    cat: "Lesson 5",
+    words: [
+      { kanji: "音", kana: "おと", romaji: "oto", si: "ශබ්දය (sound)" },
+      { kanji: "高音", kana: "こうおん", romaji: "kouon", si: "උච්ච ස්වරය (high note)" }
+    ]
+  },
+  {
+    num: "44",
+    kanji: "楽",
+    strokes: 13,
+    kun: "たのーしい",
+    on: "ガク、ラク",
+    si: "විනෝදකාමී, පහසු",
+    en: "Enjoyable, easy",
+    cat: "Lesson 5",
+    words: [
+      { kanji: "楽しい", kana: "たのしい", romaji: "tanoshii", si: "විනෝදකාමී (enjoyable)" },
+      { kanji: "音楽", kana: "おんがく", romaji: "ongaku", si: "සංගීතය (music)" },
+      { kanji: "楽な", kana: "らくな", romaji: "rakuna", si: "පහසු / ලේසි (easy)" }
+    ]
+  },
+  {
+    num: "45",
+    kanji: "歌",
+    strokes: 14,
+    kun: "うた、うたーう",
+    on: "カ",
+    si: "ගීතය",
+    en: "song",
+    cat: "Lesson 5",
+    words: [
+      { kanji: "歌う", kana: "うたう", romaji: "utau", si: "ගායනා කරනවා (sing)" },
+      { kanji: "歌手", kana: "かしゅ", romaji: "kashu", si: "ගායකයා (singer)" }
+    ]
+  },
+  {
+    num: "46",
+    kanji: "写",
+    strokes: 5,
+    kun: "うつーす",
+    on: "シャ",
+    si: "පිටපත් කරනවා",
+    en: "copy",
+    cat: "Lesson 5",
+    words: [
+      { kanji: "写す", kana: "うつす", romaji: "utsusu", si: "පිටපත් කරනවා (copy)" }
+    ]
+  },
+  {
+    num: "47",
+    kanji: "真",
+    strokes: 10,
+    kun: "ま、まっ",
+    on: "シン",
+    si: "සත්‍ය",
+    en: "truth",
+    cat: "Lesson 5",
+    words: [
+      { kanji: "写真", kana: "しゃしん", romaji: "shashin", si: "ඡායාරූපය (photograph)" },
+      { kanji: "真ん中", kana: "まんなか", romaji: "mannaka", si: "හරිමැද (midmost)" },
+      { kanji: "真っ白", kana: "まっしろ", romaji: "masshiro", si: "සුදු සුදු (pure white)" },
+      { kanji: "真っ赤", kana: "まっか", romaji: "makka", si: "සුදු සුදු (bright red)" },
+      { kanji: "真っ青", kana: "まっさお", romaji: "massao", si: "සුදු සුදු (deep blue)" },
+      { kanji: "真っ黒", kana: "まっくろ", romaji: "makkuro", si: "සුදු සුදු (jet-black)" }
+    ]
+  },
+  {
+    num: "48",
+    kanji: "旅",
+    strokes: 10,
+    kun: "たび",
+    on: "リョ",
+    si: "චාරිකාව",
+    en: "trip",
+    cat: "Lesson 5",
+    words: [
+      { kanji: "旅行する", kana: "りょこうする", romaji: "ryokousuru", si: "චාරිකාවක් යනවා (to take a trip)" },
+      { kanji: "旅", kana: "たび", romaji: "tabi", si: "චාරිකාව (trip)" }
+    ]
+  },
+  {
+    num: "49",
+    kanji: "世",
+    strokes: 5,
+    kun: "よ",
+    on: "セイ、セ",
+    si: "ලෝකය, පරම්පරාව",
+    en: "World, generation",
+    cat: "Lesson 5",
+    words: [
+      { kanji: "世話をする", kana: "せわをする", romaji: "sewawosuru", si: "රැක බලා ගන්නවා (to take care of)" },
+      { kanji: "世の中", kana: "よのなか", romaji: "yononaka", si: "ලෝකය, සමාජය (world, society)" }
+    ]
+  },
+  {
+    num: "50",
+    kanji: "界",
+    strokes: 9,
+    kun: "-",
+    on: "カイ",
+    si: "දේශසීමාව",
+    en: "boundary",
+    cat: "Lesson 5",
+    words: [
+      { kanji: "世界", kana: "せかい", romaji: "sekai", si: "ලෝකය (world)" }
+    ]
+  },
+
+  {
+    num: "51",
+    kanji: "仕",
+    strokes: 5,
+    kun: "つかーえる",
+    on: "シ",
+    si: "සේවය කරනවා",
+    en: "serve",
+    cat: "Lesson 6",
+    words: [
+      { kanji: "仕える", kana: "つかえる", romaji: "tsukaeru", si: "සේවය කරනවා (to serve)" }
+    ]
+  },
+  {
+    num: "52",
+    kanji: "事",
+    strokes: 8,
+    kun: "こと",
+    on: "ジ",
+    si: "දෙයක්, කාරණාවක්",
+    en: "Matter",
+    cat: "Lesson 6",
+    words: [
+      { kanji: "仕事", kana: "しごと", romaji: "shigoto", si: "රැකියාව (job)" },
+      { kanji: "火事", kana: "かじ", romaji: "kaji", si: "ගින්න (fire)" },
+      { kanji: "大事な", kana: "だいじな", romaji: "daijna", si: "වැදගත් (important)" },
+      { kanji: "事", kana: "こと", romaji: "koto", si: "දෙයක් (matter)" }
+    ]
+  },
+  {
+    num: "53",
+    kanji: "銀",
+    strokes: 14,
+    kun: "しろがね",
+    on: "ギン",
+    si: "රිදී",
+    en: "silver",
+    cat: "Lesson 6",
+    words: [
+      { kanji: "銀行", kana: "ぎんこう", romaji: "ginkou", si: "බැංකුව (bank)" },
+      { kanji: "銀", kana: "ぎん", romaji: "gin", si: "රිදී (silver)" }
+    ]
+  },
+  {
+    num: "54",
+    kanji: "員",
+    strokes: 10,
+    kun: "-",
+    on: "イン",
+    si: "සාමාජිකයා",
+    en: "member",
+    cat: "Lesson 6",
+    words: [
+      { kanji: "会社員", kana: "かいしゃいん", romaji: "kaishain", si: "සමාගමේ සේවකයා (employee of a company)" },
+      { kanji: "銀行員", kana: "ぎんこういん", romaji: "ginkouin", si: "බැංකු සේවකයා (bank officer)" },
+      { kanji: "店員", kana: "てんいん", romaji: "tenin", si: "කඩේ වැඩ කරන සේවකයා (shop assistant)" },
+      { kanji: "会員", kana: "かいいん", romaji: "kaiin", si: "සාමාජිකයා (member)" }
+    ]
+  },
+  {
+    num: "55",
+    kanji: "医",
+    strokes: 7,
+    kun: "-",
+    on: "イ",
+    si: "ඖෂධ",
+    en: "medicine",
+    cat: "Lesson 6",
+    words: [
+      { kanji: "医者", kana: "いしゃ", romaji: "isha", si: "වෛද්‍යවරයා (doctor)" },
+      { kanji: "医学", kana: "いがく", romaji: "igaku", si: "වෛද්‍ය විද්‍යාව (medical science)" }
+    ]
+  },
+  {
+    num: "56",
+    kanji: "者",
+    strokes: 8,
+    kun: "もの",
+    on: "シャ",
+    si: "පුද්ගලයා",
+    en: "person",
+    cat: "Lesson 6",
+    words: [
+      { kanji: "者", kana: "もの", romaji: "mono", si: "පුද්ගලයා (person)" },
+      { kanji: "学者", kana: "がくしゃ", romaji: "gakusha", si: "විද්වාර්ථීය, උගතා (scholar)" }
+    ]
+  },
+  {
+    num: "57",
+    kanji: "働",
+    strokes: 13,
+    kun: "はたらーく",
+    on: "ドウ",
+    si: "වැඩ කරනවා",
+    en: "work",
+    cat: "Lesson 6",
+    words: [
+      { kanji: "働く", kana: "はたらく", romaji: "hataraku", si: "වැඩ කරනවා (work)" }
+    ]
+  },
+  {
+    num: "58",
+    kanji: "屋",
+    strokes: 9,
+    kun: "や",
+    on: "オク",
+    si: "වහලය",
+    en: "roof",
+    cat: "Lesson 6",
+    words: [
+      { kanji: "本屋", kana: "ほんや", romaji: "honya", si: "පොත් කඩය (book shop)" },
+      { kanji: "屋上", kana: "おくじょう", romaji: "okujou", si: "වහලය උඩ (rooftop)" },
+      { kanji: "八百屋", kana: "やおや", romaji: "yaoya", si: "එළවළු සහ පළතුරු කඩය (vegetable & fruit shop)" }
+    ]
+  },
+  {
+    num: "59",
+    kanji: "産",
+    strokes: 11,
+    kun: "うーむ",
+    on: "サン",
+    si: "නිෂ්පාදනය කරනවා",
+    en: "produce",
+    cat: "Lesson 6",
+    words: [
+      { kanji: "産む", kana: "うむ", romaji: "umu", si: "බිහි කරනවා (to give birth)" },
+      { kanji: "生産する", kana: "せいさんする", romaji: "seisansuru", si: "නිෂ්පාදනය කරනවා (produce)" }
+    ]
+  },
+  {
+    num: "60",
+    kanji: "業",
+    strokes: 13,
+    kun: "わざ",
+    on: "ギョウ、ゴウ",
+    si: "කලාව, වෘත්තිය",
+    en: "Art, vocation",
+    cat: "Lesson 6",
+    words: [
+      { kanji: "産業", kana: "さんぎょう", romaji: "sangyou", si: "කර්මාන්ත (industry)" },
+      { kanji: "工業", kana: "こうぎょう", romaji: "kougyou", si: "නිෂ්පාදන කර්මාන්ත (manufacturing industries)" },
+      { kanji: "本日休業", kana: "ほんじつきゅうぎょう", romaji: "honjitsukyuugyou", si: "අද වසා ඇත (closed today)" }
+    ]
+  },
+
+  {
+    num: "61",
+    kanji: "林",
+    strokes: 8,
+    kun: "はやし",
+    on: "リン",
+    si: "කැලය",
+    en: "wood",
+    cat: "Lesson 7",
+    words: [
+      { kanji: "林", kana: "はやし", romaji: "hayashi", si: "කැලය (wood)" },
+      { kanji: "小林さん", kana: "こばやしさん", romaji: "kobayashisan", si: "කොබායෂි මහතා/මහත්මිය (Mr. Ms. Kobayashi)" },
+      { kanji: "林道", kana: "りんどう", romaji: "rindou", si: "කැලයට යන පාර/කැලේ පාර (forest road)" }
+    ]
+  },
+  {
+    num: "62",
+    kanji: "森",
+    strokes: 12,
+    kun: "もり",
+    on: "シン",
+    si: "වනාන්තරය",
+    en: "forest",
+    cat: "Lesson 7",
+    words: [
+      { kanji: "森", kana: "もり", romaji: "mori", si: "වනාන්තරය (forest)" },
+      { kanji: "森さん", kana: "もりさん", romaji: "morisan", si: "මොරි මහතා/මහත්මිය (Mr. or Ms. Mori)" },
+      { kanji: "森林", kana: "しんりん", romaji: "shinrin", si: "වනාන්තරය (forest)" }
+    ]
+  },
+  {
+    num: "63",
+    kanji: "地",
+    strokes: 6,
+    kun: "-",
+    on: "ジ、チ",
+    si: "පොළොව",
+    en: "ground",
+    cat: "Lesson 7",
+    words: [
+      { kanji: "土地", kana: "とち", romaji: "tochi", si: "ඉඩම (land)" }
+    ]
+  },
+  {
+    num: "64",
+    kanji: "池",
+    strokes: 6,
+    kun: "いけ",
+    on: "チ",
+    si: "වැව",
+    en: "pond",
+    cat: "Lesson 7",
+    words: [
+      { kanji: "池", kana: "いけ", romaji: "ike", si: "වැව (pond)" },
+      { kanji: "電池", kana: "でんち", romaji: "denchi", si: "බැටරිය (battery)" }
+    ]
+  },
+  {
+    num: "65",
+    kanji: "海",
+    strokes: 9,
+    kun: "うみ",
+    on: "カイ",
+    si: "මුහුද",
+    en: "sea",
+    cat: "Lesson 7",
+    words: [
+      { kanji: "海", kana: "うみ", romaji: "umi", si: "මුහුද (sea)" },
+      { kanji: "海外", kana: "かいがい", romaji: "kaigai", si: "පිටරට (overseas)" },
+      { kanji: "北海道", kana: "ほっかいどう", romaji: "hokkaidou", si: "හොක්කයිදෝ දූපත (Hokkaido)" }
+    ]
+  },
+  {
+    num: "66",
+    kanji: "洋",
+    strokes: 9,
+    kun: "-",
+    on: "ヨウ",
+    si: "සාගරය",
+    en: "ocean",
+    cat: "Lesson 7",
+    words: [
+      { kanji: "西洋", kana: "せいよう", romaji: "seiyou", si: "අපරදිග (the West)" },
+      { kanji: "東洋", kana: "とうよう", romaji: "touyou", si: "පෙරදිග (the East)" },
+      { kanji: "大西洋", kana: "たいせいよう", romaji: "taiseiyou", si: "අත්ලන්තික් සාගරය (the Atlantic Ocean)" }
+    ]
+  },
+  {
+    num: "67",
+    kanji: "雪",
+    strokes: 11,
+    kun: "ゆき",
+    on: "セツ",
+    si: "හිම",
+    en: "snow",
+    cat: "Lesson 7",
+    words: [
+      { kanji: "雪", kana: "ゆき", romaji: "yuki", si: "හිම (snow)" },
+      { kanji: "大雪", kana: "おおゆき", romaji: "ooyuki", si: "අධික හිමපතනය (heavy snow)" },
+      { kanji: "新雪", kana: "しんせつ", romaji: "shinsetsu", si: "අලුතින් වැටෙන හිම (fresh snow)" }
+    ]
+  },
+  {
+    num: "68",
+    kanji: "光",
+    strokes: 6,
+    kun: "ひかり、ひかーる",
+    on: "コウ",
+    si: "ආලෝකය",
+    en: "light",
+    cat: "Lesson 7",
+    words: [
+      { kanji: "光", kana: "ひかり", romaji: "hikari", si: "ආලෝකය (light)" },
+      { kanji: "光る", kana: "ひかる", romaji: "hikaru", si: "දිලිසෙනවා (to shine)" },
+      { kanji: "日光", kana: "にっこう", romaji: "nikkou", si: "හිරු එළිය (sunlight)" }
+    ]
+  },
+  {
+    num: "69",
+    kanji: "台",
+    strokes: 5,
+    kun: "うてな",
+    on: "ダイ、タイ",
+    si: "යන්ත්‍රු සූළු, වාහන ගණන් කිරීමට යොදා ගන්නා වචනයකි",
+    en: "Counter for machines and vehicles",
+    cat: "Lesson 7",
+    words: [
+      { kanji: "台", kana: "だい", romaji: "dai", si: "රාක්කය, ස්ටෑන්ඩ් එක (rack, stand)" },
+      { kanji: "台所", kana: "だいどころ", romaji: "daidokoro", si: "මුළුතැන්ගෙය (kitchen)" },
+      { kanji: "土台", kana: "どだい", romaji: "dodai", si: "අත්තිවාරම (foundation)" }
+    ]
+  },
+  {
+    num: "70",
+    kanji: "風",
+    strokes: 9,
+    kun: "かぜ",
+    on: "フウ",
+    si: "සුළඟ",
+    en: "wind",
+    cat: "Lesson 7",
+    words: [
+      { kanji: "風", kana: "かぜ", romaji: "kaze", si: "සුළඟ (wind)" },
+      { kanji: "台風", kana: "たいふう", romaji: "taifuu", si: "සුළිකුණාටුව (typhoon)" },
+      { kanji: "洋風", kana: "ようふう", romaji: "youfuu", si: "බටහිර පන්නය (western style)" }
+    ]
+  },
+
+  {
+    num: "71",
+    kanji: "季",
+    strokes: 8,
+    kun: "-",
+    on: "キ",
+    si: "සෘතු",
+    en: "seasons",
+    cat: "Lesson 8",
+    words: [
+      { kanji: "四季", kana: "しき", romaji: "shiki", si: "සෘතු (4 seasons)" }
+    ]
+  },
+  {
+    num: "72",
+    kanji: "節",
+    strokes: 15,
+    kun: "ふし",
+    on: "セツ",
+    si: "සෘතු",
+    en: "seasons",
+    cat: "Lesson 8",
+    words: [
+      { kanji: "季節", kana: "きせつ", romaji: "kisetsu", si: "සෘතු (seasons)" },
+      { kanji: "節分", kana: "せつぶん", romaji: "setsubun", si: "උත්සවයක නාමය (Bean-throwing festival)" }
+    ]
+  },
+  {
+    num: "73",
+    kanji: "春",
+    strokes: 9,
+    kun: "はる",
+    on: "シュン",
+    si: "වසන්ත සෘතුව",
+    en: "spring",
+    cat: "Lesson 8",
+    words: [
+      { kanji: "春", kana: "はる", romaji: "haru", si: "වසන්ත කාලය (spring)" },
+      { kanji: "青春", kana: "せいしゅん", romaji: "seishun", si: "තාරුණ්‍ය (youth)" }
+    ]
+  },
+  {
+    num: "74",
+    kanji: "夏",
+    strokes: 10,
+    kun: "なつ",
+    on: "カ",
+    si: "ගිමහාන සෘතුව",
+    en: "summer",
+    cat: "Lesson 8",
+    words: [
+      { kanji: "夏", kana: "なつ", romaji: "natsu", si: "ගිමහාන සෘතුව (summer)" },
+      { kanji: "夏休み", kana: "なつやすみ", romaji: "natsuyasumi", si: "ගිමහාන නිවාඩුව (summer holiday)" }
+    ]
+  },
+  {
+    num: "75",
+    kanji: "秋",
+    strokes: 9,
+    kun: "あき",
+    on: "シュウ",
+    si: "සරත් සෘතුව",
+    en: "autumn",
+    cat: "Lesson 8",
+    words: [
+      { kanji: "秋", kana: "あき", romaji: "aki", si: "සරත් සෘතුව (autumn)" }
+    ]
+  },
+  {
+    num: "76",
+    kanji: "冬",
+    strokes: 5,
+    kun: "ふゆ",
+    on: "トウ",
+    si: "ශීත සෘතුව",
+    en: "winter",
+    cat: "Lesson 8",
+    words: [
+      { kanji: "冬", kana: "ふゆ", romaji: "fuyu", si: "ශීත සෘතුව (winter)" },
+      { kanji: "冬休み", kana: "ふゆやすみ", romaji: "fuyuyasumi", si: "ශීත නිවාඩුව (winter season)" },
+      { kanji: "春夏秋冬", kana: "しゅんかしゅうとう", romaji: "shunkashuutou", si: "වසන්ත, ගිමහාන, සරත්, ශීත සෘතු (spring, summer, autumn, winter seasons)" }
+    ]
+  },
+  {
+    num: "77",
+    kanji: "暑",
+    strokes: 12,
+    kun: "あつーい",
+    on: "ショ",
+    si: "රස්නෙයි",
+    en: "hot",
+    cat: "Lesson 8",
+    words: [
+      { kanji: "暑い", kana: "あつい", romaji: "atsui", si: "රස්නෙයි (hot)" }
+    ]
+  },
+  {
+    num: "78",
+    kanji: "寒",
+    strokes: 12,
+    kun: "さむーい",
+    on: "カン",
+    si: "සීතලයි",
+    en: "cold",
+    cat: "Lesson 8",
+    words: [
+      { kanji: "寒い", kana: "さむい", romaji: "samui", si: "සීතලයි (cold)" }
+    ]
+  },
+  {
+    num: "79",
+    kanji: "暖",
+    strokes: 13,
+    kun: "あたたーかい",
+    on: "ダン",
+    si: "උණුසුම",
+    en: "warm",
+    cat: "Lesson 8",
+    words: [
+      { kanji: "暖かい", kana: "あたたかい", romaji: "atatakai", si: "උණුසුම (warm)" },
+      { kanji: "暖冬", kana: "だんどう", romaji: "dandou", si: "උණුසුම සහිත ශීත කාලය (warm winter)" }
+    ]
+  },
+  {
+    num: "80",
+    kanji: "涼",
+    strokes: 11,
+    kun: "すずーしい",
+    on: "リョウ",
+    si: "සීතලයි",
+    en: "cool",
+    cat: "Lesson 8",
+    words: [
+      { kanji: "涼しい", kana: "すずしい", romaji: "suzushii", si: "සීතලයි (cool)" },
+      { kanji: "涼風", kana: "りょうふう", romaji: "ryoufuu", si: "සිසිල් සුළඟ (cool breeze)" }
+    ]
+  },
+
+  {
+    num: "81",
+    kanji: "体",
+    strokes: 7,
+    kun: "からだ",
+    on: "タイ",
+    si: "ශරීරය",
+    en: "body",
+    cat: "Lesson 9",
+    words: [
+      { kanji: "体", kana: "からだ", romaji: "karada", si: "ශරීරය (body)" },
+      { kanji: "体力", kana: "たいりょく", romaji: "tairyoku", si: "කායික ශක්තිය (physical strength)" },
+      { kanji: "体重", kana: "たいじゅう", romaji: "taijuu", si: "ශරීර බර (body weight)" }
+    ]
+  },
+  {
+    num: "82",
+    kanji: "頭",
+    strokes: 16,
+    kun: "あたま",
+    on: "ズ",
+    si: "හිස",
+    en: "head",
+    cat: "Lesson 9",
+    words: [
+      { kanji: "頭", kana: "あたま", romaji: "atama", si: "හිස (head)" },
+      { kanji: "頭がいい", kana: "あたまがいい", romaji: "atamagaii", si: "බුද්ධිමත් (intelligent)" }
+    ]
+  },
+  {
+    num: "83",
+    kanji: "顔",
+    strokes: 18,
+    kun: "かお",
+    on: "ガン",
+    si: "මුහුණ",
+    en: "face",
+    cat: "Lesson 9",
+    words: [
+      { kanji: "顔", kana: "かお", romaji: "kao", si: "මුහුණ (face)" }
+    ]
+  },
+  {
+    num: "84",
+    kanji: "首",
+    strokes: 9,
+    kun: "くび",
+    on: "シュ",
+    si: "බෙල්ල",
+    en: "neck",
+    cat: "Lesson 9",
+    words: [
+      { kanji: "首", kana: "くび", romaji: "kubi", si: "බෙල්ල (neck)" },
+      { kanji: "首都", kana: "しゅと", romaji: "shuto", si: "අගනුවර (capital)" },
+      { kanji: "手首", kana: "てくび", romaji: "tekubi", si: "මැණික් කටුව (wrist)" }
+    ]
+  },
+  {
+    num: "85",
+    kanji: "心",
+    strokes: 4,
+    kun: "こころ",
+    on: "シン",
+    si: "හදවත, හැගීම",
+    en: "Heart, feelings",
+    cat: "Lesson 9",
+    words: [
+      { kanji: "心", kana: "こころ", romaji: "kokoro", si: "හදවත (heart)" },
+      { kanji: "安心する", kana: "あんしんする", romaji: "anshinsuru", si: "සැහැල්ලුවට පත් වෙනවා (to be relieved)" },
+      { kanji: "中心", kana: "ちゅうしん", romaji: "chuushin", si: "කේන්ද්‍රය (center)" }
+    ]
+  },
+  {
+    num: "86",
+    kanji: "声",
+    strokes: 7,
+    kun: "こえ",
+    on: "セイ",
+    si: "කටහඬ",
+    en: "voice",
+    cat: "Lesson 9",
+    words: [
+      { kanji: "声", kana: "こえ", romaji: "koe", si: "කටහඬ (voice)" },
+      { kanji: "大声", kana: "おおごえ", romaji: "oogoe", si: "උස් හඬ (loud voice)" }
+    ]
+  },
+  {
+    num: "87",
+    kanji: "病",
+    strokes: 10,
+    kun: "やまい",
+    on: "ビョウ",
+    si: "අසනීපය",
+    en: "illness",
+    cat: "Lesson 9",
+    words: [
+      { kanji: "病気", kana: "びょうき", romaji: "byouki", si: "අසනීපය (illness)" },
+      { kanji: "病人", kana: "びょうにん", romaji: "byounin", si: "රෝගියා (sick person)" },
+      { kanji: "急病", kana: "きゅうびょう", romaji: "kyuubyou", si: "හදිසි අසනීපය (sudden illness)" }
+    ]
+  },
+  {
+    num: "88",
+    kanji: "薬",
+    strokes: 16,
+    kun: "くすり",
+    on: "ヤク",
+    si: "බෙහෙත්",
+    en: "medicine",
+    cat: "Lesson 9",
+    words: [
+      { kanji: "薬", kana: "くすり", romaji: "kusuri", si: "බෙහෙත් (medicine)" },
+      { kanji: "目薬", kana: "めぐすり", romaji: "megusuri", si: "ඇස් වලට දාන බෙහෙත් (eye lotion)" }
+    ]
+  },
+  {
+    num: "89",
+    kanji: "科",
+    strokes: 9,
+    kun: "-",
+    on: "カ",
+    si: "වර්ගීකරණය",
+    en: "category",
+    cat: "Lesson 9",
+    words: [
+      { kanji: "科学", kana: "かがく", romaji: "kagaku", si: "විද්‍යාව (science)" },
+      { kanji: "外科", kana: "げか", romaji: "geka", si: "සැත්කම (surgery)" }
+    ]
+  },
+  {
+    num: "90",
+    kanji: "内",
+    strokes: 4,
+    kun: "うち",
+    on: "ナイ",
+    si: "ඇතුළත",
+    en: "inside",
+    cat: "Lesson 9",
+    words: [
+      { kanji: "内科", kana: "ないか", romaji: "naika", si: "අභ්‍යන්තර රෝග වලට බොන බෙහෙත් (internal medicine)" },
+      { kanji: "車内", kana: "しゃない", romaji: "shanai", si: "කාරිය/දුමිරිය තුල (in the car or train)" }
+    ]
+  },
+
+  {
+    num: "91",
+    kanji: "朝",
+    strokes: 12,
+    kun: "あさ",
+    on: "チョウ",
+    si: "උදෑසන",
+    en: "morning",
+    cat: "Lesson 10",
+    words: [
+      { kanji: "朝", kana: "あさ", romaji: "asa", si: "උදෑසන (morning)" },
+      { kanji: "今朝", kana: "けさ", romaji: "kesa", si: "අද උදේ (this morning)" },
+      { kanji: "朝日", kana: "あさひ", romaji: "asahi", si: "උදෑසන ඉර (morning sun)" },
+      { kanji: "朝食", kana: "ちょうしょく", romaji: "choushoku", si: "උදේ කෑම (breakfast)" }
+    ]
+  },
+  {
+    num: "92",
+    kanji: "昼",
+    strokes: 9,
+    kun: "ひる",
+    on: "チュウ",
+    si: "දහවල",
+    en: "noon",
+    cat: "Lesson 10",
+    words: [
+      { kanji: "昼", kana: "ひる", romaji: "hiru", si: "දහවල (noon)" },
+      { kanji: "昼休み", kana: "ひるやすみ", romaji: "hiruyasumi", si: "දිවා විවේකය (lunch break)" },
+      { kanji: "昼ご飯", kana: "ひるごはん", romaji: "hirugohan", si: "දිවා ආහාරය (lunch)" },
+      { kanji: "昼食", kana: "ちゅうしょく", romaji: "chuushoku", si: "දිවා ආහාරය (lunch)" }
+    ]
+  },
+  {
+    num: "93",
+    kanji: "夜",
+    strokes: 8,
+    kun: "よる、よ",
+    on: "ヤ",
+    si: "රාත්‍රිය",
+    en: "night",
+    cat: "Lesson 10",
+    words: [
+      { kanji: "夜", kana: "よる", romaji: "yoru", si: "රාත්‍රිය (night)" },
+      { kanji: "今夜", kana: "こんや", romaji: "konya", si: "අද රාත්‍රිය (tonight)" },
+      { kanji: "夜店", kana: "よみせ", romaji: "yomise", si: "රාත්‍රි කඩය (night stall)" },
+      { kanji: "夜食", kana: "やしょく", romaji: "yashoku", si: "නින්දට යාමට පෙර ගන්නා කෙටි ආහාරය (bedtime snack)" }
+    ]
+  },
+  {
+    num: "94",
+    kanji: "夕",
+    strokes: 3,
+    kun: "ゆう",
+    on: "セキ",
+    si: "සන්ධ්‍යාව",
+    en: "evening",
+    cat: "Lesson 10",
+    words: [
+      { kanji: "夕日", kana: "ゆうひ", romaji: "yuuhi", si: "ඉර බැසීම (sunset)" },
+      { kanji: "夕食", kana: "ゆうしょく", romaji: "yuushoku", si: "රාත්‍රි ආහාරය (supper)" },
+      { kanji: "七夕", kana: "たなばた", romaji: "tanabata", si: "උත්සවයක නාමක් (star festival)" }
+    ]
+  },
+  {
+    num: "95",
+    kanji: "方",
+    strokes: 4,
+    kun: "かた、がた",
+    on: "ホウ",
+    si: "දිශාව",
+    en: "direction",
+    cat: "Lesson 10",
+    words: [
+      { kanji: "読み方", kana: "よみかた", romaji: "yomikata", si: "කියවන ආකාරය (how to read)" },
+      { kanji: "夕方", kana: "ゆうがた", romaji: "yuugata", si: "හවස් වරුව (evening)" },
+      { kanji: "あの方", kana: "あのかた", romaji: "anokata", si: "අර පුද්ගලයා (that person)" }
+    ]
+  },
+  {
+    num: "96",
+    kanji: "晩",
+    strokes: 12,
+    kun: "-",
+    on: "バン",
+    si: "රාත්‍රිය",
+    en: "night",
+    cat: "Lesson 10",
+    words: [
+      { kanji: "今晩", kana: "こんばん", romaji: "konban", si: "අද රාත්‍රිය (tonight)" },
+      { kanji: "毎晩", kana: "まいばん", romaji: "maiban", si: "සෑම රාත්‍රියකම (every night)" },
+      { kanji: "晩ご飯", kana: "ばんごはん", romaji: "bangohan", si: "රාත්‍රි කෑම (dinner)" }
+    ]
+  },
+  {
+    num: "97",
+    kanji: "計",
+    strokes: 9,
+    kun: "はかーる",
+    on: "ケイ",
+    si: "මිනිනවා",
+    en: "measure",
+    cat: "Lesson 10",
+    words: [
+      { kanji: "計る", kana: "はかる", romaji: "hakaru", si: "මිනිනවා (to measure)" },
+      { kanji: "時計", kana: "とけい", romaji: "tokei", si: "ඔරලෝසුව (watch, clock)" },
+      { kanji: "計画", kana: "けいかく", romaji: "keikaku", si: "සැලසුම (plan)" },
+      { kanji: "合計", kana: "ごうけい", romaji: "goukei", si: "එකතුව (total)" }
+    ]
+  },
+  {
+    num: "98",
+    kanji: "曜",
+    strokes: 18,
+    kun: "-",
+    on: "ヨウ",
+    si: "දිලිසෙනවා",
+    en: "shine",
+    cat: "Lesson 10",
+    words: [
+      { kanji: "日曜日", kana: "にちようび", romaji: "nichiyoubi", si: "ඉරිදා (Sunday)" },
+      { kanji: "水曜日", kana: "すいようび", romaji: "suiyoubi", si: "බදාදා (Wednesday)" },
+      { kanji: "何曜日", kana: "なんようび", romaji: "nanyoubi", si: "සතියේ මොනා දවසද? (What day of the week)" }
+    ]
+  },
+  {
+    num: "99",
+    kanji: "以",
+    strokes: 5,
+    kun: "もって",
+    on: "イ",
+    si: "ආරම්භක ස්ථානය",
+    en: "Starting point",
+    cat: "Lesson 10",
+    words: [
+      { kanji: "以上", kana: "いじょう", romaji: "ijou", si: "වැඩියෙන් (more than)" },
+      { kanji: "以下", kana: "いか", romaji: "ika", si: "අඩුවෙන් (less than)" },
+      { kanji: "以外", kana: "いがい", romaji: "igai", si: "හැර (except)" },
+      { kanji: "以前", kana: "いぜん", romaji: "izen", si: "කලින්, පෙර (previously)" }
+    ]
+  },
+  {
+    num: "100",
+    kanji: "度",
+    strokes: 9,
+    kun: "たび、たい",
+    on: "ド、ト、タク",
+    si: "අංශක, වාර ගණන",
+    en: "Degree, frequency",
+    cat: "Lesson 10",
+    words: [
+      { kanji: "一度", kana: "いちど", romaji: "ichido", si: "එක් වරක් (once)" },
+      { kanji: "今度", kana: "こんど", romaji: "kondo", si: "ඊළඟ සැරේ (next time)" },
+      { kanji: "25度", kana: "25ど", romaji: "25do", si: "අංශක 25 (25 degrees)" }
+    ]
+  },
+
+  {
+    num: "101",
+    kanji: "止",
+    strokes: 4,
+    kun: "とーまる",
+    on: "シ",
+    si: "නවත්වනවා",
+    en: "stop",
+    cat: "Lesson 11",
+    words: [
+      { kanji: "止まる", kana: "とまる", romaji: "tomaru", si: "නැවතෙනවා, නවතිනවා (to stop)" },
+      { kanji: "止める", kana: "とめる", romaji: "tomeru", si: "නවත්වනවා (to stop)" },
+      { kanji: "中止する", kana: "ちゅうしする", romaji: "chuushisuru", si: "අවලංගු කරනවා (cancel)" }
+    ]
+  },
+  {
+    num: "102",
+    kanji: "歩",
+    strokes: 8,
+    kun: "あるーく",
+    on: "ホ、ポ",
+    si: "ඇවිදිනවා",
+    en: "walk",
+    cat: "Lesson 11",
+    words: [
+      { kanji: "歩く", kana: "あるく", romaji: "aruku", si: "ඇවිදිනවා (walk)" }
+    ]
+  },
+  {
+    num: "103",
+    kanji: "走",
+    strokes: 7,
+    kun: "はしーる",
+    on: "ソウ",
+    si: "දුවනවා",
+    en: "run",
+    cat: "Lesson 11",
+    words: [
+      { kanji: "走る", kana: "はしる", romaji: "hashiru", si: "දුවනවා (run)" },
+      { kanji: "力走する", kana: "りきそうする", romaji: "rikisousuru", si: "හැකි තරම් වේගයෙන් දුවනවා (run as fast as possible)" }
+    ]
+  },
+  {
+    num: "104",
+    kanji: "起",
+    strokes: 10,
+    kun: "おーきる、おーこす",
+    on: "キ",
+    si: "අවදි වෙනවා",
+    en: "Get up",
+    cat: "Lesson 11",
+    words: [
+      { kanji: "起きる", kana: "おきる", romaji: "okiru", si: "අවදි වෙනවා (to get up)" },
+      { kanji: "起こす", kana: "おこす", romaji: "okosu", si: "අවදි වෙනවා (to wake up)" },
+      { kanji: "早起き", kana: "はやおき", romaji: "hayaoki", si: "කලෝසනින් අවදි වන්නා (early riser)" }
+    ]
+  },
+  {
+    num: "105",
+    kanji: "持",
+    strokes: 9,
+    kun: "もーつ",
+    on: "ジ",
+    si: "සතු වෙනවා",
+    en: "have",
+    cat: "Lesson 11",
+    words: [
+      { kanji: "持つ", kana: "もつ", romaji: "motsu", si: "සතු වෙනවා, අරගෙන, රැගෙන යනවා (have, hold)" },
+      { kanji: "気持ち", kana: "きもち", romaji: "kimochi", si: "හැගීම (feelings)" }
+    ]
+  },
+  {
+    num: "106",
+    kanji: "待",
+    strokes: 9,
+    kun: "まーつ",
+    on: "タイ",
+    si: "රැදී සිටිනවා",
+    en: "wait",
+    cat: "Lesson 11",
+    words: [
+      { kanji: "待つ", kana: "まつ", romaji: "matsu", si: "රැදී සිටිනවා (to wait)" },
+      { kanji: "待ち合わせ", kana: "まちあわせ", romaji: "machiawase", si: "රැස්වීම (rendezvous)" }
+    ]
+  },
+  {
+    num: "107",
+    kanji: "借",
+    strokes: 10,
+    kun: "かーりる",
+    on: "シャク",
+    si: "ණයට/කුලියට ගන්නවා",
+    en: "borrow",
+    cat: "Lesson 11",
+    words: [
+      { kanji: "借りる", kana: "かりる", romaji: "kariru", si: "ණයට/කුලියට ගන්නවා (borrow)" },
+      { kanji: "借金", kana: "しゃっきん", romaji: "shakkin", si: "ණය (loan)" }
+    ]
+  },
+  {
+    num: "108",
+    kanji: "貸",
+    strokes: 12,
+    kun: "かーす",
+    on: "タイ",
+    si: "ණයට/කුලියට දෙනවා",
+    en: "lend",
+    cat: "Lesson 11",
+    words: [
+      { kanji: "貸します", kana: "かします", romaji: "kashimasu", si: "ණයට/කුලියට දෙනවා (lend)" },
+      { kanji: "貸家", kana: "かしや", romaji: "kashiya", si: "කුලියට දීමට ඇති නිවාසය (house for rent)" }
+    ]
+  },
+  {
+    num: "109",
+    kanji: "始",
+    strokes: 8,
+    kun: "はじーまる、はじーめる",
+    on: "シ",
+    si: "ආරම්භ කරනවා",
+    en: "begin",
+    cat: "Lesson 11",
+    words: [
+      { kanji: "始める", kana: "はじめる", romaji: "hajimeru", si: "ආරම්භ කරනවා (Start)" },
+      { kanji: "始まる", kana: "はじまる", romaji: "hajimaru", si: "ආරම්භ කරනවා (begin)" }
+    ]
+  },
+  {
+    num: "110",
+    kanji: "終",
+    strokes: 11,
+    kun: "おーわる、おーえる",
+    on: "シュウ",
+    si: "අවසන් කරනවා",
+    en: "end",
+    cat: "Lesson 11",
+    words: [
+      { kanji: "終わる", kana: "おわる", romaji: "owaru", si: "අවසන් වෙනවා (end)" },
+      { kanji: "終える", kana: "おえる", romaji: "oeru", si: "අවසන් කරනවා (finish)" },
+      { kanji: "終電", kana: "しゅうでん", romaji: "shuuden", si: "අවසාන දුමිරිය (last train)" }
+    ]
+  },
+
+  {
+    num: "111",
+    kanji: "家",
+    strokes: 10,
+    kun: "いえ、や",
+    on: "カ、ケ",
+    si: "නිවස",
+    en: "house",
+    cat: "Lesson 12",
+    words: [
+      { kanji: "家", kana: "いえ", romaji: "ie", si: "නිවස (house)" },
+      { kanji: "画家", kana: "がか", romaji: "gaka", si: "චිතු ශිල්පියා (painter)" },
+      { kanji: "家内", kana: "かない", romaji: "kanai", si: "බිරිද (wife)" },
+      { kanji: "起業家", kana: "きぎょうか", romaji: "kigyouka", si: "ව්‍යවසායකයා (entrepreneur)" }
+    ]
+  },
+  {
+    num: "112",
+    kanji: "族",
+    strokes: 11,
+    kun: "-",
+    on: "ゾク",
+    si: "ගෝත්‍රය",
+    en: "tribe",
+    cat: "Lesson 12",
+    words: [
+      { kanji: "家族", kana: "かぞく", romaji: "kazoku", si: "පවුල (family)" }
+    ]
+  },
+  {
+    num: "113",
+    kanji: "私",
+    strokes: 7,
+    kun: "わたし、わたくし",
+    on: "シ",
+    si: "මම",
+    en: "I",
+    cat: "Lesson 12",
+    words: [
+      { kanji: "私", kana: "わたし、わたくし", romaji: "watashi / watakushi", si: "මම (I)" },
+      { kanji: "私立大学", kana: "しりつだいがく", romaji: "shiritsudaigaku", si: "පෞද්ගලික විශ්ව විද්‍යාල (Private University)" },
+      { kanji: "私生活", kana: "しせいかつ", romaji: "shiseikatsu", si: "පුද්ගලික ජීවිතය (private life)" }
+    ]
+  },
+  {
+    num: "114",
+    kanji: "自",
+    strokes: 6,
+    kun: "みずかーら",
+    on: "ジ、シ",
+    si: "තමන්",
+    en: "oneself",
+    cat: "Lesson 12",
+    words: [
+      { kanji: "自分", kana: "じぶん", romaji: "jibun", si: "තමන් (oneself)" },
+      { kanji: "自由", kana: "じゆう", romaji: "jiyuu", si: "නිදහස (freedom)" }
+    ]
+  },
+  {
+    num: "115",
+    kanji: "親",
+    strokes: 16,
+    kun: "おや、したーしい",
+    on: "シン",
+    si: "දෙමාපියන්",
+    en: "parents",
+    cat: "Lesson 12",
+    words: [
+      { kanji: "親", kana: "おや", romaji: "oya", si: "දෙමාපියන් (parents)" },
+      { kanji: "母親", kana: "ははおや", romaji: "hahaoya", si: "මව (mother)" },
+      { kanji: "父親", kana: "ちちおや", romaji: "chichioya", si: "පියා (father)" },
+      { kanji: "親子", kana: "おやこ", romaji: "oyako", si: "දෙමාපියන් සහ දරුවන් (Parent and child)" },
+      { kanji: "親切な", kana: "しんせつな", romaji: "shinsetsuna", si: "කාරුණික (kind)" },
+      { kanji: "親しい", kana: "したしい", romaji: "shitashii", si: "සමීප (close)" }
+    ]
+  },
+  {
+    num: "116",
+    kanji: "両",
+    strokes: 6,
+    kun: "てる、ふたつ",
+    on: "リョウ",
+    si: "දෙකම",
+    en: "both",
+    cat: "Lesson 12",
+    words: [
+      { kanji: "両親", kana: "りょうしん", romaji: "ryoushin", si: "දෙමාපියන් (parents)" },
+      { kanji: "両方", kana: "りょうほう", romaji: "ryouhou", si: "දෙකම (both)" },
+      { kanji: "両手", kana: "りょうて", romaji: "ryoute", si: "අත් දෙකම (both hands)" }
+    ]
+  },
+  {
+    num: "117",
+    kanji: "兄",
+    strokes: 5,
+    kun: "あに",
+    on: "ケイ、キョウ",
+    si: "අයියා",
+    en: "Elder brother",
+    cat: "Lesson 12",
+    words: [
+      { kanji: "兄", kana: "あに", romaji: "ani", si: "තමන්ගේ අයියා (one's elder brother)" },
+      { kanji: "お兄さん", kana: "おにいさん", romaji: "oniisan", si: "වෙනත් පුද්ගලයෙකුගේ අයියා (someone else elder brother)" }
+    ]
+  },
+  {
+    num: "118",
+    kanji: "弟",
+    strokes: 7,
+    kun: "おとうと",
+    on: "ダイ",
+    si: "මල්ලි",
+    en: "Younger brother",
+    cat: "Lesson 12",
+    words: [
+      { kanji: "弟", kana: "おとうと", romaji: "otouto", si: "තමන්ගේ මල්ලි (one's younger brother)" },
+      { kanji: "兄弟", kana: "きょうだい", romaji: "kyoudai", si: "සහෝදරයෝ (brothers)" }
+    ]
+  },
+  {
+    num: "119",
+    kanji: "姉",
+    strokes: 8,
+    kun: "あね",
+    on: "シ",
+    si: "අක්කා",
+    en: "Elder sister",
+    cat: "Lesson 12",
+    words: [
+      { kanji: "姉", kana: "あね", romaji: "ane", si: "තමන්ගේ අක්කා (one's elder sister)" },
+      { kanji: "お姉さん", kana: "おねえさん", romaji: "oneesan", si: "වෙනත් පුද්ගලයෙකුගේ අක්කා (someone else elder sister)" }
+    ]
+  },
+  {
+    num: "120",
+    kanji: "妹",
+    strokes: 8,
+    kun: "いもうと",
+    on: "マイ",
+    si: "නෝනි",
+    en: "Younger sister",
+    cat: "Lesson 12",
+    words: [
+      { kanji: "妹", kana: "いもうと", romaji: "imouto", si: "තමන්ගේ නෝනි (one's younger sister)" },
+      { kanji: "姉妹", kana: "しまい", romaji: "shimai", si: "සහෝදරියෝ (sisters)" }
+    ]
+  },
+
 ];
 
 /* =========================================================
    KANA -> ROMAJI ENGINE
 ========================================================= */
 const KATA_TO_HIRA_OFFSET = 0x60;
-function kataToHira(str){
+function kataToHira(str) {
   let out = "";
-  for(const ch of str){
+  for (const ch of str) {
     const code = ch.codePointAt(0);
-    if(code >= 0x30A1 && code <= 0x30F6){
+    if (code >= 0x30A1 && code <= 0x30F6) {
       out += String.fromCodePoint(code - KATA_TO_HIRA_OFFSET);
     } else {
       out += ch;
@@ -366,71 +2106,71 @@ function kataToHira(str){
 }
 
 const ROMAJI_MAP = {
-  "あ":"a","い":"i","う":"u","え":"e","お":"o",
-  "か":"ka","き":"ki","く":"ku","け":"ke","こ":"ko",
-  "が":"ga","ぎ":"gi","ぐ":"gu","げ":"ge","ご":"go",
-  "さ":"sa","し":"shi","す":"su","せ":"se","そ":"so",
-  "ざ":"za","じ":"ji","ず":"zu","ぜ":"ze","ぞ":"zo",
-  "た":"ta","ち":"chi","つ":"tsu","て":"te","と":"to",
-  "だ":"da","ぢ":"ji","づ":"zu","で":"de","ど":"do",
-  "な":"na","に":"ni","ぬ":"nu","ね":"ne","の":"no",
-  "は":"ha","ひ":"hi","ふ":"fu","へ":"he","ほ":"ho",
-  "ば":"ba","び":"bi","ぶ":"bu","べ":"be","ぼ":"bo",
-  "ぱ":"pa","ぴ":"pi","ぷ":"pu","ぺ":"pe","ぽ":"po",
-  "ま":"ma","み":"mi","む":"mu","め":"me","も":"mo",
-  "や":"ya","ゆ":"yu","よ":"yo",
-  "ら":"ra","り":"ri","る":"ru","れ":"re","ろ":"ro",
-  "わ":"wa","を":"wo","ん":"n",
-  "ゐ":"i","ゑ":"e"
+  "あ": "a", "い": "i", "う": "u", "え": "e", "お": "o",
+  "か": "ka", "き": "ki", "く": "ku", "け": "ke", "こ": "ko",
+  "が": "ga", "ぎ": "gi", "ぐ": "gu", "げ": "ge", "ご": "go",
+  "さ": "sa", "し": "shi", "す": "su", "せ": "se", "そ": "so",
+  "ざ": "za", "じ": "ji", "ず": "zu", "ぜ": "ze", "ぞ": "zo",
+  "た": "ta", "ち": "chi", "つ": "tsu", "て": "te", "と": "to",
+  "だ": "da", "ぢ": "ji", "づ": "zu", "で": "de", "ど": "do",
+  "な": "na", "に": "ni", "ぬ": "nu", "ね": "ne", "の": "no",
+  "は": "ha", "ひ": "hi", "ふ": "fu", "へ": "he", "ほ": "ho",
+  "ば": "ba", "び": "bi", "ぶ": "bu", "べ": "be", "ぼ": "bo",
+  "ぱ": "pa", "ぴ": "pi", "ぷ": "pu", "ぺ": "pe", "ぽ": "po",
+  "ま": "ma", "み": "mi", "む": "mu", "め": "me", "も": "mo",
+  "や": "ya", "ゆ": "yu", "よ": "yo",
+  "ら": "ra", "り": "ri", "る": "ru", "れ": "re", "ろ": "ro",
+  "わ": "wa", "を": "wo", "ん": "n",
+  "ゐ": "i", "ゑ": "e"
 };
 const YOUON_MAP = {
-  "きゃ":"kya","きゅ":"kyu","きょ":"kyo",
-  "ぎゃ":"gya","ぎゅ":"gyu","ぎょ":"gyo",
-  "しゃ":"sha","しゅ":"shu","しょ":"sho",
-  "じゃ":"ja","じゅ":"ju","じょ":"jo",
-  "ちゃ":"cha","ちゅ":"chu","ちょ":"cho",
-  "ぢゃ":"ja","ぢゅ":"ju","ぢょ":"jo",
-  "にゃ":"nya","にゅ":"nyu","にょ":"nyo",
-  "ひゃ":"hya","ひゅ":"hyu","ひょ":"hyo",
-  "びゃ":"bya","びゅ":"byu","びょ":"byo",
-  "ぴゃ":"pya","ぴゅ":"pyu","ぴょ":"pyo",
-  "みゃ":"mya","みゅ":"myu","みょ":"myo",
-  "りゃ":"rya","りゅ":"ryu","りょ":"ryo"
+  "きゃ": "kya", "きゅ": "kyu", "きょ": "kyo",
+  "ぎゃ": "gya", "ぎゅ": "gyu", "ぎょ": "gyo",
+  "しゃ": "sha", "しゅ": "shu", "しょ": "sho",
+  "じゃ": "ja", "じゅ": "ju", "じょ": "jo",
+  "ちゃ": "cha", "ちゅ": "chu", "ちょ": "cho",
+  "ぢゃ": "ja", "ぢゅ": "ju", "ぢょ": "jo",
+  "にゃ": "nya", "にゅ": "nyu", "にょ": "nyo",
+  "ひゃ": "hya", "ひゅ": "hyu", "ひょ": "hyo",
+  "びゃ": "bya", "びゅ": "byu", "びょ": "byo",
+  "ぴゃ": "pya", "ぴゅ": "pyu", "ぴょ": "pyo",
+  "みゃ": "mya", "みゅ": "myu", "みょ": "myo",
+  "りゃ": "rya", "りゅ": "ryu", "りょ": "ryo"
 };
-const SMALL_Y = new Set(["ゃ","ゅ","ょ"]);
+const SMALL_Y = new Set(["ゃ", "ゅ", "ょ"]);
 
-function kanaToRomaji(input){
-  if(!input) return "";
+function kanaToRomaji(input) {
+  if (!input) return "";
   const hira = kataToHira(input);
   let out = "";
   let lastVowel = "";
   const chars = Array.from(hira);
-  for(let i=0;i<chars.length;i++){
+  for (let i = 0; i < chars.length; i++) {
     const c = chars[i];
-    const next = chars[i+1];
-    if(c === "・" || c===" "){ out += " "; continue; }
-    if(c === "ー"){ out += lastVowel; continue; }
-    if(c === "っ"){
+    const next = chars[i + 1];
+    if (c === "・" || c === " ") { out += " "; continue; }
+    if (c === "ー") { out += lastVowel; continue; }
+    if (c === "っ") {
       let doubleCons = "";
-      if(next){
-        const nextCombo = YOUON_MAP[next+(chars[i+2]||"")];
+      if (next) {
+        const nextCombo = YOUON_MAP[next + (chars[i + 2] || "")];
         const base = nextCombo || ROMAJI_MAP[next] || "";
         doubleCons = base.charAt(0);
-        if(base.startsWith("ch")) doubleCons = "t";
+        if (base.startsWith("ch")) doubleCons = "t";
       }
       out += doubleCons;
       continue;
     }
-    if(next && SMALL_Y.has(next)){
-      const combo = YOUON_MAP[c+next];
-      if(combo){
+    if (next && SMALL_Y.has(next)) {
+      const combo = YOUON_MAP[c + next];
+      if (combo) {
         out += combo;
         lastVowel = combo.slice(-1);
         i++;
         continue;
       }
     }
-    if(ROMAJI_MAP[c] !== undefined){
+    if (ROMAJI_MAP[c] !== undefined) {
       out += ROMAJI_MAP[c];
       lastVowel = ROMAJI_MAP[c].slice(-1);
       continue;
@@ -444,43 +2184,79 @@ function kanaToRomaji(input){
    CATEGORIZATION (Gojūon row)
 ========================================================= */
 const ROW_ORDER = [
-  "あ","い","う","え","お",
-  "か","き","く","け","こ",
-  "さ","し","す","せ","そ",
-  "た","ち","つ","て","と",
-  "な","に","ぬ","ね","の",
-  "は","ひ","ふ","へ","ほ",
-  "ま","み","む","め","も",
-  "や","ゆ","よ",
-  "り","る","れ",
+  "あ", "い", "う", "え", "お",
+  "か", "き", "く", "け", "こ",
+  "さ", "し", "す", "せ", "そ",
+  "た", "ち", "つ", "て", "と",
+  "な", "に", "ぬ", "ね", "の",
+  "は", "ひ", "ふ", "へ", "ほ",
+  "ま", "み", "む", "め", "も",
+  "や", "ゆ", "よ",
+  "り", "る", "れ",
   "わ"
 ];
 
-const ROW_MAP = (()=>{
+const ROW_MAP = (() => {
   const m = {};
   const baseList = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん";
-  for(const ch of baseList) {
+  for (const ch of baseList) {
     m[ch] = ch;
   }
   const voiced = {
-    "が":"か", "ぎ":"き", "ぐ":"く", "げ":"け", "ご":"こ",
-    "ざ":"さ", "じ":"し", "ず":"す", "ぜ":"せ", "ぞ":"そ",
-    "だ":"た", "ぢ":"ち", "づ":"つ", "で":"て", "ど":"と",
-    "ば":"は", "び":"ひ", "ぶ":"ふ", "べ":"へ", "ぼ":"ほ",
-    "ぱ":"は", "ぴ":"ひ", "ぷ":"ふ", "ぺ":"へ", "ぽ":"ほ"
+    "が": "か", "ぎ": "き", "ぐ": "く", "げ": "け", "ご": "こ",
+    "ざ": "さ", "じ": "し", "ず": "す", "ぜ": "せ", "ぞ": "そ",
+    "だ": "た", "ぢ": "ち", "づ": "つ", "で": "て", "ど": "と",
+    "ば": "は", "び": "ひ", "ぶ": "ふ", "べ": "へ", "ぼ": "ほ",
+    "ぱ": "は", "ぴ": "ひ", "ぷ": "ふ", "ぺ": "へ", "ぽ": "ほ"
   };
-  for(const [key, val] of Object.entries(voiced)) {
+  for (const [key, val] of Object.entries(voiced)) {
     m[key] = val;
   }
   return m;
 })();
 
-function categoryOf(kana){
+function categoryOf(kana) {
   const hira = kataToHira(kana);
   const first = Array.from(hira)[0];
   const mapped = ROW_MAP[first] || "あ";
   return ROW_ORDER.includes(mapped) ? mapped : "あ";
 }
+
+/* =========================================================
+   KANJI DATA MODEL & CATEGORIES
+========================================================= */
+const KANJI_CATEGORIES = [
+  "Lesson 1",
+  "Lesson 2",
+  "Lesson 3",
+  "Lesson 4",
+  "Lesson 5",
+  "Lesson 6",
+  "Lesson 7",
+  "Lesson 8",
+  "Lesson 9",
+  "Lesson 10",
+  "Lesson 11",
+  "Lesson 12"
+];
+
+const KANJI = KANJI_RAW.map((item, idx) => {
+  const n = parseInt(item.num || (idx + 1), 10);
+  const lessonNum = Math.ceil(n / 10) || 1;
+  const lessonCat = (item.cat && item.cat.startsWith("Lesson ")) ? item.cat : `Lesson ${lessonNum}`;
+  return {
+    id: "kanji_" + (item.num || (idx + 1)),
+    num: item.num || String(idx + 1).padStart(2, "0"),
+    kanji: item.kanji,
+    strokes: item.strokes || 1,
+    kun: item.kun || "-",
+    on: item.on || "-",
+    si: item.si || "",
+    en: item.en || "",
+    cat: lessonCat,
+    words: item.words || []
+  };
+});
 
 /* =========================================================
    BUILD DATA MODEL
@@ -511,7 +2287,7 @@ const VERBS = VERBS_RAW.map((row, idx) => {
   };
 });
 
-let activeMode = null; // 'vocab', 'verbs', or null
+let activeMode = null; // 'vocab', 'verbs', 'kanji', or null
 let CURRENT_DATA = [];
 const byCat = {};
 const quickNav = document.getElementById("quickNav");
@@ -544,14 +2320,32 @@ activeLetterBadge.addEventListener("click", () => {
   setGridCollapsed(false);
 });
 
+/* =========================================================
+   AUDIO PRONUNCIATION (Speech Synthesis)
+========================================================= */
+function speakJP(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const clean = text.replace(/[・\s\(\)（）-]/g, '');
+  const utter = new SpeechSynthesisUtterance(clean);
+  utter.lang = 'ja-JP';
+  utter.rate = 0.85;
+  window.speechSynthesis.speak(utter);
+}
+
+/* =========================================================
+   MODE INITIALIZATION
+========================================================= */
 function initMode(mode) {
   activeMode = mode;
-  document.body.classList.remove("mode-vocab", "mode-verbs");
-  
+  document.body.classList.remove("mode-vocab", "mode-verbs", "mode-kanji");
+
   setGridCollapsed(false);
   activeLetterBadge.classList.add("hidden");
   activeLetterBadge.innerHTML = "";
-  
+
+  const hankoEl = document.getElementById("logoHome");
+
   if (mode === "vocab") {
     CURRENT_DATA = VOCAB;
     document.body.classList.add("mode-vocab", "mode-active");
@@ -559,6 +2353,7 @@ function initMode(mode) {
     document.querySelector(".hero .sub").textContent = '語彙は言葉の種 — Words are the seeds of language';
     document.querySelector(".brand-text h1").textContent = "N4 語彙帳";
     document.querySelector(".brand-text p").textContent = "JLPT N4 Vocabulary Notebook";
+    if (hankoEl) hankoEl.textContent = "四";
     document.getElementById("landingSelector").classList.add("hidden");
   } else if (mode === "verbs") {
     CURRENT_DATA = VERBS;
@@ -567,6 +2362,16 @@ function initMode(mode) {
     document.querySelector(".hero .sub").textContent = '動詞は文の力 — Verbs are the power of sentences';
     document.querySelector(".brand-text h1").textContent = "N4 動詞帳";
     document.querySelector(".brand-text p").textContent = "JLPT N4 Verbs Notebook";
+    if (hankoEl) hankoEl.textContent = "動";
+    document.getElementById("landingSelector").classList.add("hidden");
+  } else if (mode === "kanji") {
+    CURRENT_DATA = KANJI;
+    document.body.classList.add("mode-kanji", "mode-active");
+    document.querySelector(".hero .jp-title").innerHTML = '日本語<span>・</span>N4 漢字';
+    document.querySelector(".hero .sub").textContent = '漢字は言葉の心 — Kanji are the heart of words';
+    document.querySelector(".brand-text h1").textContent = "N4 漢字帳";
+    document.querySelector(".brand-text p").textContent = "JLPT N4 Kanji Notebook";
+    if (hankoEl) hankoEl.textContent = "字";
     document.getElementById("landingSelector").classList.add("hidden");
   } else {
     CURRENT_DATA = [];
@@ -576,18 +2381,22 @@ function initMode(mode) {
   }
 
   // Calculate byCat
-  ROW_ORDER.forEach(r => byCat[r] = []);
-  CURRENT_DATA.forEach(v => byCat[v.cat].push(v));
+  const currentCategories = (mode === "kanji") ? KANJI_CATEGORIES : ROW_ORDER;
+  currentCategories.forEach(r => byCat[r] = []);
+  CURRENT_DATA.forEach(v => {
+    if (byCat[v.cat]) byCat[v.cat].push(v);
+  });
 
   // Render navigation counts
   document.getElementById("totalCount").textContent = CURRENT_DATA.length;
-  
+
   // Re-build quicknav buttons
   quickNav.innerHTML = "";
-  ROW_ORDER.forEach(row => {
+  currentCategories.forEach(row => {
     const btn = document.createElement("button");
     btn.dataset.row = row;
-    btn.innerHTML = `<span class="row-kana">${row}</span><span class="row-count">${byCat[row].length}</span>`;
+    const label = row;
+    btn.innerHTML = `<span class="row-kana">${label}</span><span class="row-count">${(byCat[row] || []).length}</span>`;
     btn.addEventListener("click", () => {
       searchInput.value = "";
       goToCategory(row);
@@ -600,19 +2409,19 @@ function initMode(mode) {
   renderWelcome();
 }
 
-function setActiveNavButton(row){
-  quickNav.querySelectorAll("button").forEach(b=>{
+function setActiveNavButton(row) {
+  quickNav.querySelectorAll("button").forEach(b => {
     b.classList.toggle("active", b.dataset.row === row);
   });
 }
 
 /* =========================================================
-   RENDER: TABLE HTML BUILDER
+   RENDER: TABLE HTML BUILDER (VOCAB & VERBS)
 ========================================================= */
-function tableRowsHTML(items, showCatCol){
-  return items.map((v,i)=>`
+function tableRowsHTML(items, showCatCol) {
+  return items.map((v, i) => `
     <tr data-id="${v.id}">
-      <td class="col-idx">${i+1}</td>
+      <td class="col-idx">${i + 1}</td>
       <td class="col-kanji ${v.kanji ? "" : "empty"}">${v.kanji || "—"}</td>
       <td class="col-kana">${v.kana}</td>
       <td class="col-romaji">${v.romaji}</td>
@@ -623,8 +2432,8 @@ function tableRowsHTML(items, showCatCol){
   `).join("");
 }
 
-function tableHTML(items, showCatCol){
-  if(items.length === 0){
+function tableHTML(items, showCatCol) {
+  if (items.length === 0) {
     return `<p class="no-results">検索結果がありません — No matches found.</p>`;
   }
   return `
@@ -640,17 +2449,141 @@ function tableHTML(items, showCatCol){
 }
 
 /* =========================================================
+   RENDER: KANJI CARDS HTML BUILDER
+========================================================= */
+function kanjiCardsHTML(items) {
+  if (!items || items.length === 0) {
+    return `<p class="no-results">検索結果がありません — No Kanji found.</p>`;
+  }
+  return `
+    <div class="kanji-grid">
+      ${items.map(k => `
+        <div class="kanji-card" data-id="${k.id}" data-kanji="${k.kanji}">
+          <!-- Top Section: Big Kanji + Readings + Meaning -->
+          <div class="kanji-card-top">
+            <div class="kanji-main-box">
+              <div class="kanji-header-badge">
+                <span class="kanji-num">${k.num}.</span>
+                <span class="kanji-stroke-pill">${k.strokes} 画</span>
+              </div>
+              <div class="kanji-char-wrap">
+                <span class="kanji-big-char" title="Click to practice writing">${k.kanji}</span>
+              </div>
+              <button class="kanji-practice-btn" data-kanji-id="${k.id}">✏️ Practice Strokes</button>
+            </div>
+            <div class="kanji-readings-box">
+              <div class="reading-row">
+                <span class="reading-tag">くん -</span>
+                <span class="reading-val">${k.kun}</span>
+                ${k.kun !== "-" ? `<button class="kw-audio-btn" data-speak="${k.kun.replace(/[-・]/g, '')}" title="Listen reading">🔊</button>` : ""}
+              </div>
+              <div class="reading-row">
+                <span class="reading-tag">おん -</span>
+                <span class="reading-val">${k.on}</span>
+                ${k.on !== "-" ? `<button class="kw-audio-btn" data-speak="${k.on.split('、')[0]}" title="Listen reading">🔊</button>` : ""}
+              </div>
+            </div>
+            <div class="kanji-meanings-box">
+              <div class="kanji-si-meaning" lang="si">${k.si}</div>
+              <div class="kanji-en-meaning">${k.en}</div>
+            </div>
+          </div>
+
+          <!-- Practice Grid Section (16 boxes) -->
+          <div class="kanji-practice-grid-wrap">
+            <div class="practice-grid-header">
+              <span class="practice-grid-title">✍️ Practice Writing (書き順・練習)</span>
+              <span class="kanji-stroke-pill">${k.strokes} Strokes</span>
+            </div>
+            <div class="practice-grid-rows">
+              <div class="practice-grid-row">
+                <div class="practice-box ref"><span class="practice-box-char">${k.kanji}</span></div>
+                <div class="practice-box trace"><span class="practice-box-char">${k.kanji}</span></div>
+                <div class="practice-box trace"><span class="practice-box-char">${k.kanji}</span></div>
+                <div class="practice-box"></div>
+                <div class="practice-box"></div>
+                <div class="practice-box"></div>
+                <div class="practice-box"></div>
+                <div class="practice-box"></div>
+              </div>
+              <div class="practice-grid-row">
+                <div class="practice-box"></div>
+                <div class="practice-box"></div>
+                <div class="practice-box"></div>
+                <div class="practice-box"></div>
+                <div class="practice-box"></div>
+                <div class="practice-box"></div>
+                <div class="practice-box"></div>
+                <div class="practice-box"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Related Words Table Section -->
+          ${k.words && k.words.length ? `
+            <div class="kanji-words-section">
+              <table class="kanji-words-table">
+                <tbody>
+                  ${k.words.map(w => `
+                    <tr>
+                      <td class="kw-kanji">${w.kanji}</td>
+                      <td class="kw-kana">${w.kana}</td>
+                      <td class="kw-romaji">${w.romaji || kanaToRomaji(w.kana)}</td>
+                      <td class="kw-meaning" lang="si">${w.si}</td>
+                      <td style="width: 38px; text-align: right;">
+                        <button class="kw-audio-btn" data-speak="${w.kanji || w.kana}" title="Listen pronunciation">🔊</button>
+                      </td>
+                    </tr>
+                  `).join("")}
+                </tbody>
+              </table>
+            </div>
+          ` : ""}
+        </div>
+      `).join("")}
+    </div>
+  `;
+}
+
+/* =========================================================
    VIEWS
 ========================================================= */
 const contentArea = document.getElementById("contentArea");
 let currentCat = null;
 
-function renderWelcome(){
+function renderWelcome() {
   currentCat = null;
   setActiveNavButton(null);
   activeLetterBadge.classList.add("hidden");
   activeLetterBadge.innerHTML = "";
   setGridCollapsed(false);
+
+  if (activeMode === "kanji") {
+    const lesson1Items = byCat["Lesson 1"] || KANJI.slice(0, 10);
+    contentArea.innerHTML = `
+      <div class="welcome-card">
+        <div class="big">漢・字・帳</div>
+        <p>Pick a lesson above to practice writing & study N4 Kanji —<br>
+        or use the search box to find any Kanji, reading, or meaning.</p>
+      </div>
+      <div style="margin-top: 30px;">
+        <div class="section-head">
+          <div class="titles">
+            <span class="big-kana" style="font-size:30px;">Lesson 1</span>
+            <span class="row-samples">Essential N4 Kanji Practice Sheets<span class="count-badge">${lesson1Items.length} Kanji in Lesson 1</span></span>
+          </div>
+          <button class="print-btn" id="printBtn">🖨 &nbsp;Print Practice Sheet</button>
+        </div>
+        <div class="print-title">JLPT N4 Kanji — Lesson 1 (${lesson1Items.length} kanji)</div>
+        ${kanjiCardsHTML(lesson1Items)}
+      </div>
+    `;
+    const pb = document.getElementById("printBtn");
+    if (pb) pb.addEventListener("click", () => window.print());
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
+
   const term = activeMode === "verbs" ? "verbs" : "words";
   contentArea.innerHTML = `
     <div class="welcome-card">
@@ -659,110 +2592,310 @@ function renderWelcome(){
       or use the search box to look across the whole list.</p>
     </div>
   `;
-  window.scrollTo({top:0, behavior:"smooth"});
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-function goToCategory(row){
+function goToCategory(row) {
   currentCat = row;
-  const items = byCat[row];
+  const items = byCat[row] || [];
   setActiveNavButton(row);
-  const idx = ROW_ORDER.indexOf(row);
-  const prevRow = ROW_ORDER[(idx - 1 + ROW_ORDER.length) % ROW_ORDER.length];
-  const nextRow = ROW_ORDER[(idx + 1) % ROW_ORDER.length];
+
+  const isKanji = activeMode === "kanji";
+  const currentOrder = isKanji ? KANJI_CATEGORIES : ROW_ORDER;
+  const idx = currentOrder.indexOf(row);
+  const prevRow = currentOrder[(idx - 1 + currentOrder.length) % currentOrder.length];
+  const nextRow = currentOrder[(idx + 1) % currentOrder.length];
 
   // Update active letter badge and collapse grid
-  activeLetterBadge.innerHTML = `<span class="badge-kana">${row}</span><span class="badge-count">${items.length}</span>`;
+  const badgeLabel = row;
+  const prevBadgeLabel = prevRow;
+  const nextBadgeLabel = nextRow;
+
+  activeLetterBadge.innerHTML = `<span class="badge-kana">${badgeLabel}</span><span class="badge-count">${items.length}</span>`;
   activeLetterBadge.classList.remove("hidden");
   setGridCollapsed(true);
 
-  const term = activeMode === "verbs" ? "verbs" : "words";
-  const titleTerm = activeMode === "verbs" ? "Verbs" : "Vocabulary";
+  const term = isKanji ? "kanji" : (activeMode === "verbs" ? "verbs" : "words");
+  const titleTerm = isKanji ? "Kanji" : (activeMode === "verbs" ? "Verbs" : "Vocabulary");
 
   contentArea.innerHTML = `
     <div class="section-head">
       <div class="titles">
-        <span class="big-kana">${row}</span>
-        <span class="row-samples"><span class="count-badge">${items.length} ${term} starting with "${row}"</span></span>
+        <span class="big-kana">${badgeLabel}</span>
+        <span class="row-samples"><span class="count-badge">${items.length} ${term} in ${row}</span></span>
       </div>
-      <button class="print-btn" id="printBtn">🖨 &nbsp;Print A4 sheet</button>
+      <button class="print-btn" id="printBtn">🖨 &nbsp;Print Practice Sheet</button>
     </div>
-    <div class="print-title">JLPT N4 ${titleTerm} — Letter "${row}" (${items.length} ${term})</div>
-    ${tableHTML(items, false)}
+    <div class="print-title">JLPT N4 ${titleTerm} — ${row} (${items.length} ${term})</div>
+    ${isKanji ? kanjiCardsHTML(items) : tableHTML(items, false)}
     <div class="pager">
-      <button id="prevCatBtn">← <span class="kana-tag">${prevRow}</span></button>
-      <button id="nextCatBtn"><span class="kana-tag">${nextRow}</span> →</button>
+      <button id="prevCatBtn">← <span class="kana-tag">${prevBadgeLabel}</span></button>
+      <button id="nextCatBtn"><span class="kana-tag">${nextBadgeLabel}</span> →</button>
     </div>
   `;
-  document.getElementById("printBtn").addEventListener("click", ()=> window.print());
-  document.getElementById("prevCatBtn").addEventListener("click", ()=> goToCategory(prevRow));
-  document.getElementById("nextCatBtn").addEventListener("click", ()=> goToCategory(nextRow));
-  window.scrollTo({top:0, behavior:"smooth"});
+  document.getElementById("printBtn").addEventListener("click", () => window.print());
+  document.getElementById("prevCatBtn").addEventListener("click", () => goToCategory(prevRow));
+  document.getElementById("nextCatBtn").addEventListener("click", () => goToCategory(nextRow));
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-function renderSearchResults(query){
+function renderSearchResults(query) {
   currentCat = null;
   setActiveNavButton(null);
   const q = query.toLowerCase();
-  const items = CURRENT_DATA.filter(v =>
-    (v.kanji + v.kana + v.romaji + v.en + v.si).toLowerCase().includes(q)
-  );
 
-  const term = activeMode === "verbs" ? "verb" : "word";
-  const titleTerm = activeMode === "verbs" ? "Verbs" : "Vocabulary";
+  let items = [];
+  const isKanji = activeMode === "kanji";
+
+  if (isKanji) {
+    items = CURRENT_DATA.filter(k => {
+      const wordsStr = (k.words || []).map(w => w.kanji + w.kana + (w.romaji || "") + w.si + (w.en || "")).join(" ");
+      return (k.kanji + k.kun + k.on + k.en + k.si + wordsStr).toLowerCase().includes(q);
+    });
+  } else {
+    items = CURRENT_DATA.filter(v =>
+      (v.kanji + v.kana + v.romaji + v.en + v.si).toLowerCase().includes(q)
+    );
+  }
+
+  const term = isKanji ? "kanji" : (activeMode === "verbs" ? "verb" : "word");
+  const titleTerm = isKanji ? "Kanji" : (activeMode === "verbs" ? "Verbs" : "Vocabulary");
 
   contentArea.innerHTML = `
     <div class="section-head">
       <div class="titles">
         <span class="big-kana" style="font-size:28px;">🔍</span>
-        <span class="row-samples">Search results for “${query}”<span class="count-badge">${items.length} ${term}${items.length===1?"":"s"} found</span></span>
+        <span class="row-samples">Search results for “${query}”<span class="count-badge">${items.length} ${term}${items.length === 1 ? "" : "s"} found</span></span>
       </div>
       ${items.length ? `<button class="print-btn" id="printBtn">🖨 &nbsp;Print A4 sheet</button>` : ""}
     </div>
     <div class="print-title">JLPT N4 ${titleTerm} — Search “${query}” (${items.length} ${term}s)</div>
-    ${tableHTML(items, true)}
+    ${isKanji ? kanjiCardsHTML(items) : tableHTML(items, true)}
   `;
   const pb = document.getElementById("printBtn");
-  if(pb) pb.addEventListener("click", ()=> window.print());
+  if (pb) pb.addEventListener("click", () => window.print());
 }
 
-/* practice reveal (event delegation, contentArea persists) */
-contentArea.addEventListener("click", (e)=>{
-  if(!document.body.classList.contains("practice-mode")) return;
+/* =========================================================
+   STROKE PRACTICE CANVAS & MODAL ENGINE
+========================================================= */
+let currentPracticeKanji = null;
+const strokeModal = document.getElementById("strokeModal");
+const strokeModalBackdrop = document.getElementById("strokeModalBackdrop");
+const closeStrokeModalBtn = document.getElementById("closeStrokeModalBtn");
+const strokeCanvas = document.getElementById("strokeCanvas");
+const strokeCanvasGuide = document.getElementById("strokeCanvasGuide");
+const modalKanjiChar = document.getElementById("modalKanjiChar");
+const modalKanjiHeading = document.getElementById("modalKanjiHeading");
+const modalKanjiReadings = document.getElementById("modalKanjiReadings");
+const toggleGuideBtn = document.getElementById("toggleGuideBtn");
+const animateStrokeBtn = document.getElementById("animateStrokeBtn");
+const clearCanvasBtn = document.getElementById("clearCanvasBtn");
+
+let strokeCtx = null;
+let isDrawing = false;
+let guideVisible = true;
+
+function setupStrokeModal() {
+  if (!strokeCanvas) return;
+  strokeCtx = strokeCanvas.getContext("2d");
+
+  function initCanvasScale() {
+    const dpr = window.devicePixelRatio || 1;
+    strokeCanvas.width = 340 * dpr;
+    strokeCanvas.height = 340 * dpr;
+    strokeCtx.scale(dpr, dpr);
+    strokeCtx.lineCap = "round";
+    strokeCtx.lineJoin = "round";
+    strokeCtx.lineWidth = 14;
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    strokeCtx.strokeStyle = isDark ? "#4da3ff" : "#1e6091";
+  }
+  initCanvasScale();
+
+  function getPos(e) {
+    const rect = strokeCanvas.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    return {
+      x: ((clientX - rect.left) / rect.width) * 340,
+      y: ((clientY - rect.top) / rect.height) * 340
+    };
+  }
+
+  function startDraw(e) {
+    e.preventDefault();
+    isDrawing = true;
+    const p = getPos(e);
+    strokeCtx.beginPath();
+    strokeCtx.moveTo(p.x, p.y);
+  }
+
+  function moveDraw(e) {
+    if (!isDrawing) return;
+    e.preventDefault();
+    const p = getPos(e);
+    strokeCtx.lineTo(p.x, p.y);
+    strokeCtx.stroke();
+  }
+
+  function stopDraw(e) {
+    if (!isDrawing) return;
+    e.preventDefault();
+    isDrawing = false;
+  }
+
+  strokeCanvas.addEventListener("mousedown", startDraw);
+  strokeCanvas.addEventListener("mousemove", moveDraw);
+  window.addEventListener("mouseup", stopDraw);
+
+  strokeCanvas.addEventListener("touchstart", startDraw, { passive: false });
+  strokeCanvas.addEventListener("touchmove", moveDraw, { passive: false });
+  window.addEventListener("touchend", stopDraw, { passive: false });
+
+  if (clearCanvasBtn) clearCanvasBtn.addEventListener("click", clearModalCanvas);
+
+  if (toggleGuideBtn) {
+    toggleGuideBtn.addEventListener("click", () => {
+      guideVisible = !guideVisible;
+      if (strokeCanvasGuide) strokeCanvasGuide.classList.toggle("hidden", !guideVisible);
+      toggleGuideBtn.textContent = guideVisible ? "👁 Guide: ON" : "👁 Guide: OFF";
+    });
+  }
+
+  if (animateStrokeBtn) {
+    animateStrokeBtn.addEventListener("click", () => {
+      if (currentPracticeKanji) {
+        speakJP(currentPracticeKanji.kanji);
+      }
+      if (strokeCanvasGuide) {
+        strokeCanvasGuide.style.transition = "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease";
+        strokeCanvasGuide.style.transform = "scale(1.15)";
+        strokeCanvasGuide.style.opacity = "0.7";
+        setTimeout(() => {
+          strokeCanvasGuide.style.transform = "scale(1)";
+          strokeCanvasGuide.style.opacity = guideVisible ? "0.15" : "0";
+        }, 500);
+      }
+    });
+  }
+
+  if (closeStrokeModalBtn) closeStrokeModalBtn.addEventListener("click", closeStrokeModal);
+  if (strokeModalBackdrop) strokeModalBackdrop.addEventListener("click", closeStrokeModal);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && strokeModal && !strokeModal.classList.contains("hidden")) {
+      closeStrokeModal();
+    }
+  });
+}
+
+function clearModalCanvas() {
+  if (!strokeCtx || !strokeCanvas) return;
+  strokeCtx.save();
+  strokeCtx.setTransform(1, 0, 0, 1, 0, 0);
+  strokeCtx.clearRect(0, 0, strokeCanvas.width, strokeCanvas.height);
+  strokeCtx.restore();
+}
+
+function openStrokeModal(k) {
+  currentPracticeKanji = k;
+  if (modalKanjiChar) modalKanjiChar.textContent = k.kanji;
+  if (modalKanjiHeading) modalKanjiHeading.textContent = `Kanji "${k.kanji}" (${k.strokes} 画)`;
+  if (modalKanjiReadings) modalKanjiReadings.textContent = `くん: ${k.kun} · おん: ${k.on} · ${k.en}`;
+  if (strokeCanvasGuide) {
+    strokeCanvasGuide.textContent = k.kanji;
+    strokeCanvasGuide.classList.remove("hidden");
+  }
+  guideVisible = true;
+  if (toggleGuideBtn) toggleGuideBtn.textContent = "👁 Guide: ON";
+  clearModalCanvas();
+  if (strokeModal) {
+    strokeModal.classList.remove("hidden");
+    strokeModal.setAttribute("aria-hidden", "false");
+  }
+}
+
+function closeStrokeModal() {
+  if (strokeModal) {
+    strokeModal.classList.add("hidden");
+    strokeModal.setAttribute("aria-hidden", "true");
+  }
+}
+
+setupStrokeModal();
+
+/* =========================================================
+   EVENT DELEGATION (Practice mode, Audio, Stroke Practice)
+========================================================= */
+contentArea.addEventListener("click", (e) => {
+  // Practice button clicked
+  const practiceBtn = e.target.closest(".kanji-practice-btn") || e.target.closest(".kanji-big-char");
+  if (practiceBtn) {
+    const card = practiceBtn.closest(".kanji-card");
+    if (card) {
+      const kanjiId = card.dataset.id;
+      const kanjiItem = KANJI.find(k => k.id === kanjiId);
+      if (kanjiItem) openStrokeModal(kanjiItem);
+      return;
+    }
+  }
+
+  // Audio speech button clicked
+  const audioBtn = e.target.closest(".kw-audio-btn") || e.target.closest("[data-speak]");
+  if (audioBtn) {
+    e.stopPropagation();
+    const text = audioBtn.dataset.speak;
+    if (text) speakJP(text);
+    return;
+  }
+
+  // Practice reveal (flip/blur toggle)
+  if (!document.body.classList.contains("practice-mode")) return;
   const tr = e.target.closest("tr[data-id]");
-  if(!tr) return;
-  tr.classList.toggle("revealed");
+  if (tr) tr.classList.toggle("revealed");
+  const card = e.target.closest(".kanji-card");
+  if (card) card.classList.toggle("revealed");
 });
 
 /* =========================================================
-   INITIAL VIEW
+   INITIAL VIEW & NAVIGATION HANDLERS
 ========================================================= */
 initMode(null);
 
-document.getElementById("logoHome").addEventListener("click", ()=>{
+document.getElementById("logoHome").addEventListener("click", () => {
   initMode(null);
 });
 
-// Setup click handlers for split screen landing cards and header tabs
+// Setup click handlers for 3 split screen landing cards and header tabs
 document.getElementById("selectVocab").addEventListener("click", () => initMode("vocab"));
 document.getElementById("selectVerbs").addEventListener("click", () => initMode("verbs"));
+const selectKanjiEl = document.getElementById("selectKanji");
+if (selectKanjiEl) selectKanjiEl.addEventListener("click", () => initMode("kanji"));
+
 document.getElementById("modeVocabBtn").addEventListener("click", () => initMode("vocab"));
 document.getElementById("modeVerbsBtn").addEventListener("click", () => initMode("verbs"));
+const modeKanjiBtnEl = document.getElementById("modeKanjiBtn");
+if (modeKanjiBtnEl) modeKanjiBtnEl.addEventListener("click", () => initMode("kanji"));
 
 /* =========================================================
    THEME TOGGLE
 ========================================================= */
 const themeToggle = document.getElementById("themeToggle");
-function applyTheme(t){
+function applyTheme(t) {
   document.documentElement.setAttribute("data-theme", t);
   themeToggle.textContent = t === "dark" ? "☀️" : "🌙";
+  if (strokeCtx) {
+    strokeCtx.strokeStyle = (t === "dark") ? "#4da3ff" : "#1e6091";
+  }
 }
 let savedTheme = "light";
-try{
+try {
   const hour = new Date().getHours();
   savedTheme = (hour < 6 || hour >= 19) ? "dark" : "light";
-}catch(e){}
+} catch (e) { }
 applyTheme(savedTheme);
-themeToggle.addEventListener("click", ()=>{
+themeToggle.addEventListener("click", () => {
   const current = document.documentElement.getAttribute("data-theme");
   applyTheme(current === "dark" ? "light" : "dark");
 });
@@ -771,7 +2904,7 @@ themeToggle.addEventListener("click", ()=>{
    PRACTICE MODE TOGGLE
 ========================================================= */
 const practiceToggle = document.getElementById("practiceToggle");
-practiceToggle.addEventListener("click", ()=>{
+practiceToggle.addEventListener("click", () => {
   practiceToggle.classList.toggle("on");
   document.body.classList.toggle("practice-mode");
 });
@@ -781,11 +2914,11 @@ practiceToggle.addEventListener("click", ()=>{
 ========================================================= */
 const searchInput = document.getElementById("searchInput");
 let searchDebounce = null;
-searchInput.addEventListener("input", ()=>{
+searchInput.addEventListener("input", () => {
   clearTimeout(searchDebounce);
-  searchDebounce = setTimeout(()=>{
+  searchDebounce = setTimeout(() => {
     const q = searchInput.value.trim();
-    if(q === ""){
+    if (q === "") {
       currentCat ? goToCategory(currentCat) : renderWelcome();
     } else {
       activeLetterBadge.classList.add("hidden");
@@ -799,21 +2932,22 @@ searchInput.addEventListener("input", ()=>{
    BACK TO TOP
 ========================================================= */
 const topBtn = document.getElementById("topBtn");
-window.addEventListener("scroll", ()=>{
+window.addEventListener("scroll", () => {
   topBtn.classList.toggle("show", window.scrollY > 500);
 });
-topBtn.addEventListener("click", ()=> window.scrollTo({top:0, behavior:"smooth"}));
+topBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
 /* =========================================================
-   PRINT ALL WORDS
+   PRINT ALL WORDS / KANJI
 ========================================================= */
 const printAllBtn = document.getElementById("printAllBtn");
 printAllBtn.addEventListener("click", () => {
   const previousCat = currentCat;
   const previousSearch = searchInput.value;
 
-  const term = activeMode === "verbs" ? "verbs" : "words";
-  const titleTerm = activeMode === "verbs" ? "Verbs" : "Vocabulary";
+  const isKanji = activeMode === "kanji";
+  const term = isKanji ? "kanji" : (activeMode === "verbs" ? "verbs" : "words");
+  const titleTerm = isKanji ? "Kanji" : (activeMode === "verbs" ? "Verbs" : "Vocabulary");
 
   let html = `
     <div class="section-head">
@@ -825,7 +2959,7 @@ printAllBtn.addEventListener("click", () => {
     <div class="print-title">JLPT N4 ${titleTerm} — All ${titleTerm} (${CURRENT_DATA.length} ${term})</div>
   `;
 
-  html += tableHTML(CURRENT_DATA, true);
+  html += isKanji ? kanjiCardsHTML(CURRENT_DATA) : tableHTML(CURRENT_DATA, true);
 
   contentArea.innerHTML = html;
 
@@ -851,37 +2985,40 @@ window.addEventListener("beforeprint", () => {
 
 function updatePrintCoverPage() {
   const isVerbs = activeMode === "verbs";
-  const titleTerm = isVerbs ? "Verbs" : "Vocabulary";
-  const subtitleTerm = isVerbs ? "動詞帳" : "語彙帳";
-  const itemTerm = isVerbs ? "verbs" : "words";
-  const quote = isVerbs 
-    ? "動詞は文のエンジン — Verbs are the engines of sentences"
-    : "語彙は言葉の種 — Words are the seeds of language";
+  const isKanji = activeMode === "kanji";
+  const titleTerm = isKanji ? "Kanji" : (isVerbs ? "Verbs" : "Vocabulary");
+  const subtitleTerm = isKanji ? "漢字帳" : (isVerbs ? "動詞帳" : "語彙帳");
+  const itemTerm = isKanji ? "kanji" : (isVerbs ? "verbs" : "words");
+  const quote = isKanji
+    ? "漢字は言葉の心 — Kanji are the heart of words"
+    : (isVerbs
+      ? "動詞は文のエンジン — Verbs are the engines of sentences"
+      : "語彙は言葉の種 — Words are the seeds of language");
 
   // Update elements
   document.getElementById("coverTitle").textContent = `JLPT N4 ${titleTerm}`;
   document.getElementById("coverSubtitle").textContent = `N4 ${subtitleTerm}`;
   document.getElementById("coverQuote").textContent = quote;
-  
+
   // Determine scope & count
-  let scope = "All Words";
+  let scope = "All " + titleTerm;
   let countText = `${CURRENT_DATA.length} ${itemTerm}`;
-  
+
   // Parse current visible content/state
   const sectionHead = contentArea.querySelector(".section-head");
   const bigKana = sectionHead ? sectionHead.querySelector(".big-kana") : null;
   const bigKanaText = bigKana ? bigKana.textContent.trim() : "";
-  
+
   const isPrintAll = (bigKanaText === "全");
   const coverPage = document.getElementById("printCoverPage");
-  
+
   let printStyle = document.getElementById('dynamicPrintStyle');
   if (!printStyle) {
     printStyle = document.createElement('style');
     printStyle.id = 'dynamicPrintStyle';
     document.head.appendChild(printStyle);
   }
-  
+
   if (isPrintAll) {
     coverPage.classList.remove("hide-in-print");
     printStyle.textContent = `@page :first { margin: 0; }`;
@@ -891,21 +3028,29 @@ function updatePrintCoverPage() {
     coverPage.classList.add("hide-in-print");
     printStyle.textContent = '';
     if (currentCat) {
-      scope = `Letter "${currentCat}"`;
+      scope = isKanji ? currentCat : `Letter "${currentCat}"`;
       const items = byCat[currentCat] || [];
       countText = `${items.length} ${itemTerm}`;
     } else if (searchInput.value.trim() !== "") {
       scope = `Search: "${searchInput.value.trim()}"`;
       const q = searchInput.value.toLowerCase();
-      const items = CURRENT_DATA.filter(v =>
-        (v.kanji + v.kana + v.romaji + v.en + v.si).toLowerCase().includes(q)
-      );
+      let items = [];
+      if (isKanji) {
+        items = CURRENT_DATA.filter(k => {
+          const wordsStr = (k.words || []).map(w => w.kanji + w.kana + (w.romaji || "") + w.si + (w.en || "")).join(" ");
+          return (k.kanji + k.kun + k.on + k.en + k.si + wordsStr).toLowerCase().includes(q);
+        });
+      } else {
+        items = CURRENT_DATA.filter(v =>
+          (v.kanji + v.kana + v.romaji + v.en + v.si).toLowerCase().includes(q)
+        );
+      }
       countText = `${items.length} ${itemTerm}`;
     } else {
       scope = "Overview Selection";
       countText = `${CURRENT_DATA.length} ${itemTerm}`;
     }
   }
-  
+
   document.getElementById("coverMetaLine").textContent = `${titleTerm} · ${scope} · ${countText}`;
-}
+}
