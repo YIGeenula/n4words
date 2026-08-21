@@ -83,88 +83,236 @@ header {
   position: sticky;
   top: 0;
   z-index: 50;
-  backdrop-filter: blur(10px);
-  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: color-mix(in srgb, var(--paper) 85%, transparent);
   border-bottom: 1px solid var(--line);
+  transition: all 0.3s ease;
 }
 
 .header-inner {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 16px 22px;
+  padding: 12px 22px;
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
   justify-content: space-between;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
 }
 
 .hanko {
-  width: 52px;
-  height: 52px;
-  border-radius: 8px;
-  background: var(--shu);
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--shu), var(--shu-dark));
   color: #fff8ec;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: 'Shippori Mincho', serif;
-  font-weight: 800;
-  font-size: 22px;
-  box-shadow: var(--shadow);
+  position: relative;
+  box-shadow: 0 4px 14px rgba(244, 63, 94, 0.3);
   transform: rotate(-2deg);
   border: 2px solid color-mix(in srgb, var(--shu) 60%, black);
-  letter-spacing: -2px;
   flex-shrink: 0;
-  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+}
+
+.brand:hover .hanko {
+  transform: rotate(0deg) scale(1.06);
+  box-shadow: 0 6px 18px rgba(244, 63, 94, 0.45);
+}
+
+.hanko-kanji {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.hanko-badge {
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+  line-height: 1;
+  margin-top: 2px;
+  text-transform: uppercase;
 }
 
 .brand-text h1 {
   margin: 0;
   font-family: 'Shippori Mincho', serif;
-  font-size: clamp(20px, 3vw, 28px);
+  font-size: clamp(18px, 2.5vw, 24px);
   font-weight: 800;
   letter-spacing: 0.5px;
   line-height: 1.1;
+  color: var(--ink);
 }
 
 .brand-text p {
   margin: 2px 0 0;
-  font-size: 12.5px;
+  font-size: 11.5px;
   color: var(--ink-soft);
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
+/* Header Controls & Print Dropdown */
 .header-controls {
   display: flex;
   align-items: center;
   gap: 10px;
+  position: relative;
+}
+
+.guide-header-btn {
+  width: auto !important;
+  padding: 0 14px !important;
+  border-radius: 999px !important;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.guide-header-btn .guide-header-txt {
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+body.mode-guide .guide-header-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff !important;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
 }
 
 .icon-btn {
   border: 1px solid var(--line);
   background: var(--card);
   color: var(--ink);
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  transition: transform 0.25s ease, background 0.25s ease;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow);
 }
 
 .icon-btn:hover {
   transform: translateY(-2px);
   background: var(--paper-2);
+  border-color: var(--shu);
+  color: var(--shu);
+}
+
+.print-dropdown-wrap {
+  position: relative;
+}
+
+.print-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 280px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
+  padding: 8px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  animation: dropDownPop 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+[data-theme="dark"] .print-dropdown-menu {
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+}
+
+.print-dropdown-menu.hidden {
+  display: none;
+}
+
+@keyframes dropDownPop {
+  0% { transform: translateY(-8px) scale(0.95); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.print-dropdown-header {
+  padding: 8px 10px 6px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 4px;
+}
+
+.print-opt-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.print-opt-btn:hover {
+  background: var(--paper-2);
+  border-color: var(--line);
+  transform: translateX(2px);
+}
+
+.print-opt-btn .opt-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.print-opt-btn .opt-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.print-opt-btn .opt-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.print-opt-btn .opt-sub {
+  font-size: 11px;
+  color: var(--ink-soft);
+  line-height: 1.3;
+}
+
+.theme-icon-sun.hidden,
+.theme-icon-moon.hidden {
+  display: none;
 }
 
 /* ---------- HERO ---------- */
@@ -803,6 +951,48 @@ footer .seal {
     filter: none !important;
   }
 
+  /* Practice / Quiz Sheet Print: Hide Meanings & provide dotted blank write-in lines */
+  body.print-hide-meanings .col-en,
+  body.print-hide-meanings .col-si,
+  body.print-hide-meanings .reading-val,
+  body.print-hide-meanings .kanji-si-meaning,
+  body.print-hide-meanings .kanji-en-meaning,
+  body.print-hide-meanings .kw-meaning {
+    color: transparent !important;
+    position: relative;
+  }
+
+  body.print-hide-meanings .vocab-table .col-en::after,
+  body.print-hide-meanings .vocab-table .col-si::after {
+    content: "..................................................";
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999 !important;
+    font-size: 11px;
+    letter-spacing: 2px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  body.print-hide-meanings .kanji-meanings-box::after {
+    content: "Meaning: ..............................................................";
+    color: #888 !important;
+    font-size: 12px;
+    letter-spacing: 1px;
+    display: block;
+    margin-top: 4px;
+  }
+
+  body.print-hide-meanings .reading-row::after {
+    content: ".........................";
+    color: #888 !important;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
   .print-title {
     display: block !important;
     margin-bottom: 6px;
@@ -1070,13 +1260,13 @@ footer .seal {
 }
 
 .kanji-panel:hover .panel-jp {
-  color: #1e6091;
-  text-shadow: 0 0 20px rgba(30, 96, 145, 0.5);
+  color: #8b5cf6;
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
 }
 
 [data-theme="dark"] .kanji-panel:hover .panel-jp {
-  color: #4da3ff;
-  text-shadow: 0 0 20px rgba(77, 163, 255, 0.5);
+  color: #a78bfa;
+  text-shadow: 0 0 20px rgba(167, 139, 250, 0.5);
 }
 
 .panel-en {
@@ -1136,8 +1326,8 @@ footer .seal {
 
 .kanji-panel::before {
   content: "字";
-  right: -5%;
-  bottom: -15%;
+  left: -5%;
+  top: -15%;
   transform: rotate(10deg);
 }
 
@@ -1230,55 +1420,409 @@ body.mode-kanji #activeLetterBadge .badge-kana {
   font-weight: 700;
 }
 
-/* ---------- HEADER MODE TABS ---------- */
-.mode-selector {
+/* ---------- HERO MODE TABS (STYLISH SEGMENTED CONTROLS) ---------- */
+.mode-bar-wrap {
   display: flex;
-  background: var(--paper-2);
-  padding: 4px;
+  justify-content: center;
+  margin: 22px 0 16px;
+}
+
+.mode-selector {
+  display: inline-flex;
+  background: color-mix(in srgb, var(--card) 90%, var(--paper-2));
+  padding: 6px;
   border-radius: 999px;
-  border: 1px solid var(--line);
-  gap: 2px;
+  border: 1.5px solid var(--line);
+  gap: 6px;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
 }
 
 .mode-btn {
-  border: none;
+  border: 1px solid transparent;
   background: transparent;
   color: var(--ink-soft);
   font-family: inherit;
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 700;
-  padding: 8px 16px;
+  padding: 9px 20px;
   border-radius: 999px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.mode-btn .nav-icon {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.mode-btn .nav-label-jp {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.mode-btn .nav-label-en {
+  font-size: 11.5px;
+  font-weight: 700;
+  opacity: 0.85;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
 }
 
 .mode-btn:hover {
   color: var(--ink);
+  background: color-mix(in srgb, var(--card) 70%, transparent);
+  border-color: color-mix(in srgb, var(--line) 80%, transparent);
+  transform: translateY(-1px);
+}
+
+.mode-btn:hover .nav-icon {
+  transform: translateY(-1px) scale(1.08);
 }
 
 body.mode-vocab #modeVocabBtn {
-  background: var(--vocab-accent);
+  background: linear-gradient(135deg, var(--vocab-accent), var(--shu-dark));
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(244, 63, 94, 0.35);
+  border-color: transparent;
+  box-shadow: 0 4px 18px rgba(244, 63, 94, 0.4);
 }
 
 body.mode-verbs #modeVerbsBtn {
-  background: var(--verbs-accent);
+  background: linear-gradient(135deg, var(--verbs-accent), #0284c7);
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35);
+  border-color: transparent;
+  box-shadow: 0 4px 18px rgba(14, 165, 233, 0.4);
 }
 
 body.mode-kanji #modeKanjiBtn {
-  background: var(--kanji-accent);
+  background: linear-gradient(135deg, var(--kanji-accent), #7c3aed);
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35);
+  border-color: transparent;
+  box-shadow: 0 4px 18px rgba(139, 92, 246, 0.4);
 }
 
-[data-theme="dark"] body.mode-verbs #modeVerbsBtn {
+[data-theme="dark"] body.mode-verbs #modeVerbsBtn,
+[data-theme="dark"] body.mode-vocab #modeVocabBtn,
+[data-theme="dark"] body.mode-kanji #modeKanjiBtn {
   color: #ffffff;
+}
+
+/* =========================================================
+   FEATURES GUIDE PAGE STYLES
+========================================================= */
+.guide-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 10px 0 40px;
+  animation: fadeInGuide 0.4s ease;
+}
+
+@keyframes fadeInGuide {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.guide-hero {
+  text-align: center;
+  padding: 30px 20px 40px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.guide-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: color-mix(in srgb, #10b981 12%, var(--card));
+  color: #10b981;
+  border: 1px solid color-mix(in srgb, #10b981 30%, transparent);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+[data-theme="dark"] .guide-hero-badge {
+  background: color-mix(in srgb, #10b981 20%, var(--card));
+  color: #34d399;
+}
+
+.guide-hero h2 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(28px, 4.5vw, 44px);
+  font-weight: 800;
+  margin: 0 0 12px;
+  color: var(--ink);
+  letter-spacing: 1px;
+}
+
+.guide-hero p {
+  font-size: 16px;
+  color: var(--ink-soft);
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Feature Quick Jump Grid */
+.guide-quick-nav {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.guide-jump-pill {
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.guide-jump-pill:hover {
+  border-color: #10b981;
+  color: #10b981;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+/* Feature Bento Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.feature-card {
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 20px;
+  padding: 28px 24px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
+  border-color: var(--card-accent, var(--shu));
+}
+
+.feature-card.highlight {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, var(--card), color-mix(in srgb, var(--paper-2) 60%, var(--card)));
+}
+
+.feature-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.feature-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: var(--icon-bg, color-mix(in srgb, var(--shu) 12%, var(--card)));
+  color: var(--icon-color, var(--shu));
+  border: 1px solid var(--icon-border, color-mix(in srgb, var(--shu) 25%, transparent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.feature-title-wrap h3 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.feature-tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--tag-bg, var(--paper-2));
+  color: var(--tag-color, var(--ink-soft));
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.feature-title-wrap p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.feature-desc {
+  font-size: 14.5px;
+  color: var(--ink);
+  line-height: 1.6;
+  margin: 0 0 18px;
+}
+
+.feature-points {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.feature-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--ink);
+  line-height: 1.45;
+}
+
+.feature-point-icon {
+  color: #10b981;
+  font-weight: 800;
+  font-size: 14px;
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+.feature-point strong {
+  color: var(--ink);
+}
+
+/* Feature Preview Box / Demo Area */
+.feature-preview {
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.feature-preview-title {
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--ink-soft);
+}
+
+.feature-demo-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.feature-action-btn {
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.feature-action-btn:hover {
+  border-color: var(--shu);
+  color: var(--shu);
+  transform: translateY(-1px);
+}
+
+.feature-action-btn.primary {
+  background: var(--shu);
+  color: #ffffff;
+  border-color: var(--shu);
+}
+
+.feature-action-btn.primary:hover {
+  background: var(--shu-dark);
+  color: #ffffff;
+}
+
+/* Comparison banner for Print (Hiding vs Showing) */
+.print-compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 14px 0;
+}
+
+@media (max-width: 640px) {
+  .print-compare-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.print-compare-card {
+  border: 1px solid var(--line);
+  background: var(--card);
+  padding: 14px;
+  border-radius: 12px;
+}
+
+.print-compare-card.standard {
+  border-left: 4px solid #0ea5e9;
+}
+
+.print-compare-card.quiz {
+  border-left: 4px solid var(--shu);
+}
+
+.print-compare-card h4 {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.print-compare-card p {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  line-height: 1.4;
 }
 
 /* ---------- KANJI CARDS & WORKBOOK LAYOUT ---------- */
@@ -2020,13 +2564,22 @@ body.practice-mode .kanji-card.revealed .kw-meaning {
 
 @media (max-width: 640px) {
   .mode-selector {
-    order: 3;
     width: 100%;
-    margin-top: 10px;
     justify-content: center;
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .mode-btn {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+
+  .mode-btn .nav-label-en {
+    display: none;
   }
 
   .header-inner {
-    flex-wrap: wrap;
+    padding: 10px 14px;
   }
 }

@@ -2334,17 +2334,291 @@ function speakJP(text) {
 }
 
 /* =========================================================
+   FEATURES GUIDE PAGE RENDERER
+========================================================= */
+function renderFeaturesGuide() {
+  contentArea.innerHTML = `
+    <div class="guide-container">
+      <div class="guide-hero">
+        <div class="guide-hero-badge">✨ Interactive Manual & Cheat Sheet</div>
+        <h2>JLPT N4 Notebook Features Guide</h2>
+        <p>Master Japanese vocabulary, verbs, and kanji with built-in active recall testing, handwriting practice, and versatile print sheet generators.</p>
+        <div class="guide-quick-nav">
+          <a href="#guide-printing" class="guide-jump-pill">🖨️ Printing & Quiz Sheets</a>
+          <a href="#guide-practice" class="guide-jump-pill">👁️ Practice Recall Mode</a>
+          <a href="#guide-kanji" class="guide-jump-pill">✍️ Kanji Stroke Canvas</a>
+          <a href="#guide-modes" class="guide-jump-pill">📚 Study Modes</a>
+          <a href="#guide-audio" class="guide-jump-pill">🔊 Native Audio Speech</a>
+          <a href="#guide-trilingual" class="guide-jump-pill">🌐 Trilingual Support</a>
+        </div>
+      </div>
+
+      <div class="features-grid">
+
+        <!-- 1. Print Engine (Highlight Card) -->
+        <div class="feature-card highlight" id="guide-printing" style="--card-accent: #f59e0b;">
+          <div class="feature-card-header">
+            <div class="feature-icon-wrap" style="--icon-bg: rgba(245, 158, 11, 0.15); --icon-color: #f59e0b; --icon-border: rgba(245, 158, 11, 0.3);">
+              🖨️
+            </div>
+            <div class="feature-title-wrap">
+              <h3>Smart PDF & Print Engine <span class="feature-tag" style="--tag-bg: rgba(245, 158, 11, 0.15); --tag-color: #f59e0b;">Pro Feature</span></h3>
+              <p>Generate study guides or blank exam test sheets tailored for A4 paper</p>
+            </div>
+          </div>
+          <p class="feature-desc">
+            Whether you want a fully completed reference notebook or blank quiz sheets for offline handwriting practice, the print engine automatically optimizes layout and typography for clean, crisp A4 paper printing.
+          </p>
+
+          <div class="print-compare-grid">
+            <div class="print-compare-card standard">
+              <h4>📄 1. Standard Study Notebook (Non-Hiding)</h4>
+              <p>Prints all Kanji, Kana, Romaji, English meanings, and Sinhala (<span lang="si">සිංහල</span>) translations with clear headings, ideal as a physical revision book.</p>
+            </div>
+            <div class="print-compare-card quiz">
+              <h4>📝 2. Exam / Practice Worksheet (Hiding Meanings)</h4>
+              <p>Hides English and Sinhala definitions, replacing them with clean write-in guide lines so you can test your memory and practice writing by hand.</p>
+            </div>
+          </div>
+
+          <ul class="feature-points">
+            <li class="feature-point">
+              <span class="feature-point-icon">✓</span>
+              <div><strong>Dynamic Illustrated Cover Page:</strong> When printing the complete collection, a traditional Japanese Ukiyo-e woodblock-style cover page with Mount Fuji and cherry blossoms is automatically generated with your study scope and quotes.</div>
+            </li>
+            <li class="feature-point">
+              <span class="feature-point-icon">✓</span>
+              <div><strong>Single Letter / Lesson Print:</strong> Click the print button on any letter or lesson page to print only that specific section.</div>
+            </li>
+          </ul>
+
+          <div class="feature-preview">
+            <span class="feature-preview-title">Try Live Print Actions</span>
+            <div class="feature-demo-actions">
+              <button class="feature-action-btn primary" id="guidePrintStandardBtn">📄 Test Standard Print</button>
+              <button class="feature-action-btn" id="guidePrintQuizBtn">📝 Test Blank Quiz Sheet Print</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Practice Recall Mode -->
+        <div class="feature-card" id="guide-practice" style="--card-accent: #f43f5e;">
+          <div class="feature-card-header">
+            <div class="feature-icon-wrap" style="--icon-bg: rgba(244, 63, 94, 0.15); --icon-color: #f43f5e; --icon-border: rgba(244, 63, 94, 0.3);">
+              👁️
+            </div>
+            <div class="feature-title-wrap">
+              <h3>Active Recall Practice Mode <span class="feature-tag" style="--tag-bg: rgba(244, 63, 94, 0.15); --tag-color: #f43f5e;">Interactive</span></h3>
+              <p>Tap-to-reveal flashcard learning directly in table and card views</p>
+            </div>
+          </div>
+          <p class="feature-desc">
+            Turn any list into interactive flashcards. When practice mode is switched on, English and Sinhala translations are softly blurred.
+          </p>
+          <ul class="feature-points">
+            <li class="feature-point">
+              <span class="feature-point-icon">✓</span>
+              <div><strong>Tap or Click to Reveal:</strong> Tap any blurred row or kanji card to instantly unblur and check your answer.</div>
+            </li>
+            <li class="feature-point">
+              <span class="feature-point-icon">✓</span>
+              <div><strong>Mobile & Desktop Friendly:</strong> Works seamlessly on touch screens and mouse clicks.</div>
+            </li>
+          </ul>
+          <div class="feature-preview">
+            <span class="feature-preview-title">Quick Action</span>
+            <div class="feature-demo-actions">
+              <button class="feature-action-btn" id="guideTogglePracticeBtn">⚡ Toggle Practice Mode Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Kanji Stroke Order & Canvas -->
+        <div class="feature-card" id="guide-kanji" style="--card-accent: #8b5cf6;">
+          <div class="feature-card-header">
+            <div class="feature-icon-wrap" style="--icon-bg: rgba(139, 92, 246, 0.15); --icon-color: #8b5cf6; --icon-border: rgba(139, 92, 246, 0.3);">
+              ✍️
+            </div>
+            <div class="feature-title-wrap">
+              <h3>Kanji Stroke Canvas & Grid <span class="feature-tag" style="--tag-bg: rgba(139, 92, 246, 0.15); --tag-color: #8b5cf6;">Writing</span></h3>
+              <p>Interactive drawing board with 16-box Genkouyoushi grids</p>
+            </div>
+          </div>
+          <p class="feature-desc">
+            Learn correct Kanji balance, stroke count, Kun'yomi, and On'yomi readings with tactile writing practice.
+          </p>
+          <ul class="feature-points">
+            <li class="feature-point">
+              <span class="feature-point-icon">✓</span>
+              <div><strong>Virtual Drawing Canvas:</strong> Click "✏️ Practice Strokes" on any Kanji to open the full-screen drawing canvas with customizable stroke guides and stroke animations.</div>
+            </li>
+            <li class="feature-point">
+              <span class="feature-point-icon">✓</span>
+              <div><strong>16-Box Workbook Layout:</strong> Each kanji includes model reference boxes, faint tracing guides, and blank Genkouyoushi squares for balanced practicing.</div>
+            </li>
+          </ul>
+          <div class="feature-preview">
+            <span class="feature-preview-title">Quick Demo</span>
+            <div class="feature-demo-actions">
+              <button class="feature-action-btn" id="guideOpenKanjiDemoBtn">🎨 Open Sample Stroke Canvas (住)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Study Modes & Dynamic Filtering -->
+        <div class="feature-card" id="guide-modes" style="--card-accent: #0ea5e9;">
+          <div class="feature-card-header">
+            <div class="feature-icon-wrap" style="--icon-bg: rgba(14, 165, 233, 0.15); --icon-color: #0ea5e9; --icon-border: rgba(14, 165, 233, 0.3);">
+              📚
+            </div>
+            <div class="feature-title-wrap">
+              <h3>3 Specialized Study Modes <span class="feature-tag" style="--tag-bg: rgba(14, 165, 233, 0.15); --tag-color: #0ea5e9;">Curriculum</span></h3>
+              <p>Switch between Vocabulary, Verbs, and Kanji with 1-click</p>
+            </div>
+          </div>
+          <p class="feature-desc">
+            Organized according to the official JLPT N4 specification with Japanese alphabet categorization (A, Ka, Sa, Ta, Na, Ha, Ma, Ya, Ra, Wa).
+          </p>
+          <ul class="feature-points">
+            <li class="feature-point">
+              <span class="feature-point-icon">✓</span>
+              <div><strong>語彙 (Vocabulary):</strong> Comprehensive list of all N4 nouns, adjectives, adverbs, and expressions.</div>
+            </li>
+            <li class="feature-point">
+              <span class="feature-point-icon">✓</span>
+              <div><strong>動詞 (Verbs):</strong> N4 action and auxiliary verbs with conjugation-ready dictionary forms.</div>
+            </li>
+            <li class="feature-point">
+              <span class="feature-point-icon">✓</span>
+              <div><strong>漢字 (Kanji):</strong> Curated lesson-by-lesson Kanji sheets complete with related compound words.</div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 5. Audio & Trilingual Support -->
+        <div class="feature-card" id="guide-audio" style="--card-accent: #10b981;">
+          <div class="feature-card-header">
+            <div class="feature-icon-wrap" style="--icon-bg: rgba(16, 185, 129, 0.15); --icon-color: #10b981; --icon-border: rgba(16, 185, 129, 0.3);">
+              🔊
+            </div>
+            <div class="feature-title-wrap">
+              <h3>Audio Speech & Trilingual <span class="feature-tag" style="--tag-bg: rgba(16, 185, 129, 0.15); --tag-color: #10b981;">Audio</span></h3>
+              <p>Native Japanese speech engine + English & Sinhala meanings</p>
+            </div>
+          </div>
+          <p class="feature-desc">
+            Hear natural pronunciation on demand and build multilingual confidence.
+          </p>
+          <ul class="feature-points">
+            <li class="feature-point">
+              <span class="feature-point-icon">✓</span>
+              <div><strong>Native TTS Voice:</strong> Click any 🔊 audio button beside words or kanji readings to hear crisp Japanese pronunciation.</div>
+            </li>
+            <li class="feature-point">
+              <span class="feature-point-icon">✓</span>
+              <div><strong>Trilingual Depth:</strong> Designed specifically for international students and Sri Lankan learners (<span lang="si">සිංහල අර්ථ දැක්වීම්</span>).</div>
+            </li>
+          </ul>
+          <div class="feature-preview">
+            <span class="feature-preview-title">Test Audio</span>
+            <div class="feature-demo-actions">
+              <button class="feature-action-btn" onclick="speakJP('日本語')">🔊 Pronounce "日本語"</button>
+              <button class="feature-action-btn" onclick="speakJP('一生懸命')">🔊 Pronounce "一生懸命"</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Smart Search & Alphabet QuickNav -->
+        <div class="feature-card" id="guide-trilingual" style="--card-accent: #ec4899;">
+          <div class="feature-card-header">
+            <div class="feature-icon-wrap" style="--icon-bg: rgba(236, 72, 153, 0.15); --icon-color: #ec4899; --icon-border: rgba(236, 72, 153, 0.3);">
+              ⚡
+            </div>
+            <div class="feature-title-wrap">
+              <h3>Real-Time Universal Search <span class="feature-tag" style="--tag-bg: rgba(236, 72, 153, 0.15); --tag-color: #ec4899;">Speed</span></h3>
+              <p>Instant query matching across all 5 linguistic fields</p>
+            </div>
+          </div>
+          <p class="feature-desc">
+            Type anything in the search bar: Kanji (e.g. 会社), Kana (かいしゃ), Romaji (kaisha), English (company), or Sinhala (සමාගම). Results filter instantly with live counts.
+          </p>
+          <ul class="feature-points">
+            <li class="feature-point">
+              <span class="feature-point-icon">✓</span>
+              <div><strong>Alphabet Grid Navigation:</strong> Quick jump pills allow browsing by Kana alphabet rows with item counts.</div>
+            </li>
+            <li class="feature-point">
+              <span class="feature-point-icon">✓</span>
+              <div><strong>Dark & Light Theme:</strong> Sleek dark obsidian and clean paper modes with automatic time-of-day detection.</div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  `;
+
+  // Attach button listeners within the guide
+  const gPrintStd = document.getElementById("guidePrintStandardBtn");
+  if (gPrintStd) {
+    gPrintStd.addEventListener("click", () => {
+      document.body.classList.remove("print-hide-meanings");
+      triggerPrintWithOptions(false);
+    });
+  }
+
+  const gPrintQuiz = document.getElementById("guidePrintQuizBtn");
+  if (gPrintQuiz) {
+    gPrintQuiz.addEventListener("click", () => {
+      document.body.classList.add("print-hide-meanings");
+      triggerPrintWithOptions(true);
+    });
+  }
+
+  const gTogglePractice = document.getElementById("guideTogglePracticeBtn");
+  if (gTogglePractice) {
+    gTogglePractice.addEventListener("click", () => {
+      practiceToggle.classList.toggle("on");
+      document.body.classList.toggle("practice-mode");
+      const isPractice = document.body.classList.contains("practice-mode");
+      gTogglePractice.textContent = isPractice ? "✅ Practice Mode is ON (Blur active)" : "⚡ Toggle Practice Mode Now";
+    });
+  }
+
+  const gKanjiDemo = document.getElementById("guideOpenKanjiDemoBtn");
+  if (gKanjiDemo) {
+    gKanjiDemo.addEventListener("click", () => {
+      const sampleKanji = KANJI[0] || {
+        id: "k1",
+        num: 1,
+        kanji: "住",
+        strokes: 7,
+        kun: "す-む",
+        on: "ジュウ",
+        en: "live, reside",
+        si: "පදිංචි වෙනවා"
+      };
+      openStrokeModal(sampleKanji);
+    });
+  }
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+/* =========================================================
    MODE INITIALIZATION
 ========================================================= */
 function initMode(mode) {
   activeMode = mode;
-  document.body.classList.remove("mode-vocab", "mode-verbs", "mode-kanji");
+  document.body.classList.remove("mode-vocab", "mode-verbs", "mode-kanji", "mode-guide");
 
   setGridCollapsed(false);
   activeLetterBadge.classList.add("hidden");
   activeLetterBadge.innerHTML = "";
 
-  const hankoEl = document.getElementById("logoHome");
+  const hankoKanjiEl = document.getElementById("hankoKanji");
+  const quickNavWrap = document.getElementById("quickNavWrap");
+  const controlsEl = document.querySelector(".controls");
 
   if (mode === "vocab") {
     CURRENT_DATA = VOCAB;
@@ -2353,8 +2627,10 @@ function initMode(mode) {
     document.querySelector(".hero .sub").textContent = '語彙は言葉の種 — Words are the seeds of language';
     document.querySelector(".brand-text h1").textContent = "N4 語彙帳";
     document.querySelector(".brand-text p").textContent = "JLPT N4 Vocabulary Notebook";
-    if (hankoEl) hankoEl.textContent = "四";
+    if (hankoKanjiEl) hankoKanjiEl.textContent = "四";
     document.getElementById("landingSelector").classList.add("hidden");
+    if (quickNavWrap) quickNavWrap.style.display = "";
+    if (controlsEl) controlsEl.style.display = "";
   } else if (mode === "verbs") {
     CURRENT_DATA = VERBS;
     document.body.classList.add("mode-verbs", "mode-active");
@@ -2362,8 +2638,10 @@ function initMode(mode) {
     document.querySelector(".hero .sub").textContent = '動詞は文の力 — Verbs are the power of sentences';
     document.querySelector(".brand-text h1").textContent = "N4 動詞帳";
     document.querySelector(".brand-text p").textContent = "JLPT N4 Verbs Notebook";
-    if (hankoEl) hankoEl.textContent = "動";
+    if (hankoKanjiEl) hankoKanjiEl.textContent = "動";
     document.getElementById("landingSelector").classList.add("hidden");
+    if (quickNavWrap) quickNavWrap.style.display = "";
+    if (controlsEl) controlsEl.style.display = "";
   } else if (mode === "kanji") {
     CURRENT_DATA = KANJI;
     document.body.classList.add("mode-kanji", "mode-active");
@@ -2371,12 +2649,36 @@ function initMode(mode) {
     document.querySelector(".hero .sub").textContent = '漢字は言葉の心 — Kanji are the heart of words';
     document.querySelector(".brand-text h1").textContent = "N4 漢字帳";
     document.querySelector(".brand-text p").textContent = "JLPT N4 Kanji Notebook";
-    if (hankoEl) hankoEl.textContent = "字";
+    if (hankoKanjiEl) hankoKanjiEl.textContent = "字";
     document.getElementById("landingSelector").classList.add("hidden");
+    if (quickNavWrap) quickNavWrap.style.display = "";
+    if (controlsEl) controlsEl.style.display = "";
+    const modeBarWrap = document.querySelector(".mode-bar-wrap");
+    if (modeBarWrap) modeBarWrap.style.display = "";
+  } else if (mode === "guide") {
+    CURRENT_DATA = [];
+    document.body.classList.add("mode-guide", "mode-active");
+    document.querySelector(".hero .jp-title").innerHTML = '機能<span>・</span>ガイド';
+    document.querySelector(".hero .sub").textContent = 'Features & User Manual — 使い方と機能一覧';
+    document.querySelector(".brand-text h1").textContent = "N4 ガイド";
+    document.querySelector(".brand-text p").textContent = "Features & Usage Manual";
+    if (hankoKanjiEl) hankoKanjiEl.textContent = "案";
+    document.getElementById("landingSelector").classList.add("hidden");
+    if (quickNavWrap) quickNavWrap.style.display = "none";
+    if (controlsEl) controlsEl.style.display = "none";
+    const modeBarWrap = document.querySelector(".mode-bar-wrap");
+    if (modeBarWrap) modeBarWrap.style.display = "none";
+    renderFeaturesGuide();
+    return;
   } else {
     CURRENT_DATA = [];
     document.body.classList.remove("mode-active");
     document.getElementById("landingSelector").classList.remove("hidden");
+    if (hankoKanjiEl) hankoKanjiEl.textContent = "四";
+    if (quickNavWrap) quickNavWrap.style.display = "";
+    if (controlsEl) controlsEl.style.display = "";
+    const modeBarWrap = document.querySelector(".mode-bar-wrap");
+    if (modeBarWrap) modeBarWrap.style.display = "";
     return;
   }
 
@@ -2878,13 +3180,27 @@ document.getElementById("modeVerbsBtn").addEventListener("click", () => initMode
 const modeKanjiBtnEl = document.getElementById("modeKanjiBtn");
 if (modeKanjiBtnEl) modeKanjiBtnEl.addEventListener("click", () => initMode("kanji"));
 
+const modeGuideBtnEl = document.getElementById("modeGuideBtn");
+if (modeGuideBtnEl) modeGuideBtnEl.addEventListener("click", () => initMode("guide"));
+
 /* =========================================================
    THEME TOGGLE
 ========================================================= */
 const themeToggle = document.getElementById("themeToggle");
+const themeIconSun = document.querySelector(".theme-icon-sun");
+const themeIconMoon = document.querySelector(".theme-icon-moon");
+
 function applyTheme(t) {
   document.documentElement.setAttribute("data-theme", t);
-  themeToggle.textContent = t === "dark" ? "☀️" : "🌙";
+  if (themeIconSun && themeIconMoon) {
+    if (t === "dark") {
+      themeIconSun.classList.remove("hidden");
+      themeIconMoon.classList.add("hidden");
+    } else {
+      themeIconSun.classList.add("hidden");
+      themeIconMoon.classList.remove("hidden");
+    }
+  }
   if (strokeCtx) {
     strokeCtx.strokeStyle = (t === "dark") ? "#4da3ff" : "#1e6091";
   }
@@ -2904,77 +3220,129 @@ themeToggle.addEventListener("click", () => {
    PRACTICE MODE TOGGLE
 ========================================================= */
 const practiceToggle = document.getElementById("practiceToggle");
-practiceToggle.addEventListener("click", () => {
-  practiceToggle.classList.toggle("on");
-  document.body.classList.toggle("practice-mode");
-});
+if (practiceToggle) {
+  practiceToggle.addEventListener("click", () => {
+    practiceToggle.classList.toggle("on");
+    document.body.classList.toggle("practice-mode");
+  });
+}
 
 /* =========================================================
    SEARCH
 ========================================================= */
 const searchInput = document.getElementById("searchInput");
 let searchDebounce = null;
-searchInput.addEventListener("input", () => {
-  clearTimeout(searchDebounce);
-  searchDebounce = setTimeout(() => {
-    const q = searchInput.value.trim();
-    if (q === "") {
-      currentCat ? goToCategory(currentCat) : renderWelcome();
-    } else {
-      activeLetterBadge.classList.add("hidden");
-      setGridCollapsed(true);
-      renderSearchResults(q);
-    }
-  }, 150);
-});
+if (searchInput) {
+  searchInput.addEventListener("input", () => {
+    clearTimeout(searchDebounce);
+    searchDebounce = setTimeout(() => {
+      const q = searchInput.value.trim();
+      if (q === "") {
+        currentCat ? goToCategory(currentCat) : renderWelcome();
+      } else {
+        activeLetterBadge.classList.add("hidden");
+        setGridCollapsed(true);
+        renderSearchResults(q);
+      }
+    }, 150);
+  });
+}
 
 /* =========================================================
    BACK TO TOP
 ========================================================= */
 const topBtn = document.getElementById("topBtn");
-window.addEventListener("scroll", () => {
-  topBtn.classList.toggle("show", window.scrollY > 500);
-});
-topBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+if (topBtn) {
+  window.addEventListener("scroll", () => {
+    topBtn.classList.toggle("show", window.scrollY > 500);
+  });
+  topBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+}
 
 /* =========================================================
-   PRINT ALL WORDS / KANJI
+   PRINT DROPDOWN & TRIGGER ENGINE
 ========================================================= */
-const printAllBtn = document.getElementById("printAllBtn");
-printAllBtn.addEventListener("click", () => {
+const printMenuBtn = document.getElementById("printMenuBtn");
+const printDropdownMenu = document.getElementById("printDropdownMenu");
+const printNormalBtn = document.getElementById("printNormalBtn");
+const printQuizBtn = document.getElementById("printQuizBtn");
+
+if (printMenuBtn && printDropdownMenu) {
+  printMenuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    printDropdownMenu.classList.toggle("hidden");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!printDropdownMenu.contains(e.target) && e.target !== printMenuBtn) {
+      printDropdownMenu.classList.add("hidden");
+    }
+  });
+
+  if (printNormalBtn) {
+    printNormalBtn.addEventListener("click", () => {
+      printDropdownMenu.classList.add("hidden");
+      document.body.classList.remove("print-hide-meanings");
+      triggerPrintWithOptions(false);
+    });
+  }
+
+  if (printQuizBtn) {
+    printQuizBtn.addEventListener("click", () => {
+      printDropdownMenu.classList.add("hidden");
+      document.body.classList.add("print-hide-meanings");
+      triggerPrintWithOptions(true);
+    });
+  }
+}
+
+function triggerPrintWithOptions(isQuiz) {
+  // If in guide mode or home landing, switch to vocab temporarily for print
+  const wasGuide = (activeMode === "guide" || !activeMode);
+  const previousMode = activeMode;
   const previousCat = currentCat;
   const previousSearch = searchInput.value;
+
+  if (wasGuide) {
+    initMode("vocab");
+  }
 
   const isKanji = activeMode === "kanji";
   const term = isKanji ? "kanji" : (activeMode === "verbs" ? "verbs" : "words");
   const titleTerm = isKanji ? "Kanji" : (activeMode === "verbs" ? "Verbs" : "Vocabulary");
+  const sheetType = isQuiz ? "Practice & Exam Sheet" : "Study Sheet";
 
   let html = `
     <div class="section-head">
       <div class="titles">
         <span class="big-kana">全</span>
-        <span class="row-samples">All N4 ${titleTerm}<span class="count-badge">${CURRENT_DATA.length} ${term} total</span></span>
+        <span class="row-samples">All N4 ${titleTerm} (${sheetType})<span class="count-badge">${CURRENT_DATA.length} ${term} total</span></span>
       </div>
     </div>
-    <div class="print-title">JLPT N4 ${titleTerm} — All ${titleTerm} (${CURRENT_DATA.length} ${term})</div>
+    <div class="print-title">JLPT N4 ${titleTerm} — All ${titleTerm} [${sheetType}] (${CURRENT_DATA.length} ${term})</div>
   `;
 
   html += isKanji ? kanjiCardsHTML(CURRENT_DATA) : tableHTML(CURRENT_DATA, true);
-
   contentArea.innerHTML = html;
 
   setTimeout(() => {
     window.print();
-    if (previousSearch) {
-      searchInput.value = previousSearch;
-      renderSearchResults(previousSearch);
-    } else if (previousCat) {
-      goToCategory(previousCat);
-    } else {
-      renderWelcome();
-    }
+    // Cleanup afterwards
+    setTimeout(() => {
+      document.body.classList.remove("print-hide-meanings");
+      if (wasGuide) {
+        initMode(previousMode);
+      } else if (previousSearch) {
+        searchInput.value = previousSearch;
+        renderSearchResults(previousSearch);
+      } else if (previousCat) {
+        goToCategory(previousCat);
+      } else {
+        renderWelcome();
+      }
+    }, 200);
   }, 150);
-});
+}
 
 /* =========================================================
    PRINT COVER PAGE DYNAMIC POPULATION
