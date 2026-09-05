@@ -902,6 +902,20 @@ footer .seal {
 
 /* ---------- PRINT ---------- */
 @media print {
+  :root,
+  [data-theme="dark"] {
+    --paper: #f8fafc;
+    --paper-2: #f1f5f9;
+    --ink: #0f172a;
+    --ink-soft: #475569;
+    --shu: #f43f5e;
+    --shu-dark: #e11d48;
+    --gold: #f59e0b;
+    --line: #cbd5e1;
+    --card: #ffffff;
+    color-scheme: light;
+  }
+
   @page {
     size: A4;
     margin: 14mm;
@@ -909,6 +923,7 @@ footer .seal {
 
   body {
     background: #fff !important;
+    color: #0f172a !important;
   }
 
   body::before {
