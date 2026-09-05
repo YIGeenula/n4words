@@ -51,6 +51,10 @@
   border: 0;
 }
 
+.hidden {
+  display: none !important;
+}
+
 html,
 body {
   margin: 0;
@@ -290,6 +294,7 @@ body.mode-guide .guide-header-btn {
   color: var(--ink);
   text-align: left;
   cursor: pointer;
+  text-decoration: none;
   transition: all 0.2s ease;
   width: 100%;
 }
@@ -697,6 +702,119 @@ body.mode-guide .guide-header-btn {
   color: var(--paper);
 }
 
+.section-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.sep-link-btn {
+  border-color: #38bdf8 !important;
+  color: #38bdf8 !important;
+  text-decoration: none;
+}
+
+.sep-link-btn:hover {
+  background: #38bdf8 !important;
+  color: #0b0f19 !important;
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.35);
+}
+
+/* Kanji Separator Cover Banner */
+.kanji-sep-banner {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(2, 132, 199, 0.05));
+  border: 1.5px solid rgba(56, 189, 248, 0.4);
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin: 20px 0 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+.kanji-sep-banner-content {
+  flex: 1;
+  min-width: 260px;
+}
+
+.kanji-sep-badge {
+  display: inline-block;
+  background: #38bdf8;
+  color: #0b1120;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.kanji-sep-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--ink);
+  font-family: 'Shippori Mincho', serif;
+  margin-bottom: 5px;
+}
+
+.kanji-sep-desc {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.kanji-sep-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #38bdf8, #0284c7);
+  color: #ffffff !important;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.35);
+  transition: all 0.2s ease;
+}
+
+.kanji-sep-btn:hover {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+}
+
+.kanji-sep-tip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 10px 0 20px 0;
+  flex-wrap: wrap;
+}
+
+.kanji-sep-tip a {
+  color: #0284c7;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+[data-theme="dark"] .kanji-sep-tip a {
+  color: #38bdf8;
+}
+
 /* ---------- TABLE ---------- */
 .vocab-table {
   width: 100%;
@@ -937,7 +1055,10 @@ footer .seal {
   .print-btn,
   .top-btn,
   footer,
-  .pager {
+  .pager,
+  .kanji-sep-banner,
+  .kanji-sep-tip,
+  .no-print {
     display: none !important;
   }
 

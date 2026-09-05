@@ -1,0 +1,886 @@
+/* =========================================================
+   KANJISEP — JLPT N4 Kanji Lesson Separator Pages
+   Color Palette, Typography & Print Precision
+========================================================= */
+
+:root {
+  --paper: #fcf9f2;
+  --paper-card: #ffffff;
+  --ink: #16181d;
+  --ink-soft: #4b5563;
+  --ink-light: #9ca3af;
+  --gold: #d4af37;
+  --gold-light: #fef9c3;
+  --gold-border: rgba(212, 175, 55, 0.45);
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.10);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================================================
+   GLOBAL RESET & SCREEN ENVIRONMENT
+========================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0f172a;
+  color: #e2e8f0;
+  font-family: 'Zen Kaku Gothic New', -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================================
+   TOP SCREEN CONTROL BAR (NO PRINT)
+========================================================= */
+.sep-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 24px 8px 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.brand-info-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.back-btn {
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8 !important;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background: rgba(56, 189, 248, 0.25);
+  color: #ffffff !important;
+  border-color: #38bdf8;
+  transform: translateX(-3px);
+  box-shadow: 0 2px 10px rgba(56, 189, 248, 0.3);
+}
+
+.hanko-mini {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #38bdf8, #0284c7);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 800;
+  font-size: 18px;
+  box-shadow: 0 2px 8px rgba(56, 189, 248, 0.4);
+}
+
+.brand-titles h1 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: 0.5px;
+}
+
+.brand-titles p {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.view-mode-group,
+.print-action-group {
+  display: flex;
+  gap: 6px;
+  background: rgba(30, 41, 59, 0.7);
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.action-btn {
+  padding: 7px 14px;
+  border-radius: 6px;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  color: #cbd5e1;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.action-btn.active {
+  background: #0284c7;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+}
+
+.action-btn.primary {
+  background: linear-gradient(135deg, #38bdf8, #0284c7);
+  color: #ffffff;
+}
+
+.action-btn.primary:hover {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.5);
+}
+
+/* Lesson Tabs Bar */
+.lesson-tabs-bar {
+  max-width: 1400px;
+  margin: 10px auto 0 auto;
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: thin;
+}
+
+.lesson-tabs-bar::-webkit-scrollbar {
+  height: 4px;
+}
+
+.lesson-tabs-bar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.lesson-tab {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(30, 41, 59, 0.6);
+  color: #cbd5e1;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lesson-tab:hover {
+  background: rgba(51, 65, 85, 0.8);
+  color: #f8fafc;
+}
+
+.lesson-tab.active {
+  background: var(--tab-color, #0284c7);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.lesson-tab .tab-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--tab-color, #38bdf8);
+}
+
+/* =========================================================
+   SEPARATOR CONTAINER (SCREEN PREVIEW)
+========================================================= */
+.separator-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px 80px 20px;
+  gap: 60px;
+}
+
+/* In single-view mode, hide non-active pages */
+.separator-container.single-mode .sep-page:not(.active) {
+  display: none !important;
+}
+
+/* =========================================================
+   A4 SEPARATOR PAGE (PHYSICAL DIMENSIONS & LAYOUT)
+========================================================= */
+.sep-page {
+  width: 210mm;
+  height: 297mm;
+  min-height: 297mm;
+  max-height: 297mm;
+  background: var(--paper) !important;
+  color: var(--ink);
+  position: relative;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 16mm 14mm;
+  box-shadow: var(--shadow-lg);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  page-break-after: always;
+  break-after: page;
+}
+
+/* Outer & Inner Japanese Frames */
+.sep-page::before {
+  content: '';
+  position: absolute;
+  top: 8mm;
+  left: 8mm;
+  right: 8mm;
+  bottom: 8mm;
+  border: 3.5px double var(--theme-primary);
+  border-radius: 4px;
+  pointer-events: none;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.sep-page::after {
+  content: '';
+  position: absolute;
+  top: 10.5mm;
+  left: 10.5mm;
+  right: 10.5mm;
+  bottom: 10.5mm;
+  border: 1px solid var(--theme-border-soft);
+  border-radius: 2px;
+  pointer-events: none;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Corner Ornaments */
+.corner-ornament {
+  position: absolute;
+  width: 14mm;
+  height: 14mm;
+  pointer-events: none;
+  opacity: 0.85;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.corner-ornament svg {
+  width: 100%;
+  height: 100%;
+  stroke: var(--theme-primary);
+  fill: none;
+}
+
+.corner-tl { top: 7mm; left: 7mm; }
+.corner-tr { top: 7mm; right: 7mm; transform: rotate(90deg); }
+.corner-br { bottom: 7mm; right: 7mm; transform: rotate(180deg); }
+.corner-bl { bottom: 7mm; left: 7mm; transform: rotate(270deg); }
+
+/* =========================================================
+   TOP SECTION (ORNAMENT, HANKO, TITLES)
+========================================================= */
+.sep-header-ornament {
+  width: 55%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--theme-primary) 30%, var(--gold) 50%, var(--theme-primary) 70%, transparent);
+  border-radius: 2px;
+  margin-bottom: 5mm;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.sep-top-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* Japanese Stamp / Hanko */
+.sep-hanko {
+  min-width: 140px;
+  height: 64px;
+  padding: 0 24px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--theme-primary), var(--theme-dark));
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 800;
+  font-size: 32px;
+  margin-bottom: 5mm;
+  transform: rotate(-2deg);
+  border: 2.5px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+  letter-spacing: 2px;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Titles */
+.sep-main-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--ink);
+  line-height: 1.1;
+  margin-bottom: 2mm;
+}
+
+.sep-lesson-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Outfit', 'Shippori Mincho', sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--theme-primary);
+  margin-bottom: 1.5mm;
+  text-transform: uppercase;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.sep-theme-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  letter-spacing: 1.5px;
+  margin-bottom: 4mm;
+}
+
+/* =========================================================
+   CENTER ARTWORK (MOUNT FUJI & SUN)
+========================================================= */
+.sep-artwork-wrap {
+  width: 100%;
+  max-width: 320px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1mm 0 4mm 0;
+}
+
+.sep-illustration {
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================================================
+   KANJI SHOWCASE GRID (THE 10 KANJI TILES)
+========================================================= */
+.sep-kanji-section {
+  width: 100%;
+  max-width: 178mm;
+  margin: 2mm 0;
+}
+
+.sep-kanji-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--theme-dark);
+  margin-bottom: 3mm;
+  font-family: 'Outfit', sans-serif;
+}
+
+.sep-kanji-label::before,
+.sep-kanji-label::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, var(--theme-primary), transparent);
+  opacity: 0.5;
+}
+
+.sep-kanji-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3mm;
+  width: 100%;
+}
+
+.kanji-stamp-card {
+  background: #ffffff !important;
+  border: 1.5px solid var(--theme-border-card);
+  border-radius: 8px;
+  padding: 2.5mm 1.5mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.card-num {
+  position: absolute;
+  top: 1.5mm;
+  left: 2mm;
+  font-family: 'Outfit', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--theme-primary);
+  opacity: 0.8;
+}
+
+.card-strokes {
+  position: absolute;
+  top: 1.5mm;
+  right: 2mm;
+  font-size: 8.5px;
+  font-weight: 600;
+  color: var(--ink-light);
+}
+
+.card-kanji {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-top: 1mm;
+  margin-bottom: 1.5mm;
+}
+
+.card-si {
+  font-family: 'Noto Sans Sinhala', sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--theme-dark);
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 95%;
+  margin-bottom: 1mm;
+}
+
+.card-readings {
+  font-size: 8.5px;
+  color: var(--ink-soft);
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 95%;
+}
+
+.card-on {
+  font-weight: 600;
+  color: var(--theme-primary);
+}
+
+/* =========================================================
+   BOTTOM SECTION (META, QUOTE, BLESSING)
+========================================================= */
+.sep-footer-block {
+  width: 100%;
+  text-align: center;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sep-meta-line {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  letter-spacing: 2px;
+  margin-bottom: 2mm;
+  font-family: 'Outfit', sans-serif;
+}
+
+.sep-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-soft);
+  margin-bottom: 2mm;
+  letter-spacing: 0.5px;
+}
+
+.sep-blessing {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--theme-primary);
+  letter-spacing: 3px;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* =========================================================
+   12 COLOR THEME DEFINITIONS (NIPPON TRADITIONAL PALETTES)
+/* =========================================================
+   UNIFIED COLOR THEME FOR ALL 12 LESSON PAGES (#38bdf8)
+========================================================= */
+
+.sep-page,
+.theme-lesson-1,
+.theme-lesson-2,
+.theme-lesson-3,
+.theme-lesson-4,
+.theme-lesson-5,
+.theme-lesson-6,
+.theme-lesson-7,
+.theme-lesson-8,
+.theme-lesson-9,
+.theme-lesson-10,
+.theme-lesson-11,
+.theme-lesson-12 {
+  --theme-primary: #38bdf8;
+  --theme-dark: #0284c7;
+  --theme-light: rgba(56, 189, 248, 0.16);
+  --theme-border-card: rgba(56, 189, 248, 0.38);
+  --theme-border-soft: rgba(56, 189, 248, 0.25);
+}
+
+/* =========================================================
+   MOBILE & TABLET RESPONSIVENESS (SCREEN ONLY)
+========================================================= */
+@media screen and (max-width: 900px) {
+  .sep-header {
+    padding: 10px 14px 6px 14px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .header-brand {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .view-mode-group,
+  .print-action-group {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .action-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+
+  .separator-container {
+    padding: 16px 10px 60px 10px;
+    gap: 30px;
+    width: 100%;
+  }
+
+  /* Responsive screen sizing for divider preview */
+  .sep-page {
+    width: 100% !important;
+    max-width: 680px !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    padding: 24px 14px !important;
+    margin: 0 auto !important;
+    border-radius: 8px !important;
+  }
+
+  .sep-page::before {
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    border-width: 2.5px;
+  }
+
+  .sep-page::after {
+    top: 9px;
+    left: 9px;
+    right: 9px;
+    bottom: 9px;
+  }
+
+  .corner-ornament {
+    width: 20px;
+    height: 20px;
+  }
+  .corner-tl { top: 5px; left: 5px; }
+  .corner-tr { top: 5px; right: 5px; }
+  .corner-br { bottom: 5px; right: 5px; }
+  .corner-bl { bottom: 5px; left: 5px; }
+
+  .sep-hanko {
+    min-width: 110px;
+    height: 50px;
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .sep-main-title {
+    font-size: 28px;
+    margin-bottom: 4px;
+  }
+
+  .sep-lesson-badge {
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+
+  .sep-theme-title {
+    font-size: 13.5px;
+    margin-bottom: 8px;
+  }
+
+  .sep-artwork-wrap {
+    max-width: 260px;
+    height: 120px;
+    margin: 4px 0 10px 0;
+  }
+
+  .sep-kanji-section {
+    max-width: 100%;
+    margin: 8px 0;
+  }
+
+  .sep-kanji-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+  }
+
+  .kanji-stamp-card {
+    padding: 6px 3px;
+    border-radius: 6px;
+  }
+
+  .card-num {
+    font-size: 8px;
+    top: 2px;
+    left: 3px;
+  }
+
+  .card-strokes {
+    font-size: 7.5px;
+    top: 2px;
+    right: 3px;
+  }
+
+  .card-kanji {
+    font-size: 26px;
+    margin-top: 4px;
+    margin-bottom: 3px;
+  }
+
+  .card-si {
+    font-size: 9.5px;
+  }
+
+  .card-readings {
+    font-size: 7.5px;
+  }
+
+  .sep-meta-line {
+    font-size: 9.5px;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  .sep-quote {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  .sep-blessing {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .header-actions {
+    flex-direction: column;
+  }
+
+  .view-mode-group,
+  .print-action-group {
+    width: 100%;
+  }
+
+  .brand-titles h1 {
+    font-size: 15px;
+  }
+
+  .brand-titles p {
+    font-size: 11px;
+  }
+
+  .header-brand {
+    gap: 8px;
+  }
+
+  .back-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  /* 2 columns on mobile phones so Sinhala meanings are fully readable! */
+  .sep-kanji-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .kanji-stamp-card {
+    padding: 8px 6px;
+  }
+
+  .card-kanji {
+    font-size: 30px;
+  }
+
+  .card-si {
+    font-size: 11.5px;
+    white-space: normal;
+    line-height: 1.3;
+    max-height: 2.6em;
+    overflow: hidden;
+  }
+
+  .card-readings {
+    font-size: 8.5px;
+  }
+
+  .sep-hanko {
+    min-width: 95px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  .sep-main-title {
+    font-size: 24px;
+  }
+
+  .sep-artwork-wrap {
+    max-width: 200px;
+    height: 95px;
+  }
+}
+
+/* =========================================================
+   PRINT ENGINE OPTIMIZATION (@media print)
+========================================================= */
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+@media print {
+  html, body {
+    background: #ffffff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #000000;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .separator-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    gap: 0 !important;
+  }
+
+  .sep-page {
+    width: 210mm !important;
+    height: 297mm !important;
+    min-height: 297mm !important;
+    max-height: 297mm !important;
+    margin: 0 !important;
+    padding: 16mm 14mm !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Single Page print mode: only print the active page */
+  body.print-single-mode .sep-page:not(.active) {
+    display: none !important;
+  }
+}

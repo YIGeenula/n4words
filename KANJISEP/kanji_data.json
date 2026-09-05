@@ -1,0 +1,986 @@
+{
+  "Lesson 1": [
+    {
+      "kanji": "住",
+      "en": "live",
+      "si": "ජීවත් වෙනවා",
+      "on": "ジュウ",
+      "kun": "すーむ",
+      "strokes": 7
+    },
+    {
+      "kanji": "所",
+      "en": "place",
+      "si": "ස්ථානය (place)",
+      "on": "ショ、ジョ",
+      "kun": "ところ、どころ",
+      "strokes": 8
+    },
+    {
+      "kanji": "京",
+      "en": "capital",
+      "si": "අගනුවර",
+      "on": "キョウ、ケイ、キン",
+      "kun": "みやこ",
+      "strokes": 8
+    },
+    {
+      "kanji": "都",
+      "en": "metropolis",
+      "si": "අගනගරය",
+      "on": "ト、ツ",
+      "kun": "みやこ",
+      "strokes": 11
+    },
+    {
+      "kanji": "府",
+      "en": "Administrative prefecture",
+      "si": "පරිපාලන දිස්ත්‍රික්කය",
+      "on": "フ",
+      "kun": "-",
+      "strokes": 8
+    },
+    {
+      "kanji": "県",
+      "en": "Prefecture",
+      "si": "ප්‍රාන්තය",
+      "on": "ケン",
+      "kun": "かける",
+      "strokes": 9
+    },
+    {
+      "kanji": "市",
+      "en": "City, market",
+      "si": "නගරය ,වෙළඳපොල",
+      "on": "シ",
+      "kun": "いち",
+      "strokes": 5
+    },
+    {
+      "kanji": "区",
+      "en": "Ward",
+      "si": "කොට්ඨාශය",
+      "on": "ク、オウ、コウ",
+      "kun": "-",
+      "strokes": 4
+    },
+    {
+      "kanji": "町",
+      "en": "town",
+      "si": "ටවුම",
+      "on": "チョウ",
+      "kun": "まち",
+      "strokes": 7
+    },
+    {
+      "kanji": "村",
+      "en": "village",
+      "si": "ගම",
+      "on": "ソン",
+      "kun": "むら",
+      "strokes": 7
+    }
+  ],
+  "Lesson 2": [
+    {
+      "kanji": "明",
+      "en": "Bright, clear",
+      "si": "ආලෝකමත්, පැහැදිලි",
+      "on": "メイ",
+      "kun": "あかーるい",
+      "strokes": 8
+    },
+    {
+      "kanji": "暗",
+      "en": "dark",
+      "si": "අඳුරුයි",
+      "on": "アン",
+      "kun": "くらーい",
+      "strokes": 13
+    },
+    {
+      "kanji": "遠",
+      "en": "far",
+      "si": "දූරයි",
+      "on": "エン",
+      "kun": "とおーい",
+      "strokes": 13
+    },
+    {
+      "kanji": "近",
+      "en": "near",
+      "si": "ළගයි",
+      "on": "キン",
+      "kun": "ちかーい",
+      "strokes": 7
+    },
+    {
+      "kanji": "強",
+      "en": "strong",
+      "si": "ශක්තිමත්",
+      "on": "キョウ",
+      "kun": "つよーい",
+      "strokes": 11
+    },
+    {
+      "kanji": "弱",
+      "en": "weak",
+      "si": "දුර්වල",
+      "on": "ジャク",
+      "kun": "よわーい",
+      "strokes": 10
+    },
+    {
+      "kanji": "重",
+      "en": "Heavy, important",
+      "si": "බරයි, වැදගත්",
+      "on": "ジュウ",
+      "kun": "おもい",
+      "strokes": 9
+    },
+    {
+      "kanji": "軽",
+      "en": "light",
+      "si": "සැහැල්ලුයි",
+      "on": "ケイ",
+      "kun": "かるーい",
+      "strokes": 12
+    },
+    {
+      "kanji": "太",
+      "en": "fat",
+      "si": "මහතයි",
+      "on": "タイ",
+      "kun": "ふとーい",
+      "strokes": 4
+    },
+    {
+      "kanji": "細",
+      "en": "Slender, fine",
+      "si": "සිහින්, ඉතා කුඩා",
+      "on": "サイ",
+      "kun": "ほそーい、こまーかい",
+      "strokes": 11
+    }
+  ],
+  "Lesson 3": [
+    {
+      "kanji": "特",
+      "en": "special",
+      "si": "විශේෂ",
+      "on": "トク、トッ",
+      "kun": "-",
+      "strokes": 10
+    },
+    {
+      "kanji": "別",
+      "en": "separate",
+      "si": "වෙන් වෙනවා",
+      "on": "ベツ",
+      "kun": "わかーれる",
+      "strokes": 7
+    },
+    {
+      "kanji": "有",
+      "en": "exist, have",
+      "si": "තියෙනවා",
+      "on": "ユウ",
+      "kun": "あーる",
+      "strokes": 6
+    },
+    {
+      "kanji": "便",
+      "en": "Convenience, mail",
+      "si": "පහසුව, තැපැල",
+      "on": "ベン、ビン",
+      "kun": "たよーり",
+      "strokes": 9
+    },
+    {
+      "kanji": "利",
+      "en": "profit",
+      "si": "ලාභය",
+      "on": "リ",
+      "kun": "きーく",
+      "strokes": 7
+    },
+    {
+      "kanji": "不",
+      "en": "not-",
+      "si": "නැති යන අර්ථය",
+      "on": "フ、ブ",
+      "kun": "-",
+      "strokes": 4
+    },
+    {
+      "kanji": "切",
+      "en": "cut",
+      "si": "කපනවා",
+      "on": "セツ",
+      "kun": "きーる、きつ",
+      "strokes": 4
+    },
+    {
+      "kanji": "元",
+      "en": "origin",
+      "si": "මූලාරම්භය",
+      "on": "ゲン、ガン",
+      "kun": "もと",
+      "strokes": 4
+    },
+    {
+      "kanji": "好",
+      "en": "like",
+      "si": "කැමති",
+      "on": "コウ",
+      "kun": "すーき",
+      "strokes": 6
+    },
+    {
+      "kanji": "急",
+      "en": "hurry, suddenly",
+      "si": "ඉක්මන් කරනවා, හදිස්සියේම",
+      "on": "キュウ",
+      "kun": "いそーぐ",
+      "strokes": 9
+    }
+  ],
+  "Lesson 4": [
+    {
+      "kanji": "低",
+      "en": "low",
+      "si": "මිටියි",
+      "on": "テイ",
+      "kun": "ひくーい",
+      "strokes": 7
+    },
+    {
+      "kanji": "広",
+      "en": "spacious",
+      "si": "පුළුල්, පළල්",
+      "on": "コウ",
+      "kun": "ひろーい",
+      "strokes": 5
+    },
+    {
+      "kanji": "短",
+      "en": "short",
+      "si": "කොටයි",
+      "on": "タン",
+      "kun": "みじかーい",
+      "strokes": 12
+    },
+    {
+      "kanji": "良",
+      "en": "good",
+      "si": "හොඳයි",
+      "on": "リョウ",
+      "kun": "よーい",
+      "strokes": 7
+    },
+    {
+      "kanji": "悪",
+      "en": "bad",
+      "si": "නරකයි",
+      "on": "アク",
+      "kun": "わるーい",
+      "strokes": 11
+    },
+    {
+      "kanji": "正",
+      "en": "correct",
+      "si": "නිවැරදි",
+      "on": "セイ、ショウ",
+      "kun": "ただーしい",
+      "strokes": 5
+    },
+    {
+      "kanji": "変",
+      "en": "change, strange",
+      "si": "වෙනස, අමුතු",
+      "on": "ヘン",
+      "kun": "かーわる、かーえる",
+      "strokes": 9
+    },
+    {
+      "kanji": "赤",
+      "en": "red",
+      "si": "රතු",
+      "on": "セキ",
+      "kun": "あかーい",
+      "strokes": 7
+    },
+    {
+      "kanji": "青",
+      "en": "Blue",
+      "si": "නිල්",
+      "on": "セイ",
+      "kun": "あおーい",
+      "strokes": 8
+    },
+    {
+      "kanji": "黒",
+      "en": "black",
+      "si": "කළු",
+      "on": "コク",
+      "kun": "くろーい",
+      "strokes": 11
+    }
+  ],
+  "Lesson 5": [
+    {
+      "kanji": "映",
+      "en": "reflect",
+      "si": "පරාවර්තනය වෙනවා",
+      "on": "エイ",
+      "kun": "うつーす",
+      "strokes": 9
+    },
+    {
+      "kanji": "画",
+      "en": "picture",
+      "si": "චිත්‍රය",
+      "on": "ガ、カク",
+      "kun": "えがーく",
+      "strokes": 8
+    },
+    {
+      "kanji": "音",
+      "en": "sound",
+      "si": "ශබ්දය",
+      "on": "オン",
+      "kun": "おと",
+      "strokes": 9
+    },
+    {
+      "kanji": "楽",
+      "en": "Enjoyable, easy",
+      "si": "විනෝදකාමී, පහසු",
+      "on": "ガク、ラク",
+      "kun": "たのーしい",
+      "strokes": 13
+    },
+    {
+      "kanji": "歌",
+      "en": "song",
+      "si": "ගීතය",
+      "on": "カ",
+      "kun": "うた、うたーう",
+      "strokes": 14
+    },
+    {
+      "kanji": "写",
+      "en": "copy",
+      "si": "පිටපත් කරනවා",
+      "on": "シャ",
+      "kun": "うつーす",
+      "strokes": 5
+    },
+    {
+      "kanji": "真",
+      "en": "truth",
+      "si": "සත්‍ය",
+      "on": "シン",
+      "kun": "ま、まっ",
+      "strokes": 10
+    },
+    {
+      "kanji": "旅",
+      "en": "trip",
+      "si": "චාරිකාව",
+      "on": "リョ",
+      "kun": "たび",
+      "strokes": 10
+    },
+    {
+      "kanji": "世",
+      "en": "World, generation",
+      "si": "ලෝකය, පරම්පරාව",
+      "on": "セイ、セ",
+      "kun": "よ",
+      "strokes": 5
+    },
+    {
+      "kanji": "界",
+      "en": "boundary",
+      "si": "දේශසීමාව",
+      "on": "カイ",
+      "kun": "-",
+      "strokes": 9
+    }
+  ],
+  "Lesson 6": [
+    {
+      "kanji": "仕",
+      "en": "serve",
+      "si": "සේවය කරනවා",
+      "on": "シ",
+      "kun": "つかーえる",
+      "strokes": 5
+    },
+    {
+      "kanji": "事",
+      "en": "Matter",
+      "si": "දෙයක්, කාරණාවක්",
+      "on": "ジ",
+      "kun": "こと",
+      "strokes": 8
+    },
+    {
+      "kanji": "銀",
+      "en": "silver",
+      "si": "රිදී",
+      "on": "ギン",
+      "kun": "しろがね",
+      "strokes": 14
+    },
+    {
+      "kanji": "員",
+      "en": "member",
+      "si": "සාමාජිකයා",
+      "on": "イン",
+      "kun": "-",
+      "strokes": 10
+    },
+    {
+      "kanji": "医",
+      "en": "medicine",
+      "si": "ඖෂධ",
+      "on": "イ",
+      "kun": "-",
+      "strokes": 7
+    },
+    {
+      "kanji": "者",
+      "en": "person",
+      "si": "පුද්ගලයා",
+      "on": "シャ",
+      "kun": "もの",
+      "strokes": 8
+    },
+    {
+      "kanji": "働",
+      "en": "work",
+      "si": "වැඩ කරනවා",
+      "on": "ドウ",
+      "kun": "はたらーく",
+      "strokes": 13
+    },
+    {
+      "kanji": "屋",
+      "en": "roof",
+      "si": "වහලය",
+      "on": "オク",
+      "kun": "や",
+      "strokes": 9
+    },
+    {
+      "kanji": "産",
+      "en": "produce",
+      "si": "නිෂ්පාදනය කරනවා",
+      "on": "サン",
+      "kun": "うーむ",
+      "strokes": 11
+    },
+    {
+      "kanji": "業",
+      "en": "Art, vocation",
+      "si": "කලාව, වෘත්තිය",
+      "on": "ギョウ、ゴウ",
+      "kun": "わざ",
+      "strokes": 13
+    }
+  ],
+  "Lesson 7": [
+    {
+      "kanji": "林",
+      "en": "wood",
+      "si": "කැලය",
+      "on": "リン",
+      "kun": "はやし",
+      "strokes": 8
+    },
+    {
+      "kanji": "森",
+      "en": "forest",
+      "si": "වනාන්තරය",
+      "on": "シン",
+      "kun": "もり",
+      "strokes": 12
+    },
+    {
+      "kanji": "地",
+      "en": "ground",
+      "si": "පොළොව",
+      "on": "ジ、チ",
+      "kun": "-",
+      "strokes": 6
+    },
+    {
+      "kanji": "池",
+      "en": "pond",
+      "si": "වැව",
+      "on": "チ",
+      "kun": "いけ",
+      "strokes": 6
+    },
+    {
+      "kanji": "海",
+      "en": "sea",
+      "si": "මුහුද",
+      "on": "カイ",
+      "kun": "うみ",
+      "strokes": 9
+    },
+    {
+      "kanji": "洋",
+      "en": "ocean",
+      "si": "සාගරය",
+      "on": "ヨウ",
+      "kun": "-",
+      "strokes": 9
+    },
+    {
+      "kanji": "雪",
+      "en": "snow",
+      "si": "හිම",
+      "on": "セツ",
+      "kun": "ゆき",
+      "strokes": 11
+    },
+    {
+      "kanji": "光",
+      "en": "light",
+      "si": "ආලෝකය",
+      "on": "コウ",
+      "kun": "ひかり、ひかーる",
+      "strokes": 6
+    },
+    {
+      "kanji": "台",
+      "en": "Counter for machines and vehicles",
+      "si": "යන්ත්‍රු සූළු, වාහන ගණන් කිරීමට යොදා ගන්නා වචනයකි",
+      "on": "ダイ、タイ",
+      "kun": "うてな",
+      "strokes": 5
+    },
+    {
+      "kanji": "風",
+      "en": "wind",
+      "si": "සුළඟ",
+      "on": "フウ",
+      "kun": "かぜ",
+      "strokes": 9
+    }
+  ],
+  "Lesson 8": [
+    {
+      "kanji": "季",
+      "en": "seasons",
+      "si": "සෘතු",
+      "on": "キ",
+      "kun": "-",
+      "strokes": 8
+    },
+    {
+      "kanji": "節",
+      "en": "seasons",
+      "si": "සෘතු",
+      "on": "セツ",
+      "kun": "ふし",
+      "strokes": 15
+    },
+    {
+      "kanji": "春",
+      "en": "spring",
+      "si": "වසන්ත සෘතුව",
+      "on": "シュン",
+      "kun": "はる",
+      "strokes": 9
+    },
+    {
+      "kanji": "夏",
+      "en": "summer",
+      "si": "ගිමහාන සෘතුව",
+      "on": "カ",
+      "kun": "なつ",
+      "strokes": 10
+    },
+    {
+      "kanji": "秋",
+      "en": "autumn",
+      "si": "සරත් සෘතුව",
+      "on": "シュウ",
+      "kun": "あき",
+      "strokes": 9
+    },
+    {
+      "kanji": "冬",
+      "en": "winter",
+      "si": "ශීත සෘතුව",
+      "on": "トウ",
+      "kun": "ふゆ",
+      "strokes": 5
+    },
+    {
+      "kanji": "暑",
+      "en": "hot",
+      "si": "රස්නෙයි",
+      "on": "ショ",
+      "kun": "あつーい",
+      "strokes": 12
+    },
+    {
+      "kanji": "寒",
+      "en": "cold",
+      "si": "සීතලයි",
+      "on": "カン",
+      "kun": "さむーい",
+      "strokes": 12
+    },
+    {
+      "kanji": "暖",
+      "en": "warm",
+      "si": "උණුසුම",
+      "on": "ダン",
+      "kun": "あたたーかい",
+      "strokes": 13
+    },
+    {
+      "kanji": "涼",
+      "en": "cool",
+      "si": "සීතලයි",
+      "on": "リョウ",
+      "kun": "すずーしい",
+      "strokes": 11
+    }
+  ],
+  "Lesson 9": [
+    {
+      "kanji": "体",
+      "en": "body",
+      "si": "ශරීරය",
+      "on": "タイ",
+      "kun": "からだ",
+      "strokes": 7
+    },
+    {
+      "kanji": "頭",
+      "en": "head",
+      "si": "හිස",
+      "on": "ズ",
+      "kun": "あたま",
+      "strokes": 16
+    },
+    {
+      "kanji": "顔",
+      "en": "face",
+      "si": "මුහුණ",
+      "on": "ガン",
+      "kun": "かお",
+      "strokes": 18
+    },
+    {
+      "kanji": "首",
+      "en": "neck",
+      "si": "බෙල්ල",
+      "on": "シュ",
+      "kun": "くび",
+      "strokes": 9
+    },
+    {
+      "kanji": "心",
+      "en": "Heart, feelings",
+      "si": "හදවත, හැගීම",
+      "on": "シン",
+      "kun": "こころ",
+      "strokes": 4
+    },
+    {
+      "kanji": "声",
+      "en": "voice",
+      "si": "කටහඬ",
+      "on": "セイ",
+      "kun": "こえ",
+      "strokes": 7
+    },
+    {
+      "kanji": "病",
+      "en": "illness",
+      "si": "අසනීපය",
+      "on": "ビョウ",
+      "kun": "やまい",
+      "strokes": 10
+    },
+    {
+      "kanji": "薬",
+      "en": "medicine",
+      "si": "බෙහෙත්",
+      "on": "ヤク",
+      "kun": "くすり",
+      "strokes": 16
+    },
+    {
+      "kanji": "科",
+      "en": "category",
+      "si": "වර්ගීකරණය",
+      "on": "カ",
+      "kun": "-",
+      "strokes": 9
+    },
+    {
+      "kanji": "内",
+      "en": "inside",
+      "si": "ඇතුළත",
+      "on": "ナイ",
+      "kun": "うち",
+      "strokes": 4
+    }
+  ],
+  "Lesson 10": [
+    {
+      "kanji": "朝",
+      "en": "morning",
+      "si": "උදෑසන",
+      "on": "チョウ",
+      "kun": "あさ",
+      "strokes": 12
+    },
+    {
+      "kanji": "昼",
+      "en": "noon",
+      "si": "දහවල",
+      "on": "チュウ",
+      "kun": "ひる",
+      "strokes": 9
+    },
+    {
+      "kanji": "夜",
+      "en": "night",
+      "si": "රාත්‍රිය",
+      "on": "ヤ",
+      "kun": "よる、よ",
+      "strokes": 8
+    },
+    {
+      "kanji": "夕",
+      "en": "evening",
+      "si": "සන්ධ්‍යාව",
+      "on": "セキ",
+      "kun": "ゆう",
+      "strokes": 3
+    },
+    {
+      "kanji": "方",
+      "en": "direction",
+      "si": "දිශාව",
+      "on": "ホウ",
+      "kun": "かた、がた",
+      "strokes": 4
+    },
+    {
+      "kanji": "晩",
+      "en": "night",
+      "si": "රාත්‍රිය",
+      "on": "バン",
+      "kun": "-",
+      "strokes": 12
+    },
+    {
+      "kanji": "計",
+      "en": "measure",
+      "si": "මිනිනවා",
+      "on": "ケイ",
+      "kun": "はかーる",
+      "strokes": 9
+    },
+    {
+      "kanji": "曜",
+      "en": "shine",
+      "si": "දිලිසෙනවා",
+      "on": "ヨウ",
+      "kun": "-",
+      "strokes": 18
+    },
+    {
+      "kanji": "以",
+      "en": "Starting point",
+      "si": "ආරම්භක ස්ථානය",
+      "on": "イ",
+      "kun": "もって",
+      "strokes": 5
+    },
+    {
+      "kanji": "度",
+      "en": "Degree, frequency",
+      "si": "අංශක, වාර ගණන",
+      "on": "ド、ト、タク",
+      "kun": "たび、たい",
+      "strokes": 9
+    }
+  ],
+  "Lesson 11": [
+    {
+      "kanji": "止",
+      "en": "stop",
+      "si": "නවත්වනවා",
+      "on": "シ",
+      "kun": "とーまる",
+      "strokes": 4
+    },
+    {
+      "kanji": "歩",
+      "en": "walk",
+      "si": "ඇවිදිනවා",
+      "on": "ホ、ポ",
+      "kun": "あるーく",
+      "strokes": 8
+    },
+    {
+      "kanji": "走",
+      "en": "run",
+      "si": "දුවනවා",
+      "on": "ソウ",
+      "kun": "はしーる",
+      "strokes": 7
+    },
+    {
+      "kanji": "起",
+      "en": "Get up",
+      "si": "අවදි වෙනවා",
+      "on": "キ",
+      "kun": "おーきる、おーこす",
+      "strokes": 10
+    },
+    {
+      "kanji": "持",
+      "en": "have",
+      "si": "සතු වෙනවා",
+      "on": "ジ",
+      "kun": "もーつ",
+      "strokes": 9
+    },
+    {
+      "kanji": "待",
+      "en": "wait",
+      "si": "රැදී සිටිනවා",
+      "on": "タイ",
+      "kun": "まーつ",
+      "strokes": 9
+    },
+    {
+      "kanji": "借",
+      "en": "borrow",
+      "si": "ණයට/කුලියට ගන්නවා",
+      "on": "シャク",
+      "kun": "かーりる",
+      "strokes": 10
+    },
+    {
+      "kanji": "貸",
+      "en": "lend",
+      "si": "ණයට/කුලියට දෙනවා",
+      "on": "タイ",
+      "kun": "かーす",
+      "strokes": 12
+    },
+    {
+      "kanji": "始",
+      "en": "begin",
+      "si": "ආරම්භ කරනවා",
+      "on": "シ",
+      "kun": "はじーまる、はじーめる",
+      "strokes": 8
+    },
+    {
+      "kanji": "終",
+      "en": "end",
+      "si": "අවසන් කරනවා",
+      "on": "シュウ",
+      "kun": "おーわる、おーえる",
+      "strokes": 11
+    }
+  ],
+  "Lesson 12": [
+    {
+      "kanji": "家",
+      "en": "house",
+      "si": "නිවස",
+      "on": "カ、ケ",
+      "kun": "いえ、や",
+      "strokes": 10
+    },
+    {
+      "kanji": "族",
+      "en": "tribe",
+      "si": "ගෝත්‍රය",
+      "on": "ゾク",
+      "kun": "-",
+      "strokes": 11
+    },
+    {
+      "kanji": "私",
+      "en": "I",
+      "si": "මම",
+      "on": "シ",
+      "kun": "わたし、わたくし",
+      "strokes": 7
+    },
+    {
+      "kanji": "自",
+      "en": "oneself",
+      "si": "තමන්",
+      "on": "ジ、シ",
+      "kun": "みずかーら",
+      "strokes": 6
+    },
+    {
+      "kanji": "親",
+      "en": "parents",
+      "si": "දෙමාපියන්",
+      "on": "シン",
+      "kun": "おや、したーしい",
+      "strokes": 16
+    },
+    {
+      "kanji": "両",
+      "en": "both",
+      "si": "දෙකම",
+      "on": "リョウ",
+      "kun": "てる、ふたつ",
+      "strokes": 6
+    },
+    {
+      "kanji": "兄",
+      "en": "Elder brother",
+      "si": "අයියා",
+      "on": "ケイ、キョウ",
+      "kun": "あに",
+      "strokes": 5
+    },
+    {
+      "kanji": "弟",
+      "en": "Younger brother",
+      "si": "මල්ලි",
+      "on": "ダイ",
+      "kun": "おとうと",
+      "strokes": 7
+    },
+    {
+      "kanji": "姉",
+      "en": "Elder sister",
+      "si": "අක්කා",
+      "on": "シ",
+      "kun": "あね",
+      "strokes": 8
+    },
+    {
+      "kanji": "妹",
+      "en": "Younger sister",
+      "si": "නෝනි",
+      "on": "マイ",
+      "kun": "いもうと",
+      "strokes": 8
+    }
+  ]
+}

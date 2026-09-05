@@ -2619,6 +2619,10 @@ function initMode(mode) {
   const hankoKanjiEl = document.getElementById("hankoKanji");
   const quickNavWrap = document.getElementById("quickNavWrap");
   const controlsEl = document.querySelector(".controls");
+  const printKanjiSepBtn = document.getElementById("printKanjiSepBtn");
+  if (printKanjiSepBtn) {
+    printKanjiSepBtn.classList.toggle("hidden", mode !== "kanji");
+  }
 
   if (mode === "vocab") {
     CURRENT_DATA = VOCAB;
@@ -2868,13 +2872,30 @@ function renderWelcome() {
         <p>Pick a lesson above to practice writing & study N4 Kanji —<br>
         or use the search box to find any Kanji, reading, or meaning.</p>
       </div>
+
+      <!-- Kanji Separator Cover Banner -->
+      <div class="kanji-sep-banner no-print">
+        <div class="kanji-sep-banner-content">
+          <div class="kanji-sep-badge">📑 PDF DIVIDERS · 10-BY-10</div>
+          <div class="kanji-sep-title">Kanji Lesson Separator Cover Pages (Lessons 1 – 12)</div>
+          <div class="kanji-sep-desc">Looking to divide your Kanji practice sheets into 10-kanji sections? Use our 12 colorful A4 divider pages styled in Sky Blue with Sinhala meanings, stroke counts, and traditional Mount Fuji artwork.</div>
+        </div>
+        <a href="KANJISEP/index.html" target="_blank" rel="noopener" class="kanji-sep-btn">
+          <span>Open Lesson Separators</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+
       <div style="margin-top: 30px;">
         <div class="section-head">
           <div class="titles">
             <span class="big-kana" style="font-size:30px;">Lesson 1</span>
             <span class="row-samples">Essential N4 Kanji Practice Sheets<span class="count-badge">${lesson1Items.length} Kanji in Lesson 1</span></span>
           </div>
-          <button class="print-btn" id="printBtn">🖨 &nbsp;Print Practice Sheet</button>
+          <div class="section-actions">
+            <button class="print-btn" id="printBtn">🖨 &nbsp;Print Practice Sheet</button>
+            <a href="KANJISEP/index.html" target="_blank" rel="noopener" class="print-btn sep-link-btn" title="Open colorful 10-by-10 Lesson Separator Covers">📑 &nbsp;Lesson Covers</a>
+          </div>
         </div>
         <div class="print-title">JLPT N4 Kanji — Lesson 1 (${lesson1Items.length} kanji)</div>
         ${kanjiCardsHTML(lesson1Items)}
@@ -2926,8 +2947,17 @@ function goToCategory(row) {
         <span class="big-kana">${badgeLabel}</span>
         <span class="row-samples"><span class="count-badge">${items.length} ${term} in ${row}</span></span>
       </div>
-      <button class="print-btn" id="printBtn">🖨 &nbsp;Print Practice Sheet</button>
+      <div class="section-actions">
+        <button class="print-btn" id="printBtn">🖨 &nbsp;Print Practice Sheet</button>
+        ${isKanji ? `<a href="KANJISEP/index.html" target="_blank" rel="noopener" class="print-btn sep-link-btn" title="Open colorful 10-by-10 Lesson Separator Covers">📑 &nbsp;Lesson Covers</a>` : ''}
+      </div>
     </div>
+    ${isKanji ? `
+      <div class="kanji-sep-tip no-print">
+        <span>💡 Need a colorful divider cover page for this lesson?</span>
+        <a href="KANJISEP/index.html" target="_blank" rel="noopener">Open Lesson Separators (10-by-10 with Sinhala) →</a>
+      </div>
+    ` : ''}
     <div class="print-title">JLPT N4 ${titleTerm} — ${row} (${items.length} ${term})</div>
     ${isKanji ? kanjiCardsHTML(items) : tableHTML(items, false)}
     <div class="pager">
@@ -3282,66 +3312,48 @@ if (printMenuBtn && printDropdownMenu) {
   if (printNormalBtn) {
     printNormalBtn.addEventListener("click", () => {
       printDropdownMenu.classList.add("hidden");
-      document.body.classList.remove("print-hide-meanings");
-      triggerPrintWithOptions(false);
+      openRelevantPDF(false);
     });
   }
 
   if (printQuizBtn) {
     printQuizBtn.addEventListener("click", () => {
       printDropdownMenu.classList.add("hidden");
-      document.body.classList.add("print-hide-meanings");
-      triggerPrintWithOptions(true);
+      openRelevantPDF(true);
+    });
+  }
+
+  const printKanjiSepBtn = document.getElementById("printKanjiSepBtn");
+  if (printKanjiSepBtn) {
+    printKanjiSepBtn.addEventListener("click", () => {
+      printDropdownMenu.classList.add("hidden");
     });
   }
 }
 
+/* Opens the matching pre-built PDF from the pdfs/ folder */
+function openRelevantPDF(isQuiz) {
+  const mode = (activeMode === "kanji" || activeMode === "verbs") ? activeMode : "vocab";
+
+  const studyPDFs = {
+    vocab:  "pdfs/Study_PDFs/Vocab - JLPT N4 Study Notebook.pdf",
+    verbs:  "pdfs/Study_PDFs/Verbs - JLPT N4 Study Notebook.pdf",
+    kanji:  "pdfs/Study_PDFs/Kanji - JLPT N4 Study Notebook.pdf"
+  };
+
+  const practicePDFs = {
+    vocab:  "pdfs/Practice_PDFs/Vocab Practice - JLPT N4 Study Notebook.pdf",
+    verbs:  "pdfs/Practice_PDFs/Verbs Practice - JLPT N4 Study Notebook.pdf",
+    kanji:  "pdfs/Practice_PDFs/Kanji Practice - JLPT N4 Study Notebook.pdf"
+  };
+
+  const url = isQuiz ? practicePDFs[mode] : studyPDFs[mode];
+  window.open(url, "_blank", "noopener");
+}
+
+/* Legacy alias kept for any other call-sites (guide buttons, etc.) */
 function triggerPrintWithOptions(isQuiz) {
-  // If in guide mode or home landing, switch to vocab temporarily for print
-  const wasGuide = (activeMode === "guide" || !activeMode);
-  const previousMode = activeMode;
-  const previousCat = currentCat;
-  const previousSearch = searchInput.value;
-
-  if (wasGuide) {
-    initMode("vocab");
-  }
-
-  const isKanji = activeMode === "kanji";
-  const term = isKanji ? "kanji" : (activeMode === "verbs" ? "verbs" : "words");
-  const titleTerm = isKanji ? "Kanji" : (activeMode === "verbs" ? "Verbs" : "Vocabulary");
-  const sheetType = isQuiz ? "Practice & Exam Sheet" : "Study Sheet";
-
-  let html = `
-    <div class="section-head">
-      <div class="titles">
-        <span class="big-kana">全</span>
-        <span class="row-samples">All N4 ${titleTerm} (${sheetType})<span class="count-badge">${CURRENT_DATA.length} ${term} total</span></span>
-      </div>
-    </div>
-    <div class="print-title">JLPT N4 ${titleTerm} — All ${titleTerm} [${sheetType}] (${CURRENT_DATA.length} ${term})</div>
-  `;
-
-  html += isKanji ? kanjiCardsHTML(CURRENT_DATA) : tableHTML(CURRENT_DATA, true);
-  contentArea.innerHTML = html;
-
-  setTimeout(() => {
-    window.print();
-    // Cleanup afterwards
-    setTimeout(() => {
-      document.body.classList.remove("print-hide-meanings");
-      if (wasGuide) {
-        initMode(previousMode);
-      } else if (previousSearch) {
-        searchInput.value = previousSearch;
-        renderSearchResults(previousSearch);
-      } else if (previousCat) {
-        goToCategory(previousCat);
-      } else {
-        renderWelcome();
-      }
-    }, 200);
-  }, 150);
+  openRelevantPDF(isQuiz);
 }
 
 /* =========================================================
