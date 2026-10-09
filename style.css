@@ -1498,6 +1498,50 @@ footer .seal {
   color: #1e6091;
 }
 
+.dictation-panel {
+  background: radial-gradient(circle at 80% 50%, rgba(245, 158, 11, 0.16), transparent 70%), var(--card);
+  border-left: 1px solid var(--line);
+}
+
+.dictation-panel::before {
+  content: "書";
+  right: -5%;
+  bottom: -15%;
+  transform: rotate(-8deg);
+}
+
+.dictation-panel:hover::before {
+  opacity: 0.07;
+  transform: scale(1.05) rotate(-3deg);
+  color: var(--gold);
+}
+
+.dictation-header-btn {
+  width: auto !important;
+  padding: 0 14px !important;
+  border-radius: 999px !important;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  text-decoration: none;
+  background: var(--card);
+  border: 1px solid var(--line);
+  transition: all 0.2s ease;
+}
+
+.dictation-header-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: var(--paper-2);
+}
+
+.dictation-header-txt {
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
 @media (max-width: 860px) {
   .landing-selector {
     flex-direction: column;
@@ -1509,23 +1553,24 @@ footer .seal {
   }
 }
 
-/* ---------- GENERAL VIEWS VISIBILITY ---------- */
-body:not(.mode-active) {
+/* ---------- GENERAL VIEWS VISIBILITY (Index landing screen only) ---------- */
+body:not(.mode-active):not(.dictation-page) {
   overflow: hidden;
 }
 
-body:not(.mode-active) header {
+body:not(.mode-active):not(.dictation-page) header {
   display: none;
 }
 
-body:not(.mode-active) .wrap {
+body:not(.mode-active):not(.dictation-page) .wrap {
   opacity: 0;
   pointer-events: none;
   height: 100vh;
   overflow: hidden;
 }
 
-body.mode-active .wrap {
+body.mode-active .wrap,
+body.dictation-page .wrap {
   opacity: 1;
   pointer-events: auto;
   transition: opacity 0.5s ease;
